@@ -1,0 +1,642 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Remote Guide to Work</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="25134a66-d68f-4aac-97dd-d0ada8bfae34" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1518592522655-40b66b7e5e58?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🎡</span></div><h1 class="page-title">Remote Guide to Work</h1></header><div class="page-body"><p id="cbaa654b-e318-48f0-8d8c-735149c4195e" class=""><em><mark class="highlight-pink"><strong>This guide is intended to lay out some of the tools, processes and expectations around working remotely as a team during the final phase of the bootcamps: client projects! </strong></mark></em></p><p id="b11b1588-7eba-4f25-afcd-c4eafddfab1a" class=""><em><mark class="highlight-pink">Just remember that working remotely is different and there will be a learning curve period which is okay. Most people don’t just start naturally doing remote work and become good at it. There are specific habits and skills you have to pick up. And that takes time. It might even feel weird to not have a clear “start” and “end” to your day, or in-person chit-chat with other team members. Please just know that if things do start to feel “off”, please make sure to mention it!</mark></em></p><p id="6e248cd2-127c-482b-bc60-fd2409fb5375" class="">
+</p><p id="14e512b9-b83b-4975-a35e-1c328d34b0f5" class=""><mark class="highlight-purple"><strong>Best practices to help you work well when you are working remotely!</strong></mark></p><p id="f8a02220-d70f-4cc9-9084-1a714ab9e949" class="">When you don’t see your team members face-to-face all the time, the room for miscommunication, misinterpretation, and misalignment expands. You can’t read body language. You can’t go tap them on the shoulder to ask a question. You can’t even show him/her with your physical presence that you are, yes indeed, working.</p><p id="5f9714d4-98e9-4be2-acfb-a6a5f0ccd648" class="">Yet maintaining a good relationship with your team is crucial. You’re less stressed when things are going well with your team — so you want to be particularly thoughtful about managing that relationship while you’re remote.</p><p id="572c2398-8817-4cf4-8b7a-c86d963c61ad" class="">
+</p><p id="20ffbd9c-3059-45ff-8bef-1f1b708716ee" class=""><mark class="highlight-blue"><strong>Here are some tips on how to maintain a good relationship with a team while working remotely… </strong></mark><mark class="highlight-blue"> </mark><mark class="highlight-blue"><strong>  </strong></mark></p><p id="fd45ad72-9f9a-40b6-a27c-7ac7f89ba4a1" class="block-color-blue_background"><strong>Default to over-communication.   </strong></p><p id="68310932-17cb-42f5-908c-0d28590ad55f" class="">Communicating isn’t just about writing or a process — it’s also about the quality and frequency of your communication. While communication is critical for co-located teams, the importance of communicating well is amplified in a remote team. In other words, if you don’t say or explicitly communicate something, your team has absolutely no idea what you’re thinking.</p><p id="8b8a99a9-92e9-4110-95cc-f6af88a66b3c" class="">
+</p><p id="bcc6a8ae-0909-4ff4-8aaf-0098cdd7888d" class="block-color-blue_background"><strong>Proactively share progress. </strong></p><p id="41ac5d1f-c770-4479-93cf-0fa6facd8d9f" class="">For your Re:Coded team lead, understanding what progress you are making on your work is surprisingly opaque. Your team lead is often juggling quite a few tasks — and they want to know what you’re working on ideally without having to hover, check-in with you constantly, and be all “Big Brother” about it. This desire to know what you’re working on is only heightened when you’re remote.</p><p id="f6fd65d0-d8a6-48bd-acb9-ff69577f3fc5" class="">To help shine a light on this for your team lead, <em>proactively share as much detailed progress as you can. </em>This can come in the form of writing up a bit more granularly in your bullet points in your weekly summary about the project. Or it can come in the form of you even volunteering that you send her a daily summary of what you accomplished that day. Helping your team lead understand the results you’re achieving brings them a ton of ease and peace of mind to their job.</p><p id="793af563-3752-4470-a02c-41600dc9f361" class="">
+</p><p id="65f578d6-20d9-4ef1-993e-8d0d70cbe3f5" class="block-color-blue_background"><strong>Rigorously clarify expectations.</strong></p><p id="88fd2c86-6d4f-4be9-8837-7957edac6764" class="">Arguably the most challenging part of any working relationship — regardless of if you’re remote or not — is to get on the same page in terms of expectations. Often, when you’re both in-person, these expectations can be hashed out over time: You listen, observe, learn, ask others around you, and pick them up. But when you’re remote, because of limited in-person interactions, those conversations might not come up as readily. Accordingly, it’s imperative for you to ask questions that clarify, uncover, and confirm what these expectations are.</p><p id="7a66e9c2-a12d-4e8e-9321-0d239fef4d75" class="">
+</p><p id="6ce20003-30d2-4a8a-9716-1a6855d8bbf3" class="">Here are some questions you can ask your team lead to start to clarify these expectations:</p><ul id="64ef0966-5391-4d13-b67a-a5b1194ee834" class="bulleted-list"><li><em>What does quality work look like to you?</em></li></ul><ul id="0ba05433-f262-4b9f-ac7d-737fcac120c8" class="bulleted-list"><li><em>What should standard working hours be for both of us?</em></li></ul><ul id="eb177422-69e0-49d0-b5fa-7742230813fe" class="bulleted-list"><li><em>What is the best way to contact you during those hours?</em></li></ul><ul id="8dbf11d7-e2c8-4d2d-886f-2303ecac262d" class="bulleted-list"><li><em>What form of communication should be used to communicate with you during that time?</em></li></ul><ul id="0364283f-e12a-4d61-8af0-176afad612b3" class="bulleted-list"><li><em>What’s the expectation of how quickly I should respond when you reach out to me during those working hours?</em></li></ul><ul id="3f7655af-0399-4078-b8ff-48640f6df3df" class="bulleted-list"><li><em>What form of communication do you prefer when there’s a hard topic or conversation? (E.g., In writing, over the phone, video call)</em></li></ul><ul id="9e2f7d3c-264e-41e4-948b-f8a0fdd0ffa3" class="bulleted-list"><li><em>If I need your attention on something urgent, what form of communication do you prefer? (E.g., Slack, an email, a phone call)</em></li></ul><ul id="63b39676-1725-4418-a901-d25e24856640" class="bulleted-list"><li><em>What do you consider “urgent” versus “not urgent”?</em></li></ul><ul id="000b2488-8761-4072-aa15-1d41e7b95ca1" class="bulleted-list"><li><em>If I have any feedback for you, how would they prefer you receive it: In writing, over the phone, or during a video call?</em></li></ul><ul id="8ddec3df-af85-4070-a7f7-c7a6c3627a00" class="bulleted-list"><li><em>If I have a suggestion about something, how would you prefer you receive it: In writing, over the phone, or during a video call?  </em></li></ul><ul id="686d6d7d-af0e-498d-86bc-0541268fd24f" class="bulleted-list"><li><em>If I have questions, what form of communication should I pose the ques- tions to you? (E.g., In writing, over the phone, during a video call)</em></li></ul><p id="a6ad6ad2-a484-49fb-aa87-9b55adedea77" class="">
+</p><p id="97619547-344c-4dca-b453-a49985e1bfc9" class="block-color-blue_background"><strong>Context is Essential </strong><em>    </em> </p><p id="86c6994e-d4ba-47a8-9c5c-92d983aeef97" class="">When you’re communicating digitally, you never quite know what the other person is doing at that moment. They might be at their desk just like you are, or they may be frantically rushing to a sales meeting, only responding “Yes” to your question and not elaborating because they don’t have time.</p><p id="483eabc6-1aa9-42cd-831c-9a15c941455a" class="">Prefacing communication with your context can really help to prevent any miscommunication when things are out of the ordinary. Let team members know when you are heads down on a project and can’t respond to questions right away. Over communicating is always better than making assumptions.</p><p id="5590924f-29d6-4855-b509-4a384d3b3cb1" class="">
+</p><p id="cc36cb8f-b79c-4295-9bd5-ca4b5b7a5239" class="block-color-orange_background"><strong>Key Takeaways</strong></p><p id="e9618b09-0aed-4743-a7da-e03306b7be62" class=""><mark class="highlight-orange"><strong>And here are some key things that are especially important to lean into now that we are going remote!</strong></mark></p><ul id="1bb77ddb-6ab7-48ef-a836-4aab1c3ee238" class="bulleted-list"><li>Over-communication rarely feels like over-communication. The more you proactively share progress with your team lead, the more you can make sure you’re both on the same page. This way, small problems will get resolved sooner and won’t bubble up into something bigger.</li></ul><ul id="cbef3e11-c1f7-41eb-acf7-1be4d31a2a16" class="bulleted-list"><li>Not sure what someone meant by their note? Assume positive intent. Feeling bothered with the way someone communicated their request? Kindly share the feedback of what you observed and how you’d like things to be different next time. Don’t assume that the person will change their behavior, or know that you have certain preferences.</li></ul><p id="1865c054-3662-4c44-870b-9f9820b2fd69" class="">
+</p><p id="6ffb39d4-fad2-471d-8a9e-2e6880deada6" class=""><mark class="highlight-pink"><strong>Also remember that when working remotely it’s easy to fall subject to a couple of pitfalls. Here are a couple of things to keep in mind over the next couple of weeks.</strong></mark></p><ul id="69ed6d22-6153-4ea8-a8d5-293a365a9663" class="bulleted-list"><li>Overworking is easy if you don’t have a clear end point to your day, or find yourself continuing to check email incessantly over the weekend.</li></ul><ul id="69e41359-3fae-4c5f-9b2e-7f5adb1e3989" class="bulleted-list"><li>Loneliness can become a real issue if you’re not cognizant of your own needs to connect with your team members.</li></ul><ul id="3a72226a-3c45-45ee-8fd8-1a3be8ada6cf" class="bulleted-list"><li>Miscommunication can be rampant if it’s not made clear how much empathy plays a role into not taking a particular chat personally, or if someone doesn’t know the systems of written communication.</li></ul><ul id="15951d7e-912f-49fe-8241-637ec57c6974" class="bulleted-list"><li>A lack of deep work / constant interruption can occur if the person doesn’t absorb the communication processes.Just remember that working remotely is different and there will be a learning curve period which is okay. Most people don’t just start naturally doing remote work and become good at it. There are specific habits and skills you have to pick up. And that takes time. It might even feel weird to not have a clear “start” and “end” to your day, or in-person chit-chat with other team members. Please just know that if things do start to feel “off”, please make sure to mention it!</li></ul><p id="ec68e47b-e033-4de3-8d3f-9442924ec1ed" class="">
+</p><h2 id="4763aae2-4c1a-4ffc-8c42-74d26b620899" class="block-color-purple_background"><strong>Which tools should I use for what? </strong> </h2><p id="254a4e81-441d-4045-b172-2d229e90811c" class=""><mark class="highlight-teal"><em><strong>Time and attention are sacred. As a result, a big part of collaborating effectively in a remote team is figuring out when to communicate with each other.</strong></em></mark></p><p id="9466795c-d91d-4d99-8242-896eb86bfa71" class="">
+</p><p id="0735a22d-e4a8-4782-8ee6-553429936a6d" class="block-color-blue_background"><strong>Match the message to the channel.  </strong></p><p id="0377df1c-c416-4cfd-ae1b-f7287900ddee" class="">What you say can be delivered in a myriad of formats: Email, chat, video call, phone call... So to avoid the barrage of messages pelting others without any rhyme or reason, we wanted to make clear what message should be delivered in which channel. Often this is related to the type and urgency of a message. For instance, a direct message in Slack might insinuate that a message is urgent and should be responded to within the hour... versus something posting a message in a general channel might mean it doesn’t need to be looked at until the next day, if at all.</p><p id="bb423082-a0a0-48ba-8c7d-3d1a73fb854d" class=""><strong>Tools we use</strong></p><ul id="ccb2e6d5-63f6-45ae-a385-97735f4595c8" class="bulleted-list"><li><strong>Slack </strong>- Day to day chatter</li></ul><ul id="11c4cc5b-6a6a-4ea2-94f7-55c5f7f4082f" class="bulleted-list"><li><strong>Google Suite</strong> - Collaboration, email</li></ul><ul id="4c63dec0-7f69-4103-a40e-edffdcda722d" class="bulleted-list"><li><strong>Notion</strong> - Files, notes, tasks, wiki</li></ul><ul id="fd9a7f9e-e7c8-419b-aa85-ba08d90e8778" class="bulleted-list"><li><strong>Zoom - </strong>Virtual office video platform</li></ul><p id="c9114005-c318-49b7-b4f1-3cd060a829e7" class="">
+</p><h2 id="f3bf7511-55e1-446a-9ffc-6c321eed1542" class="block-color-yellow_background"><strong>How we work      </strong></h2><p id="4bf8d2ab-d30d-406a-b466-5fa5c949974f" class=""><mark class="highlight-pink"><em><strong>Our success is predicated on how well we communicate with one another. The more clear, respectful, and consistent we are in communicating as a team, the better! Especially, as a remote company, communication is critical. When in doubt, over-communicate.   </strong></em></mark></p><p id="8d09c611-a323-4fd9-af4f-649e67a232a4" class="">
+</p><p id="85666186-059c-4667-99b3-cc7b670abf34" class="block-color-blue_background"><strong>Notion </strong> <em> </em> </p><p id="7cd6b55d-b2f3-4756-999e-dabbd4724af6" class="">The intention behind having a tool like this is to keep everything in one place and give us a written history of everything in the company. <em>      </em></p><p id="03a05353-41fd-482a-a747-c19a7ea42404" class=""><strong>Wiki: </strong>Written history of all the projects, weekly updates etc. </p><p id="c455ec72-f9fe-4aef-ae42-85d43fa8f1df" class=""><strong>To Dos: </strong>If you need to get something done, or want someone else to get something done, create a to-do, and tag the person.<em>   </em></p><p id="d2be0231-036a-4d4d-a33a-e9683dda8a0d" class="">
+</p><p id="50dd4588-1ec7-41e7-83d1-fa087e84b02e" class="block-color-blue_background"><strong>Meetings </strong><em><strong> </strong></em><em>  </em></p><p id="bc4a8f5d-02d3-4035-9f16-278eb93269a4" class=""><em><strong>One-on-one Meetings</strong></em><em>: </em>We’ll hop on a video chat for about 1 hour with your team lead every week to do a code review and get feedback on how things are going, discuss issues that are tough, make sure priorities are aligned, riff + brainstorm on new ideas, etc.<em>      </em></p><p id="2931ecd3-c3df-43a1-864d-8e31a322f623" class="">
+</p><p id="1ebac36f-123b-40bb-9ed0-90efd3599a05" class="">
+</p></div></article></body></html>

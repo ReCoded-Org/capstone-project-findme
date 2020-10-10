@@ -1,0 +1,670 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Technical Project Manual </title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="867ac455-fa40-4610-97f9-631de042c52e" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📖</span></div><h1 class="page-title">Technical Project Manual </h1></header><div class="page-body"><p id="3ed8f085-a388-4220-9a21-7ca0c5772b11" class="">
+</p><p id="5be62902-3906-4971-aa11-46328933d38a" class="block-color-gray_background">Expectations</p><p id="7356899a-664f-42e3-8fa6-e18f1164c77b" class="">The capstone projects have three primary goals for your growth as a developer. These are simultaneously goals and expectations; failure to conduct yourself in a manner becoming of attaining these goals will affect the evaluation of your performance in the project.</p><p id="6dcae48d-9da8-4c0b-8b59-5a80fe193648" class="">In other words, you will be evaluated in this project exactly as you would be evaluated at a real developer job.</p><ol id="6dd1dd94-338a-4768-989b-bccf9d9a65bc" class="numbered-list" start="1"><li><strong>Understanding teamwork.</strong> In this project, you will be working on a codebase from scratch with four other teammates; you will have to deal with common components, code reuse, merge conflicts, and intrateam communication.</li></ol><ol id="cab67c4b-f2ff-4a9e-8e19-2e784052b2b6" class="numbered-list" start="2"><li><strong>Behaving professionally. Do not miss or be tardy to meetings. </strong>Do not miss deadlines without communicating in advance to your team that there will be a delay.</li></ol><ol id="cc12f8dd-2415-41a3-a155-5d94e3f31aba" class="numbered-list" start="3"><li><strong>Producing high-quality work. </strong>Attention to detail is a crucial aspect of distinguishing yourself as a developer. This means both code detail and design detail. View your work as an outsider would: does it look like professional work that you see in other sites?</li></ol><p id="a3db5126-996c-48e3-8996-2561190ea9a0" class="">
+</p><p id="ed2169f6-159f-4521-8171-936f2c001ced" class="block-color-gray_background">Tooling</p><p id="53f8ba67-4a02-4b66-af3e-eb3f44dd6793" class=""><strong>Github</strong></p><ul id="0c4c3a4d-fb47-48b7-8249-095480560a56" class="bulleted-list"><li>We will use Github to collaborate, review and manage the projects. We are going to follow this <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">article</a> for the workflow we are going to use.</li></ul><p id="3f8693ad-ba43-48e2-bcaa-16c80249cba1" class=""><strong>Github project management</strong></p><ul id="ba6515ba-2bc9-41a2-9bb0-6be34be766d3" class="bulleted-list"><li>Github project management helps project managers and developers coordinate, track, and update their work in one place, so projects stay transparent and on schedule, learn more about <a href="https://github.com/features/project-management/">github project management</a></li></ul><p id="ab66856b-457b-4908-9bec-a6869e3774aa" class=""><strong>CircleCI</strong></p><ul id="8d45aa7a-b5aa-4b2c-81ea-5a1734886af1" class="bulleted-list"><li>Continuous integration “CI” is the practice of merging all developers&#x27; working copies to a shared mainline several times a day, learn more about CI in this <a href="https://www.atlassian.com/continuous-delivery/continuous-integration">article</a> and this <a href="https://en.wikipedia.org/wiki/Continuous_integration">wikipedia page</a>.</li></ul><ul id="428c64b1-77c5-4125-abfa-f74cf3602898" class="bulleted-list"><li>The CI tool we are going to use is <a href="https://circleci.com/">CircleCI</a></li></ul><p id="1a95d6e0-be85-4651-8913-aefffdfb7ad5" class=""><strong>Netlify</strong></p><ul id="8b847fe7-081e-4354-87c0-4b0458b76443" class="bulleted-list"><li>Netlify is a tool that offers hosting and serverless backend services for web applications and static websites just by pushing the code to the repo, learn more about <a href="https://www.netlify.com/">Netlify</a></li></ul><ul id="d7a3f632-5f02-4c7c-828a-ff482d90507d" class="bulleted-list"><li>I would suggest either making a Re:Coded account that pays for build time or having one student be responsible for hosting their site</li></ul><ul id="fefd6c2f-7b3f-4527-87ef-017fc35eb9f8" class="bulleted-list"><li>Make sure to turn off Netlify deploy for merge requests (this will consume too much build time).</li></ul><p id="9c745759-b4a4-47a2-b412-95813fc52f1b" class=""><strong>Yarn</strong></p><ul id="f724fea5-c0a0-421f-a7c0-f54e14901b9c" class="bulleted-list"><li>Yarn is a package manager for your code. It allows you to use and share code with other developers from around the world. Yarn does this quickly, securely, and reliably so you don&#x27;t ever have to worry. Learn more about <a href="https://yarnpkg.com/">yarn</a>.</li></ul><ul id="da99cfd7-4196-4e8d-9c0b-ff41bf8887a3" class="bulleted-list"><li>Yarn is pretty much the same as npm but much more convenient these days.</li></ul><p id="6c0b9b52-d52d-408f-98c2-1ae5cc64341d" class=""><strong>Jest</strong></p><ul id="cdd59c3a-acb0-462f-b323-827c3cf492f4" class="bulleted-list"><li>Jest is a delightful JavaScript Testing Framework with a focus on simplicity, learn more about <a href="https://jestjs.io/">Jest</a></li></ul><p id="7b2c3f36-3e29-41e7-8054-44e43853f28e" class=""><strong>Firebase</strong></p><ul id="6c6c1f25-9734-47d9-b022-ca9dedb71419" class="bulleted-list"><li>Firebase is Google&#x27;s mobile and web application development platform, learn more about <a href="https://firebase.com/">firebase</a></li></ul><p id="d72406f0-c5f3-445b-a399-d2e0d7ab5f8a" class="">
+</p><p id="0381ee9c-c6db-43a8-a775-63fe4e987062" class="block-color-gray_background">Repository Setup</p><ul id="1ababbd7-bcf5-4786-a535-52f873e8fc12" class="bulleted-list"><li>You will be provided with the link for your projects repo on github</li></ul><ul id="c86876e1-7fdc-4e59-9caa-d5c4ed2c3b11" class="bulleted-list"><li>A team member should fork it and set it up, create react app, add eslint and prettier config and all other required packages e.g. firebase if you’re using firebase, set the directories structure, then push the code back.</li></ul><ul id="a6bba5b1-f9cf-4f2b-bc46-4e7853726238" class="bulleted-list"><li>Add CircleCI and Netlify config to the repo, this is an <a href="https://medium.com/swlh/an-example-ci-process-for-react-apps-with-docker-2247171a218">example</a><strong>.</strong></li></ul><p id="dbd62bf5-71ce-41d7-a49b-9285844194df" class="">
+</p><p id="96703cb3-8573-4a7f-8021-2ee32fb334af" class="block-color-gray_background">Project structure</p><ul id="a4128b5d-1881-4d9a-b7c3-005198970c2a" class="bulleted-list"><li>Use <code>create-react-app</code> for the boilerplate react app. </li></ul><p id="c3ca3e87-79db-447f-a919-b2be539f12d2" class="">
+</p><ul id="504cbd24-dfea-4ae9-a0ca-01da4acce7d3" class="bulleted-list"><li>depending on what flow to take<ul id="aedd203a-93e2-4c14-807b-a6ef93cc56c6" class="bulleted-list"><li>Follow the component container pattern, so your two main folders inside the <code>src</code> will be the <code>components</code> folder that will contain your components and <code>containers</code> that will contain container components. <em>You can read more about container components </em><em><a href="https://reactpatterns.com/#container-component">here</a></em><em> or you can ask you team leader about it for more clarity. </em></li></ul><ul id="3891ec78-c718-4785-8ce5-bb48054c2e64" class="bulleted-list"><li>similar concept you can use the component page 
+take a look <a href="https://blog.bitsrc.io/structuring-a-react-project-a-definitive-guide-ac9a754df5eb">here</a></li></ul><p id="04523e74-a35d-4a0a-940f-a455a7fd8cbb" class="">
+</p></li></ul><ul id="78833a6f-bbbf-4c4b-b13a-2eab30e52267" class="bulleted-list"><li>Use <code>scss</code> instead of css if you going with <code>react-bootstrap</code></li></ul><ul id="f26055c1-1db2-4dec-8983-bfe95faadd8d" class="bulleted-list"><li>You can use <code>postcss</code> if you are going with another library that uses something like <code>tailwind</code></li></ul><ul id="a2431685-43af-47c8-8610-b14b77fd8727" class="bulleted-list"><li>Global style variables will be inside a <code>style</code> folder inside the <code>src</code> inside a <code>_variables.scss.</code> If you are using <code>react-bootstrap</code> this can come in handy!</li></ul><ul id="4a5c2640-a46e-4ea5-8efa-2b12ffc4b300" class="bulleted-list"><li>The main folder names inside the <code>src</code> should be lower case like <code>components</code> and <code>container or pages</code> other folders inside them should be TitleCase like <code>ProgressBar</code> and files inside these folder will be TitleCase too like <code>ProgressBar.js. </code>If you need styles then add them with the same <code>.js</code> file name like <code>ProgressBar.scss</code> </li></ul><p id="6d88413f-4c4f-4201-bd2d-7817af10c59b" class="">
+Your project hierarchy should look something similar to this:</p><pre id="142103fc-957a-46ef-bfb9-8ea42f567324" class="code"><code>.
+├── src
+	├── components
+		├── ProgressBar
+			├── ProgressBar.js
+			├── ProgressBar.scss
+	├── containers
+		├── About
+				├── ContactForm.js
+				├── About.js
+	├── style
+		├── _variables.scss</code></pre><ul id="02e1abbf-2242-450b-923a-6e6fe21de791" class="bulleted-list"><li>All dependencies inside the <code>package.json</code> should be used in the project. </li></ul><ul id="4dd77ab7-313d-4fa2-921c-c8bb81f71761" class="bulleted-list"><li>It&#x27;s recommended to use Yarn to install the packages. </li></ul><ul id="df240cba-7d2b-4723-980b-101b389d1ca1" class="bulleted-list"><li>General use images should be inside a folder inside <code>src</code> under <code>images</code> and try to use <code>svg</code> as much as possible. Component specific images should be under their folders. </li></ul><ul id="a9c5510c-cc22-4057-b499-d7cd7429acb8" class="bulleted-list"><li>You should have prettier extension installed and make sure your code is well formatted before submitting it. </li></ul><ul id="36c00bfa-d754-470c-b1c0-edab916073c7" class="bulleted-list"><li>Test files will reside under the <code>test</code> folder inside the <code>src</code> and the extension is <code>.test.js</code></li></ul><p id="9ada6fd1-7f94-44ec-a919-c9b2df2d05dd" class="">
+</p><p id="4aab2523-19bb-4546-9a4f-e4b3d68536ab" class="block-color-gray_background">Git</p><p id="173ac085-bbd9-4e54-bd25-a11c22354d4f" class="">
+</p><p id="1f861888-5215-4a7e-a495-2024938bc9ae" class=""><strong>Pull Requests</strong></p><ul id="0ca6fba9-c91d-4301-8065-17707f1c3c2e" class="bulleted-list"><li>Go to the issues board and create a new issue with the task assigned to you. </li></ul><ul id="6a252f4f-f365-4673-8568-e9b00cd0bcb9" class="bulleted-list"><li>Assign the issue to yourself so others know who is working on this issue. </li></ul><ul id="fc4c8c53-cb1a-4af9-923a-fcbaffc162de" class="bulleted-list"><li>Create a new pull request from that issue and also assign it to yourself, Github will automatically create a branch for you and give you instructions how to check it out. </li></ul><ul id="a310038e-917c-488d-b9a2-36081efa6d95" class="bulleted-list"><li>After finishing the work, push your code and assign the team leader on that pull request so they can review the code. </li></ul><p id="cca747c6-3717-454e-944d-d35e21508cbf" class="">
+</p><p id="e35ee52e-3581-40cd-a55d-13d94c6d8af4" class=""><strong>Commit Message Format</strong></p><p id="0dfc0920-929b-4c40-9516-520ff19a03bf" class="">Each commit message consists of a <strong>header</strong>, a <strong>body</strong> and a <strong>footer</strong>. The header has a special format that includes a <strong>type</strong> and a <strong>subject</strong>:</p><pre id="dd05d8b4-afb3-4754-9e96-46cfadcca9f3" class="code"><code>&lt;type&gt;: &lt;subject&gt;
+&lt;BLANK LINE&gt;
+&lt;body&gt;</code></pre><p id="5ebde11e-303d-4225-8d5b-caa20cbc5008" class="">The <strong>header</strong> is mandatory, while the <strong>body</strong> is optional but highly encouraged.</p><p id="01f7988d-6110-4c4a-bc16-18f100e7ff72" class="">
+</p><p id="82345279-2d5c-4899-a74a-8b50407b8588" class=""><strong>Type</strong></p><p id="1caa5843-5408-46b6-8299-9ae8d78b499a" class="">Must be one of the following:</p><ul id="3f407fab-dad2-4e3c-82bd-6f81ab124c84" class="bulleted-list"><li><strong>Build</strong>: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)</li></ul><ul id="ddb28db6-d5e0-45ca-9a15-eee4d4e747ec" class="bulleted-list"><li><strong>CI</strong>: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)</li></ul><ul id="7bb5a11b-2f37-404f-94b8-b05527c99d40" class="bulleted-list"><li><strong>Doc</strong>: Documentation only changes</li></ul><ul id="f8b7f1c5-2514-4dc6-8b8f-16032c89bc3c" class="bulleted-list"><li><strong>Feat</strong>: A new feature</li></ul><ul id="12e502b7-d721-4446-9876-1ea9d05ffccc" class="bulleted-list"><li><strong>Fix</strong>: A bug fix</li></ul><ul id="4bd98c60-9622-4921-8f7b-ac82a49d17a4" class="bulleted-list"><li><strong>Perf</strong>: A code change that improves performance</li></ul><ul id="94be6213-8695-45f4-a43f-9ec7c7059aa3" class="bulleted-list"><li><strong>Refactor</strong>: A code change that neither fixes a bug nor adds a feature</li></ul><ul id="ea981844-1e76-4136-a2c3-30ba3760de69" class="bulleted-list"><li><strong>Style</strong>: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)</li></ul><ul id="9d15598d-3961-46db-beef-76aaa4e3ad2b" class="bulleted-list"><li><strong>Test</strong>: Adding missing tests or correcting existing tests</li></ul><p id="75d44f92-c373-47a8-a32e-6f3b00b4a53d" class="">
+</p><p id="7f7620ff-d5ad-42c8-9739-2b718dc55901" class=""><strong>Subject</strong></p><p id="4f90d771-d821-4e77-bb04-a528cf6cae60" class="">The subject contains a succinct description of the change:</p><ul id="a7a7a3aa-b123-42ba-8f1e-d06c888056d1" class="bulleted-list"><li>use the imperative, present tense: “change” not “changed” nor “changes”</li></ul><ul id="71ceeb28-b44a-4a75-a666-278919ac0c0b" class="bulleted-list"><li>don’t capitalize the first letter</li></ul><ul id="e9b62328-2b4f-4ad8-a2f2-38dbc6ed4ed8" class="bulleted-list"><li>no dot (.) at the end</li></ul><p id="afd1e2a4-98ab-436f-a382-b200ae36e822" class="">
+</p><p id="6df65641-f0e2-4036-a6d7-346730d1861f" class=""><strong>Body</strong></p><p id="fc2cabc2-4de7-46ee-9668-da0eba5a9174" class="">Just as in the <strong>subject</strong>, use the imperative, present tense: “change” not “changed” nor “changes”. The body should include the motivation for the change and contrast this with previous behavior.</p><ul id="9f0dd060-ecaf-49df-9953-2080b9dd55fe" class="bulleted-list"><li>There is a really good programming principle that we will focus on during our work like SOLID and KISS. <em>You can read more about these principles </em><em><a href="https://github.com/seyna/awesome-programming-principles">here</a></em><em>. </em></li></ul><p id="aefb5f62-2b34-4707-9007-65449e5da00a" class="">
+</p><p id="dfafda42-791c-4115-9f9e-f939a103315d" class="block-color-gray_background">The Code</p><ul id="a0d7f6da-f270-4363-bd67-bb4e72b8f53e" class="bulleted-list"><li>The code should be totally clean and checked line by line before committing and pushing. </li></ul><ul id="93851607-c7f5-4c24-8671-e094b1defa45" class="bulleted-list"><li>You shouldn&#x27;t leave any unnecessary comments in the code. </li></ul><ul id="01e39fe2-cde0-4815-804e-4d0ef52b01e3" class="bulleted-list"><li>Don&#x27;t leave any logs inside the code. </li></ul><ul id="1c4560ee-df7e-448c-861e-435581a67cfe" class="bulleted-list"><li>All variables should be <code>const</code> except for specific cases where you will need to use <code>let</code> </li></ul><ul id="e29d227d-c3e0-4d5a-a140-c7e478459e16" class="bulleted-list"><li>Variables should use camelCase naming convention</li></ul><ul id="77dd02ac-4168-47ee-90d4-1f3f14464ee2" class="bulleted-list"><li>CSS classes should follow BEM naming convention. <em>You can find more about it </em><em><a href="http://getbem.com/naming/">here</a></em><em>.</em></li></ul><ul id="78764fc4-f186-44fd-9ac7-ed8d99296ecb" class="bulleted-list"><li>Leave only one empty line between CSS classes. This also goes for different purpose code blocks (like <code>imports</code> and variables under it). </li></ul><ul id="2ac354ad-8856-4509-a0cc-1898afe5db19" class="bulleted-list"><li>Make sure your naming is right and not confusing i.e. the <code>Navbar</code> shouldn&#x27;t be named <code>header</code> or when you fetch <code>movies</code> your function should return <code>movies</code> not <code>data</code> </li></ul><ul id="e09ee826-13f1-45f2-baa8-6e84f68c4a4f" class="bulleted-list"><li>Make sure you clean your imported modules or files that you don&#x27;t use before committing. The same goes for any variable, function or piece of code not used. </li></ul><ul id="03c1d1c1-5e1d-47b1-9110-040c2c8fdd94" class="bulleted-list"><li>Don&#x27;t repeat yourself (DRY). Make sure the code you write is reusable and reduce repetition of information of all kinds. For example, don&#x27;t write two functions that do the same or almost the same job. R<em>ead more about DRY </em><a href="https://en.wikipedia.org/wiki/Don&#x27;t_repeat_yourself"><em>here</em></a><em>. </em></li></ul><ul id="03031640-4583-4c65-afee-f34d6ad22f36" class="bulleted-list"><li>There is a really good programming principle that we will focus on during our work like SOLID and KISS. <em>You can read more about these principles </em><em><a href="https://github.com/seyna/awesome-programming-principles">here</a></em><em>. </em></li></ul><p id="10f52d93-d82d-4a93-ae89-3659b6cd7815" class="">
+</p><p id="37680b30-4986-4836-b930-1410969e96de" class="block-color-gray_background">Code Reviews</p><p id="8d6cde98-41a1-42c8-9467-1f131512e32f" class="">Every piece of code that is merged in needs to be reviewed. Ideally, it will also have a test, that will indicate to the reviewer both what the purpose of the code is and provide safety while five people simultaneously work on the codebase.</p><p id="42b7ae00-48f2-463f-950d-45455e1a7ed9" class="">Each piece of code will have at least two reviewers; you are required to assign them. One is from the Re:Coded team; the other is one of your teammates.</p><p id="bf0f6db8-53d8-4783-817c-a9ad708d5327" class="">If you are requested to review code, please review it within 1 business day.</p><p id="ea27638a-99e9-46db-bb39-9920b5a6340a" class="">If you are requested to change something about the code, please change it within 1 business day.</p><p id="6d44a0e8-5a4c-453e-bdaf-dd309297aff4" class="">You may optionally have a discussion within your team on these topics. <strong>Failure to read these will immediately be evident in the way that your code reviews are sent, </strong>and consequently will affect your evaluation.</p><p id="be784d75-e749-4f53-899a-8b6cbd4dd040" class="">
+</p><p id="f64fde06-65d7-4e89-8803-6834a35202c8" class="">The Re:Coded team would like to emphasize a few particular points:</p><ul id="ea8c64ca-f7a2-43a6-9e11-ed149a1f5dfa" class="bulleted-list"><li><strong>Isolation and small changes: </strong>Please make merge requests isolated (a merge request should ideally not really do more than one thing at once, the exception being some of the initial ones to set up the repo).</li></ul><ul id="576364c8-a078-4028-85dc-a84410efa0e3" class="bulleted-list"><li><strong>Timeliness</strong>: If your work is due at the end of a sprint, note that a code review can take three to four reviews to get in. At 24 hours per round of back and forth, this means that <em>waiting on a code review is not an excuse for missing a deadline</em><strong>.</strong><ul id="17790dd8-ed51-4504-bb40-9626c42f5659" class="bulleted-list"><li>When something is due on Wednesday, it does not mean that you sent out a code review by Wednesday. It means that you wrote code of approval-quality that was merged into the repo on Wednesday.</li></ul></li></ul><ul id="c2736944-256a-4641-a8b9-3abca0da66df" class="bulleted-list"><li><strong>Accepting feedback: </strong>do not take code review personally</li></ul><p id="1fa25066-ccc1-4244-b47c-b75f20b47fbe" class="">
+</p><p id="5df48f02-9993-4428-b811-355f7ce1610a" class="">Required Readings</p><ul id="11c29ef5-602f-4cc5-9c74-2eb89758a03e" class="bulleted-list"><li><a href="https://google.github.io/eng-practices/review/">Google Code Review (overview)</a></li></ul><ul id="6c9cd9e1-d668-4d19-837d-971064d8aa17" class="bulleted-list"><li><a href="https://google.github.io/eng-practices/review/developer/">Google Code Review (developer)</a></li></ul><ul id="e3fb5807-c351-46d4-bc88-c42175acd015" class="bulleted-list"><li><a href="https://google.github.io/eng-practices/review/reviewer/">Google Code Review (reviewer)</a></li></ul><ul id="667780eb-eb4d-4ba0-a697-ce87c930bd1f" class="bulleted-list"><li><a href="https://www.pluralsight.com/tech-blog/avoiding-magic-numbers/">Magic numbers</a></li></ul><p id="df546cbd-447f-4aa6-a971-1e5e515702d1" class="">
+</p><p id="9ab39597-8e43-4be8-87a1-64d66d5198eb" class="block-color-gray_background">Sprint Planning and Meeting Dynamic</p><p id="72ac93c4-35a2-4128-b247-4e59786aeb7c" class="">
+</p><ul id="b3efce0c-9e56-4402-baf7-f4fe4529f50c" class="bulleted-list"><li>The team with the lead engineer will have sprint planning in the beginning of the week, and retrospective at the end of it.</li></ul><ul id="40ff4f57-b0a5-4dae-8bbf-8a232251594b" class="bulleted-list"><li>Github project management will be used for sprint planning.</li></ul><ul id="addd3cf3-0a86-4c20-ac7a-136f4d011ebd" class="bulleted-list"><li>The team with the lead engineer will have daily standups, 2 calls and 3 on slack.</li></ul><ul id="46b1c9e2-9320-4382-bf7f-b3b46398a100" class="bulleted-list"><li>Each team is expected to meet outside of the regular meetings.</li></ul><ul id="310994f2-ab61-42d9-929b-3574d0f6ef3b" class="bulleted-list"><li>The standups should be short and straightforward, e.g. answers to the questions: what did you do yesterday, what are you working on today, and what blockers are you facing without talking about how to solve the blockers.</li></ul><ul id="0b52ada2-a1cc-4c08-bf9c-57bf1b302d9c" class="bulleted-list"><li>The whole meeting is 10 minutes so you are expected to be on time for the meeting,it reflects your professionalism and commitment.</li></ul><ul id="85a0bfbd-4fe4-4c75-a2bb-76e9b5ad7854" class="bulleted-list"><li>Learn more about <a href="https://en.wikipedia.org/wiki/Stand-up_meeting">scrum standups meetings</a>, <a href="https://en.wikipedia.org/wiki/Scrum_(software_development)">scrum in software development</a>, <a href="https://sprint.ly/blog/scrum-meeting-best-practices/">scrum meeting best practices</a>, <a href="https://www.atlassian.com/agile/scrum/sprints">sprints</a>, <a href="https://www.knowledgehut.com/tutorials/scrum-tutorial/sprint-planning">sprint planning</a> and <a href="https://www.knowledgehut.com/tutorials/scrum-tutorial/sprint-retrospective">sprint retrospective</a> </li></ul><p id="fc394d09-4131-456b-8e90-bc8fb204b206" class="">
+</p><p id="8143488d-feaa-42eb-b8a5-ba51fd402140" class="block-color-gray_background">Testing</p><p id="fcc42b55-425d-4013-8d93-dfc3857ce348" class="">
+</p><p id="d503a129-f6be-45a4-9bc6-9d6a7c3f01a1" class="">Why test?</p><p id="5605c273-d408-4af4-a096-d4144a11c115" class="">There are many reasons to have automated tests in your repository, which are covered in the required readings below. Some of the salient ones:</p><ul id="f0968d02-4d14-46c1-9339-2369fbd32f94" class="bulleted-list"><li><strong>Code safety: </strong>In addition to simply knowing that the code works, developers feel safe changing other people&#x27;s code and knowing what will happen; if something is changed badly, a test will break.</li></ul><ul id="c4f67f0c-6e3e-4cc3-beda-4931028f9962" class="bulleted-list"><li><strong>Ease of review: </strong>When reviewing a merge request, the reviewer can understand exactly what was changed by looking at the tests</li></ul><ul id="8a8ac3a2-f749-4fa7-856e-63187b42efea" class="bulleted-list"><li><strong>Self-documentation: </strong>Tests are a form of self-documentation on what the expected behavior of the code is.</li></ul><p id="08fbf09a-c318-4264-b8e6-80dbf741f597" class="">
+</p><p id="900ff9a7-89bc-4b87-ba30-562ad44057fd" class="">The Process</p><p id="d8f1fb72-be3e-43a3-a024-1cf8e9aa9553" class="">Ideally, every code review should have a test. With the exception of boilerplate code, <strong>no code reviews for new components will be accepted without a corresponding test file.</strong></p><p id="6b74adf9-660e-451a-a216-1678f85b04c9" class="">In general, there are two types of tests, which you will be asked to read about in the required readings.</p><ul id="5a29375c-9425-4b8f-b5eb-f67248ef2334" class="bulleted-list"><li><strong>Snapshot tests: </strong>DOM structure testing</li></ul><ul id="20d1c991-1511-40b6-be88-5d7a40771c91" class="bulleted-list"><li><strong>Functionality tests: </strong>testing functionality, such as &quot;if this is clicked, then X happens&quot;</li></ul><p id="0368ca26-95b4-4ab0-9ac9-2a13d02256fe" class="">At bigger companies, you will often reach a point where this statement is almost true: &quot;it is impossible to change a line of code without breaking a test.&quot; As you are now familiar with through your projects, it can take only a single wrong line of code to bring down an application.</p><p id="bd28c0e8-97a4-41d8-8cfa-5fa76f73b24b" class="">You may ask: &quot;Isn&#x27;t that a bit ridiculous? <em>Every</em> line of code?&quot; Consider this: how much money does a company like <a href="https://venturebeat.com/2013/08/16/3-minute-outage-costs-google-545000-in-revenue/">Facebook or Google lose for every minute of time that it&#x27;s down</a>?</p><p id="836f733e-5272-4564-bc4f-1a3d08eb5c01" class="">And for that reason, as the product grows bigger, we want to ensure every line of code is working.</p><p id="5488433b-9e16-4b08-a778-08be5bf2419f" class="">As you will learn, writing tests is very time-consuming -- often it takes longer than writing the code itself. For your projects, the requirements will be more lax; however, getting into the habit of thinking about testing will be important for your growth as a developer. What could go wrong with my code? What cases should I be thinking about? Will someone else feel safe changing my code?</p><p id="509fe4c9-4e81-44bc-a658-770fbc2e4083" class="">
+</p><p id="d8de2bd3-6d44-416c-a9cd-f2c121b85ae9" class="">Required Readings</p><ul id="f4fffd28-e003-4961-90e8-ca5418d46998" class="bulleted-list"><li><a href="http://softwaretestingfundamentals.com/unit-testing/">What is the purpose of unit testing?</a></li></ul><ul id="9cdcc76d-8a8f-4366-841b-dd88cc9a7618" class="bulleted-list"><li><a href="https://stackoverflow.com/questions/61400/what-makes-a-good-unit-test">What makes a good unit test?</a></li></ul><ul id="d3c9a4bf-b337-4634-8b4c-0c512abe2732" class="bulleted-list"><li><a href="https://reactjs.org/docs/testing.html">React Testing Docs</a></li></ul><ul id="2bcc2a69-c6b8-49d0-9ef8-2597f17f4489" class="bulleted-list"><li><a href="https://jestjs.io/docs/en/snapshot-testing">React Snapshot Testing</a></li></ul><ul id="f5717680-03b0-4322-a98c-c27ec44407d6" class="bulleted-list"><li><a href="https://testing-library.com/docs/react-testing-library/intro">React Testing Library</a></li></ul><p id="b383edac-be49-41d0-ab00-877e8383bd0d" class="">
+</p><p id="09cf1858-d252-499a-a6bd-eba00a99fc1e" class="block-color-gray_background">Bug Bash and Quality Standards</p><p id="b7cd089f-767a-4185-964b-c66f6bc0a28c" class="">
+</p><p id="1496eaa8-6b1c-4687-9f89-0c97895d4d25" class="">What is a bug bash?</p><p id="baf01ea7-18ca-4e60-b50b-0dd905fdb69b" class="">In the later weeks of the projects, as you&#x27;ve fleshed out a working project, frequent <a href="https://en.wikipedia.org/wiki/Bug_bash">bug bashes</a> will be required. A bug bash is what it sounds like: everyone meets (together), sits down to &quot;bash&quot; the application, and records a list of bugs and fixes.</p><p id="b92cd96f-2e18-428a-bc1b-330c4bb6efc4" class="">In a bug bash, you should be inspecting your application with immense detail. This means that in addition to any functional issues (e.g., a button doesn&#x27;t work), you should inspect any font-size, any design inconsistencies with a crucial eye. The evaluation should be quite harsh.</p><p id="c965e48c-a047-49e8-a8eb-52eb6407755a" class="">It should be noted that at a normal company a bug bash would be performed with all groups of people (product managers, designers, engineers, managers, etc.); in this case, the responsibility will fall upon yourselves to objectively evaluate your app. Re:Coded members may join for some bug bashes.</p><p id="795ef649-424b-4869-b475-6ba42b942b9a" class="">
+</p><p id="8c4a34f2-f9a6-4924-adfe-06814723d06e" class="">When do we bug bash?</p><p id="13148aed-ae3e-4ccd-be40-eea7c3c5dda5" class="">It should be done <strong>at minimum once a week </strong>in the two weeks approaching demo day. However, you may feel free to do it earlier in the project timeline or more frequently each week.</p><p id="a872ab26-dcef-43ce-8a68-29d43e764843" class="">
+</p><p id="12f452ba-9d8f-4a6d-99cd-d42400e1e7c9" class="">Example</p><p id="04bf8e00-0003-4168-9119-43d7f7496dd7" class="">This is an example of the level of critical rigor expected from a bug bash.</p><p id="67817dfb-3c5f-42c1-ad08-1a61c574fbe5" class="">
+</p><figure id="7098c81b-a716-4c65-809d-755735d1b48b" class="image"><a href="Technical%20Project%20Manual%20867ac455fa40461097f9631de042c52e/BugBash.png"><img style="width:1180px" src="Technical%20Project%20Manual%20867ac455fa40461097f9631de042c52e/BugBash.png"/></a></figure><p id="cd36c155-8220-4797-a71c-710ea3873043" class="">
+</p></div></article></body></html>
