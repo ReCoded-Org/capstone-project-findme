@@ -1,0 +1,69 @@
+button.chowzb {
+    border-radius: 0px;
+    background-size: cover;
+    box-shadow: 0 0 2px 0 transparent;
+    outline: transparent;
+    color: white;
+    background-color: transparent;
+}
+
+button.hCVuYx:disabled {
+    background-color: transparent;
+    color: rgb(78, 78, 78);
+    outline: transparent;
+    box-shadow: 0 0 2px 0 transparent;
+    border-color: transparent;
+    /*position: absolute;
+    right: 50%;
+    top: 15%;*/
+    z-index: 1;
+}
+
+
+/*
+button.rec-arrow-right.hCVuYx:disabled {
+    background-image: url(../images/Rectangle2.svg);
+    background-size: cover;
+}
+
+button.rec-arrow-left.hCVuYx:disabled {
+    background-image: url(../images/Rectangle1.svg);
+    background-size: cover;
+}*/
+
+button.chowzb.rec-arrow-right {
+    background-image: url(../../../src/images/Rectangle2.svg);
+    /*position: absolute;
+    right: 45%;
+    top: 15%;*/
+    z-index: 1;
+}
+
+button.chowzb.rec-arrow-left {
+    background-image: url(../../../src/images/Rectangle1.svg);
+    /* position: absolute;
+    left: 45%;
+    top: 15%;*/
+    z-index: 1;
+}
+
+button.chowzb:hover:enabled,
+button.chowzb:focus:enabled {
+    border-radius: 0px;
+    background-color: transparent;
+    box-shadow: 0 0 2px 0 transparent;
+    border-color: white;
+    outline: transparent;
+    border: none;
+}
+
+button.brcpxa {
+    background-color: #1035EF;
+    box-shadow: 0 0 1px 2px #138DEF;
+}
+
+button.brcpxa:hover,
+button.brcpxa:focus {
+    background-color: #138DEF;
+    box-shadow: 0 0 1px 2px #1035EF;
+}
