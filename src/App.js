@@ -1,10 +1,11 @@
 import React from 'react';
 import './styles/main.css';
+import MissingPeople from './containers/HomePage/MissingPeople';
 
 function App() {
   return (
     <div className="App">
-      <p className="text-black">learn react</p>
+      <MissingPeople missingPeople="Missing People" />
     </div>
   );
 }
