@@ -12,9 +12,10 @@ const HomePage = ({ missingPeople }) => (
       <MissingPersonCard userName="John Doe" lostSince="7-7-2017" />
       <MissingPersonCard userName="John Doe" lostSince="7-7-2017" />
     </div>
-    <p className="mx-4 my-10 text-right text-blue-500">
+    <p className="mr-10 my-10 text-right text-blue-500">
       <a href="#">
-        More Missing People &rarr;{/** this utf for -> [right arrow icon] */}
+        <span className="">More Missing People &rarr;</span>
+        {/** this utf for -> [right arrow icon] */}
       </a>
     </p>
   </div>
