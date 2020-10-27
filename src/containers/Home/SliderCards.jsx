@@ -13,7 +13,7 @@ export default function Cards() {
     //start by mapping through all data objectis 
     //pass a prop (object) for each Card component inside the slider  
     return (
-        <div className=' max-h-full sm:pr-4 sm:pl-4 '>
+        <div className=' bg-findMe max-h-full sm:pr-4 sm:pl-4 '>
             <Carousel >
                 {data.map((e,index)=>
                     <Card key= {e.id} cardInfo = {e} i={index}/> 

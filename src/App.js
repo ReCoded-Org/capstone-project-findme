@@ -4,7 +4,7 @@ import './styles/main.css';
 function App() {
   return (
     <div className="App">
-      <p className="text-black">learn react</p>
+      <p className="text-black"> learn react </p>{' '}
     </div>
   );
 }

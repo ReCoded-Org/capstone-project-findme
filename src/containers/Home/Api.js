@@ -2,7 +2,7 @@ const api = [{
         id: 1,
         img: require('../../images/pic1.jpg'),
         head: 'Person Name 1',
-        para: "This website has helped me find my son, I will always be thankful for that."
+        para: "This website has helped me find my son, I will always be thankful for that.This website has helped me find my son, I will always be thankful for that."
 
     },
     {
