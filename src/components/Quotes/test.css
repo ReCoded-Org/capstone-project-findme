@@ -13,37 +13,17 @@ button.hCVuYx:disabled {
     outline: transparent;
     box-shadow: 0 0 2px 0 transparent;
     border-color: transparent;
-    /*position: absolute;
-    right: 50%;
-    top: 15%;*/
     z-index: 1;
 }
 
 
-/*
-button.rec-arrow-right.hCVuYx:disabled {
-    background-image: url(../images/Rectangle2.svg);
-    background-size: cover;
-}
-
-button.rec-arrow-left.hCVuYx:disabled {
-    background-image: url(../images/Rectangle1.svg);
-    background-size: cover;
-}*/
-
 button.chowzb.rec-arrow-right {
     background-image: url(../../../src/images/Rectangle2.svg);
-    /*position: absolute;
-    right: 45%;
-    top: 15%;*/
     z-index: 1;
 }
 
 button.chowzb.rec-arrow-left {
     background-image: url(../../../src/images/Rectangle1.svg);
-    /* position: absolute;
-    left: 45%;
-    top: 15%;*/
     z-index: 1;
 }
 
