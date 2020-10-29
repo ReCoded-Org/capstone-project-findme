@@ -1,12 +1,12 @@
-import React from "react";
-import "../../styles/main.css";
+import React from 'react';
+import '../../styles/main.css';
 
-import FindMeLogo from "../../images/icons/FindMeLogo.svg";
-import SearchIcon from "../../images/icons/icon-search.svg";
-import PostIcon from "../../images/icons/icon-post.svg";
-import GoogleIcon from "../../images/icons/icon-SignInWithGoogle.png";
-import MenuIcon from "../../images/icons/icon-menu.svg";
-import Language from "../../images/icons/icon-language.svg";
+import FindMeLogo from '../../images/icons/FindMeLogo.svg';
+import SearchIcon from '../../images/icons/icon-search.svg';
+import PostIcon from '../../images/icons/icon-post.svg';
+import GoogleIcon from '../../images/icons/icon-SignInWithGoogle.png';
+import MenuIcon from '../../images/icons/icon-menu.svg';
+import Language from '../../images/icons/icon-language.svg';
 
 const Navbar = (props) => {
   // Controlling the state of the mobile (burger) menu
@@ -19,10 +19,10 @@ const Navbar = (props) => {
     function handleResize() {
       if (menuOpen) setMenuOpen(!menuOpen);
     }
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return (_) => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   });
 
@@ -47,7 +47,7 @@ const Navbar = (props) => {
       </div>
       <div
         className={`${
-          navbarOpen ? "flex" : "hidden"
+          navbarOpen ? 'flex' : 'hidden'
         } xl:flex flex-grow items-center`}
       >
         <ul className="flex flex-col xl:flex-row list-none xl:ml-auto">
@@ -112,7 +112,7 @@ const Navbar = (props) => {
                 </span>
               </div>
               <div
-                className={`${menuOpen ? "" : "hidden"}
+                className={`${menuOpen ? '' : 'hidden'}
           origin-top-right absolute left-0 mt-2 w-32 rounded-md shadow-lg`}
               >
                 <div className="rounded-md bg-white shadow-xs">
@@ -143,24 +143,32 @@ const Navbar = (props) => {
           </li>
           <li class="mt-2 xl:mt-0">
             <a href="#" className="">
-              <button className="inline-flex xl:w-auto w-full mx-3 px-8 py-1 rounded-full text-gray-400 items-center justify-center border-2 border-blue-500 text-blue-500">
-                <img src={SearchIcon} alt="" className="pr-5 h-5"></img>
+              <button className="inline-flex xl:w-auto w-full mx-3 px-8 py-1 rounded-full text-gray-400 items-center justify-center border-2 h-8 border-blue-500 text-blue-500 focus:outline-none">
+                <img
+                  src={SearchIcon}
+                  alt="search icon"
+                  className="pr-5 h-5"
+                ></img>
                 Search
               </button>
             </a>
           </li>
           <li class="mt-2 xl:mt-0">
             <a href="#" className="">
-              <button className="inline-flex xl:w-auto w-full mx-3 px-8 py-1 rounded-full text-white bg-blue-600 items-center justify-center border-2 border-blue-600">
-                <img src={PostIcon} alt="" className="pr-5 h-5"></img>
+              <button className="inline-flex xl:w-auto w-full mx-3 px-8 py-1 rounded-full text-white bg-gradient-to-l from-blue-700 to-blue-400 items-center justify-center focus:outline-none">
+                <img src={PostIcon} alt="post icon" className="pr-5 h-5"></img>
                 Post
               </button>
             </a>
           </li>
           <li class="mt-2 xl:mt-0">
             <a href="www.google.com" className="">
-              <button className="inline-flex xl:w-auto w-full mx-3 px-3 py-1 rounded-full text-blue-600 items-center justify-center">
-                <img src={GoogleIcon} alt="" className="pr-5 h-5"></img>
+              <button className="inline-flex xl:w-auto w-full mx-3 px-3 py-1 rounded-full text-blue-600 items-center justify-center focus:outline-none">
+                <img
+                  src={GoogleIcon}
+                  alt="google icon"
+                  className="pr-5 h-5"
+                ></img>
                 Sign in with Google
               </button>
             </a>
