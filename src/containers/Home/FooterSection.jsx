@@ -5,7 +5,7 @@ export default class FooterSection extends Component {
     render() {
         return (
             <div>
-                <Footer name={'footer'}/>
+                <Footer />
             </div>
         )
     }
