@@ -1,6 +1,14 @@
 import React from "react";
 import "../../styles/main.css";
 
+//Sign In With Google By Firebase
+import { signInWithGoogle } from './firebase/firebase.utils';
+import { auth } from './firebase/firebase.utils';
+
+// user profile icon 
+import ProfileUser from "../../images/icons/profile-user.svg";
+import Logout from "../../images/icons/logout.svg";
+
 import FindMeLogo from "../../images/icons/FindMeLogo.svg";
 import SearchIcon from "../../images/icons/icon-search.svg";
 import PostIcon from "../../images/icons/icon-post.svg";
@@ -8,7 +16,28 @@ import GoogleIcon from "../../images/icons/icon-SignInWithGoogle.png";
 import MenuIcon from "../../images/icons/icon-menu.svg";
 import Language from "../../images/icons/icon-language.svg";
 
+
+
+
+
 const Navbar = (props) => {
+
+  const [currentUser, setCurrentUser] = React.useState(null);
+
+  let unsubscribeFromAuth = null;
+
+  React.useEffect(() => {
+    unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      setCurrentUser(user);
+      console.log("user", user)
+    });
+    return () => {
+      this.unsubscribeFromAuth();
+    }
+  }, []);
+
+
+
   // Controlling the state of the mobile (burger) menu
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   // Controlling the state of the Language menu
@@ -46,9 +75,8 @@ const Navbar = (props) => {
         </div>
       </div>
       <div
-        className={`${
-          navbarOpen ? "flex" : "hidden"
-        } xl:flex flex-grow items-center`}
+        className={`${navbarOpen ? "flex" : "hidden"
+          } xl:flex flex-grow items-center`}
       >
         <ul className="flex flex-col xl:flex-row list-none xl:ml-auto">
           <li class="mt-2 xl:mt-0">
@@ -131,7 +159,7 @@ const Navbar = (props) => {
                     </a>
                     <a
                       href="#"
-                      className="block px-4 py-2 text-sm leading-5 text-gray-700 text-right hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                      className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                       role="menuitem"
                     >
                       عربي
@@ -158,16 +186,29 @@ const Navbar = (props) => {
             </a>
           </li>
           <li class="mt-2 xl:mt-0">
-            <a href="www.google.com" className="">
-              <button className="inline-flex xl:w-auto w-full mx-3 px-3 py-1 rounded-full text-blue-600 items-center justify-center">
-                <img src={GoogleIcon} alt="" className="pr-5 h-5"></img>
+            <div className='user-info'>
+              {currentUser ? (<div>
+                <a className="inline-flex xl:w-auto w-full mx-1 px-1 py-1 rounded-full text-gray-900  items-center justify-center">
+                  <img src={auth.currentUser.photoURL} alt="" className="mr-1 h-8 rounded-full max-w-full "></img>  <button onClick={() => auth.signOut()} className="inline-flex xl:w-auto w-full mx-1 px-1 py-1 rounded-full text-gray-900  hover:text-blue-600 items-center justify-center">
+                    Sign out
+                </button>
+                </a>
+
+              </div>) :
+                (
+                  <button onClick={signInWithGoogle} className="inline-flex xl:w-auto w-full mx-3 px-3 py-1 rounded-full text-blue-600 items-center justify-center">
+                    <img src={GoogleIcon} alt="" className="pr-5 h-5"></img>
                 Sign in with Google
-              </button>
-            </a>
+                  </button>
+                )
+
+              }</div>
           </li>
         </ul>
       </div>
+
     </nav>
+
   );
 };
 
