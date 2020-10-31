@@ -29,9 +29,18 @@ exports[`renders snapshot 1 1`] = `
             Found
           </span>
           <img
-            alt="username"
+            alt="John Doe image"
             className="opacity-50 cursor-pointer"
-            src="profile-svg.svg"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
             width={300}
           />
         </div>
@@ -42,6 +51,54 @@ exports[`renders snapshot 1 1`] = `
             className="font-bold text-xl mb-2"
           >
             John Doe
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost sice: 6-6-2016
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Found
+          </span>
+          <img
+            alt="Jane Doe image"
+            className="opacity-50 cursor-pointer"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            Jane Doe
           </div>
           <p
             className="text-base font-light"
@@ -65,12 +122,21 @@ exports[`renders snapshot 1 1`] = `
           <span
             className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
           >
-            Found
+            Lost
           </span>
           <img
-            alt="username"
+            alt="Salem Saleh image"
             className="opacity-50 cursor-pointer"
-            src="profile-svg.svg"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
             width={300}
           />
         </div>
@@ -80,12 +146,12 @@ exports[`renders snapshot 1 1`] = `
           <div
             className="font-bold text-xl mb-2"
           >
-            John Doe
+            Salem Saleh
           </div>
           <p
             className="text-base font-light"
           >
-            Lost sice: 7-7-2017
+            Lost sice: 8-8-2018
           </p>
         </div>
       </div>
@@ -104,12 +170,21 @@ exports[`renders snapshot 1 1`] = `
           <span
             className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
           >
-            Found
+            Lost
           </span>
           <img
-            alt="username"
+            alt="Ahmed Khaled image"
             className="opacity-50 cursor-pointer"
-            src="profile-svg.svg"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
             width={300}
           />
         </div>
@@ -119,51 +194,12 @@ exports[`renders snapshot 1 1`] = `
           <div
             className="font-bold text-xl mb-2"
           >
-            John Doe
+            Ahmed Khaled
           </div>
           <p
             className="text-base font-light"
           >
-            Lost sice: 7-7-2017
-          </p>
-        </div>
-      </div>
-    </div>
-    <div
-      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-    >
-      <div
-        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
-      >
-        <div
-          className="relative"
-        >
-          <span
-            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
-          >
-            Found
-          </span>
-          <img
-            alt="username"
-            className="opacity-50 cursor-pointer"
-            src="profile-svg.svg"
-            width={300}
-          />
-        </div>
-        <div
-          className="px-6 py-4"
-        >
-          <div
-            className="font-bold text-xl mb-2"
-          >
-            John Doe
-          </div>
-          <p
-            className="text-base font-light"
-          >
-            Lost sice: 7-7-2017
+            Lost sice: 9-9-2019
           </p>
         </div>
       </div>
