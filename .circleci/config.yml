@@ -1,0 +1,40 @@
+version: 2.1
+jobs:
+  build-and-test:
+      docker:
+        - image: 'cimg/base:stable'
+      steps:
+        - checkout
+        - node/install:
+            install-yarn: true
+        - run:
+            command: yarn
+            name: Add all dependencies
+        - run:
+            command: yarn run format
+            name: Format all the files
+  
+        - run:
+            command: yarn run test --passWithNoTests
+            name: Run all the tests
+
+  deploy-to-netlify:
+    docker:
+      - image: cimg/base:2020.10
+    steps:
+      - checkout
+      - run: curl -X POST -d {} ${deploy_master}
+  
+orbs:
+  node: circleci/node@4.1.0
+
+workflows:
+  test-deploy:
+    jobs:
+      - build-and-test
+      - deploy-to-netlify:
+          filters:
+            branches:
+              only: master
+          requires:
+            - build-and-test
