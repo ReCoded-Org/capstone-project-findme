@@ -1,0 +1,457 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot 1 1`] = `
+<div>
+  <svg
+    className="absolute"
+  >
+    repeat-grid-4.svg
+  </svg>
+  <svg
+    className="absolute right-0 mt-64 "
+  >
+    repeat-grid-4.svg
+  </svg>
+  <div
+    className="flex flex-wrap ml-8"
+  >
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Found
+          </span>
+          <img
+            alt="John Doe image"
+            className="opacity-50 cursor-pointer"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            John Doe
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost sice: 7-7-2017
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Lost
+          </span>
+          <img
+            alt="John Doe image"
+            className="opacity-50 cursor-pointer"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            John Doe
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost sice: 7-7-2017
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Found
+          </span>
+          <img
+            alt="John Doe image"
+            className="opacity-50 cursor-pointer"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            John Doe
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost sice: 7-7-2017
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Lost
+          </span>
+          <img
+            alt="John Doe image"
+            className="opacity-50 cursor-pointer"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            John Doe
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost sice: 7-7-2017
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Found
+          </span>
+          <img
+            alt="John Doe image"
+            className="opacity-50 cursor-pointer"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            John Doe
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost sice: 7-7-2017
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Lost
+          </span>
+          <img
+            alt="John Doe image"
+            className="opacity-50 cursor-pointer"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            John Doe
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost sice: 7-7-2017
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Found
+          </span>
+          <img
+            alt="John Doe image"
+            className="opacity-50 cursor-pointer"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            John Doe
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost sice: 7-7-2017
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Lost
+          </span>
+          <img
+            alt="John Doe image"
+            className="opacity-50 cursor-pointer"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            John Doe
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost sice: 7-7-2017
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className=""
+  >
+    <button
+      className="mx-auto my-10 py-2 px-4 align-center text-blue-500 border-solid border-2 border-blue-500 rounded-3xl hover:text-blue-600 hover:border-blue-600 block font-light"
+      onClick={[Function]}
+    >
+      <span
+        className=""
+      >
+        ⬇ Show More
+      </span>
+    </button>
+  </div>
+  <aside
+    aria-label="Scroll to top of page"
+    className="ScrollUpButton__Container "
+    data-testid="react-scroll-up-button"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    style={
+      Object {
+        "WebkitTransition": "all 0.5s ease-in-out",
+        "backgroundColor": "#2B6CB0",
+        "border": "none",
+        "borderColor": "#2B6CB0ed",
+        "borderRadius": "50%",
+        "bottom": "150px",
+        "color": "white",
+        "cursor": "pointer",
+        "fill": "white",
+        "fontSize": "20px",
+        "height": 50,
+        "opacity": 0,
+        "padding": "10px",
+        "position": "fixed",
+        "right": "-100px",
+        "transition": "right 0.5s",
+        "transitionProperty": "opacity, right",
+        "width": 50,
+      }
+    }
+    tabIndex={-1}
+  >
+    <svg
+      viewBox="0 0 32 32"
+    >
+      <path
+        d="M27.414 12.586l-10-10c-0.781-0.781-2.047-0.781-2.828 0l-10 10c-0.781 0.781-0.781 2.047 0 2.828s2.047 0.781 2.828 0l6.586-6.586v19.172c0 1.105 0.895 2 2 2s2-0.895 2-2v-19.172l6.586 6.586c0.39 0.39 0.902 0.586 1.414 0.586s1.024-0.195 1.414-0.586c0.781-0.781 0.781-2.047 0-2.828z"
+      />
+    </svg>
+  </aside>
+</div>
+`;
