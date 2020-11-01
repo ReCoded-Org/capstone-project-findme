@@ -7,6 +7,8 @@ import PostIcon from '../../images/icons/icon-post.svg';
 import GoogleIcon from '../../images/icons/icon-SignInWithGoogle.png';
 import MenuIcon from '../../images/icons/icon-menu.svg';
 import Language from '../../images/icons/icon-language.svg';
+import User from '../../images/icons/icon-user.svg';
+import SignOut from '../../images/icons/icon-signout.svg';
 
 const Navbar = (props) => {
   // Controlling the state of the mobile (burger) menu
@@ -53,7 +55,7 @@ const Navbar = (props) => {
           navbarOpen ? 'flex' : 'hidden'
         } xl:flex flex-grow items-center`}
       >
-        <ul className="flex flex-col xl:flex-row list-none xl:ml-auto">
+        <ul className="flex flex-col xl:flex-row list-none xl:ml-auto items-center">
           <li className="mt-2 xl:mt-0">
             <a
               href="#"
@@ -170,6 +172,23 @@ const Navbar = (props) => {
                 ></img>
                 Sign in with Google
               </button>
+            </a>
+          </li>
+          <li>
+            <img
+              title="User Name"
+              src={User}
+              className="h-8 w-8 rounded-full"
+              alt="user's image"
+            ></img>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="p-2 mr-4 inline-flex items-center"
+              title="Sign Out"
+            >
+              <img src={SignOut} className="h-5 w-5"></img>
             </a>
           </li>
         </ul>
