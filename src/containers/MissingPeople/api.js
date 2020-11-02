@@ -2,7 +2,7 @@ const api = [
   {
     id: 1,
     userName: 'John Doe',
-    lostSince: '7-7-2017',
+    lostSince: '6-6-2016',
     img: require('./images/profile-svg.svg'),
     lostFamily: true,
     description:
@@ -15,7 +15,7 @@ const api = [
     id: 2,
     userName: 'John Doe',
     lostSince: '7-7-2017',
-    img: require('./images/profile-svg.svg'),
+    img: require('./images/image.jpg'),
     lostFamily: false,
     description:
       'This website has helped me find my son, I will always be thankful for that.',
@@ -26,8 +26,8 @@ const api = [
   {
     id: 3,
     userName: 'John Doe',
-    lostSince: '7-7-2017',
-    img: require('./images/profile-svg.svg'),
+    lostSince: '8-8-2018',
+    img: require('./images/image2.jpg'),
     lostFamily: true,
     description:
       'This website has helped me find my son, I will always be thankful for that.',
@@ -38,8 +38,8 @@ const api = [
   {
     id: 4,
     userName: 'John Doe',
-    lostSince: '7-7-2017',
-    img: require('./images/profile-svg.svg'),
+    lostSince: '9-9-2019',
+    img: require('./images/image3.png'),
     lostFamily: false,
     description:
       'This website has helped me find my son, I will always be thankful for that.',
@@ -50,8 +50,8 @@ const api = [
   {
     id: 5,
     userName: 'John Doe',
-    lostSince: '7-7-2017',
-    img: require('./images/profile-svg.svg'),
+    lostSince: '10-10-2020',
+    img: require('./images/image4.jpg'),
     lostFamily: true,
     description:
       'This website has helped me find my son, I will always be thankful for that.',
@@ -63,8 +63,8 @@ const api = [
     id: 6,
     userName: 'John Doe',
     lostSince: '7-7-2017',
-    img: require('./images/profile-svg.svg'),
-    lostFamily: false,
+    img: require('./images/image5.jpg'),
+    lostFamily: true,
     description:
       'This website has helped me find my son, I will always be thankful for that.',
     age: 17,
@@ -75,8 +75,8 @@ const api = [
     id: 7,
     userName: 'John Doe',
     lostSince: '7-7-2017',
-    img: require('./images/profile-svg.svg'),
-    lostFamily: true,
+    img: require('./images/image6.png'),
+    lostFamily: false,
     description:
       'This website has helped me find my son, I will always be thankful for that.',
     age: 17,

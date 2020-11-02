@@ -10,14 +10,20 @@ const MissingPersonCard = ({ cardInfo, i }) => {
       onMouseEnter={() => setfooterCard(1)}
       onMouseLeave={() => setfooterCard(0)}
     >
-      <div className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto">
+      <div className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full">
         <div className="relative">
-          <span className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8">
-            {cardInfo.lostFamily ? 'Found' : 'Lost'}
-          </span>
+          {cardInfo.lostFamily ? (
+            <span className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8">
+              Found
+            </span>
+          ) : (
+            <span className="absolute inline-block pr-4 pl-10 py-2 font-bold md:pr-2 md:pl-5 md:py-1 lg:pl-8 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8">
+              Lost
+            </span>
+          )}
 
           <img
-            className="opacity-50 cursor-pointer"
+            className="opacity-1 cursor-pointer h-64"
             src={cardInfo.img}
             alt={`${cardInfo.userName} image`}
             width={300}
@@ -38,9 +44,15 @@ const MissingPersonCard = ({ cardInfo, i }) => {
     >
       <div className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto">
         <div className="relative">
-          <span className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg-pr-4 lg:pl-6 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8">
-            {cardInfo.lostFamily ? 'Found' : 'Lost'}
-          </span>
+          {cardInfo.lostFamily ? (
+            <span className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8">
+              Found
+            </span>
+          ) : (
+            <span className="absolute inline-block pr-4 pl-10 py-2 font-bold md:pr-2 md:pl-5 md:py-1 lg:pl-8 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8">
+              Lost
+            </span>
+          )}
           <p className="absolute bottom-0 mb-20 mx-10 md:m-auto md:text-xs md:mx-2 md:mb-8 md:leading-3 lg:mx-10 lg:text-base lg:mb-20 lg:leading-tight	">
             {cardInfo.description}
           </p>
@@ -49,7 +61,7 @@ const MissingPersonCard = ({ cardInfo, i }) => {
             <span>Location: Sana'a</span>
           </div>
           <img
-            className="opacity-25 cursor-pointer"
+            className="opacity-25 cursor-pointer h-64"
             src={cardInfo.img}
             alt={`${cardInfo.userName} image`}
             width={300}
@@ -65,7 +77,10 @@ const MissingPersonCard = ({ cardInfo, i }) => {
             </div>
             <div className=" ">
               <a href="#">
-                <button className="border-2 border-white font-semibold  hover:bg-blue-600 text-white py-2 px-4 mb-2 rounded-full">
+                <button
+                  className="focus:outline-none
+                border-2 border-white font-semibold  hover:bg-blue-600 text-white py-2 px-4 mb-2 rounded-full"
+                >
                   More Details
                 </button>
               </a>

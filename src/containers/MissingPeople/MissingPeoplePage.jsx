@@ -2,8 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 import MissingPersonCard from '../../components/MissingPersonCard';
 import { ReactComponent as MyIcon } from './repeat-grid-4.svg';
-
 import Api from './api';
+import './style.css';
+import NiceButton from '../../components/LoadingButton/NiceButton';
+import '../../components/LoadingButton/style.css';
 
 const MissingPeoplePage = () => {
   const ITEMSTOSHOW = 8;
@@ -12,6 +14,17 @@ const MissingPeoplePage = () => {
   const [visible, setVisible] = useState(ITEMSTOSHOW);
   const [buttonText, setButtonText] = useState('⬇ Show More');
   const buttonTextRef = useRef('⬇ Show More');
+
+  const [isSecondButtonLoading, setIsSecondButtonLoading] = useState(false);
+  const [loadingSpeed, setLoadingSpeed] = useState(1);
+
+  useEffect(() => {
+    if (isSecondButtonLoading) {
+      setTimeout(() => {
+        setIsSecondButtonLoading(false);
+      }, 1000 / loadingSpeed);
+    }
+  }, [isSecondButtonLoading, loadingSpeed]);
 
   useEffect(() => {
     setData(() => Api);
@@ -31,11 +44,12 @@ const MissingPeoplePage = () => {
   };
 
   const showMoreItemsClick = () => {
+    // buttonTextRef.current = '..loading';
     setTimeout(() => {
-      // buttonTextRef.current = '..loading';
       showMoreItems();
     }, 1000);
     clearTimeout();
+    // buttonTextRef.current = '⬇ Show More';
   };
 
   return (
@@ -55,22 +69,20 @@ const MissingPeoplePage = () => {
         )}
       </div>
       {console.log(visible, data.length)}
-      <div className="">
+      <div className=" ">
         {visible > data.length ? (
-          <button
-            // disabled
-            className=" mx-auto my-10 py-2 px-4 align-center text-blue-500 border-solid border-2 border-blue-500 rounded-3xl hover:text-blue-600 hover:border-blue-600 block font-light "
-            onClick={showMoreItemsClick}
-          >
-            <span className="">{buttonTextRef.current}</span>
-          </button>
+          ''
         ) : (
-          <button
-            className="mx-auto my-10 py-2 px-4 align-center text-blue-500 border-solid border-2 border-blue-500 rounded-3xl hover:text-blue-600 hover:border-blue-600 block font-light"
-            onClick={showMoreItemsClick}
+          <NiceButton
+            className="focus:outline-none mx-auto my-10 py-2 px-4 align-center text-blue-500 border-solid border-2 border-blue-500 rounded-3xl hover:text-blue-600 hover:border-blue-600 block font-light "
+            isLoading={isSecondButtonLoading}
+            onClick={() => {
+              setIsSecondButtonLoading(true);
+              showMoreItemsClick();
+            }}
           >
-            <span className="">{buttonTextRef.current}</span>
-          </button>
+            ⬇ Show More
+          </NiceButton>
         )}
       </div>
 
@@ -82,6 +94,8 @@ const MissingPeoplePage = () => {
     </div>
   );
 };
+
+const removeOutline = () => {};
 
 export default MissingPeoplePage;
 
@@ -98,6 +112,7 @@ const scrollButtonStyle = {
   borderColor: '#2B6CB0ed', // #2B6CB0
   border: 'none',
   fill: 'white',
+  focus: 'focus:outline-none',
 };
 
 // const scrollButtonTransition = {
