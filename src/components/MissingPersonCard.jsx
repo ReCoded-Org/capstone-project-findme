@@ -29,9 +29,9 @@ const MissingPersonCard = ({ cardInfo, i }) => {
             width={300}
           />
         </div>
-        <div className="px-6 py-4">
+        <div className="px-6 py-4 text-left">
           <div className="font-bold text-xl mb-2">{cardInfo.userName}</div>
-          <p className="text-base font-light">{`Lost sice: ${cardInfo.lostSince}`}</p>
+          <p className="text-base font-light">{`Lost since: ${cardInfo.lostSince}`}</p>
         </div>
       </div>
     </div>
