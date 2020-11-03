@@ -8,9 +8,8 @@ function App() {
   return (
     <div className="App">
       <MissingPeople missingPeople="Missing People" />
-
-      <hr />
-      {/* <MissingPeoplePage /> */}
+      {/* <hr /> */}
+      <MissingPeoplePage />
     </div>
   );
 }

@@ -11,6 +11,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-scripts": "3.4.3",
+    "react-spring": "^8.0.27",
     "react-test-renderer": "^17.0.1",
     "tailwindcss": "^1.9.5"
   },
@@ -40,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "@dreamland/react-load-more": "^1.0.1",
     "babel-eslint": "^10.1.0",
     "concurrently": "^5.3.0",
     "eslint": "^7.11.0",
@@ -54,7 +56,8 @@
     "lint-staged": "^10.4.2",
     "postcss": "^8.1.2",
     "postcss-cli": "^8.1.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "react-scroll-up-button": "^1.6.4"
   },
   "husky": {
     "hooks": {

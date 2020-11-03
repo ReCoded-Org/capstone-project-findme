@@ -21,7 +21,7 @@ exports[`renders snapshot 1 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full"
       >
         <div
           className="relative"
@@ -33,7 +33,7 @@ exports[`renders snapshot 1 1`] = `
           </span>
           <img
             alt="John Doe image"
-            className="opacity-50 cursor-pointer"
+            className="opacity-1 cursor-pointer h-64"
             src={
               Object {
                 "ReactComponent": Object {
@@ -48,7 +48,7 @@ exports[`renders snapshot 1 1`] = `
           />
         </div>
         <div
-          className="px-6 py-4"
+          className="px-6 py-4 text-left"
         >
           <div
             className="font-bold text-xl mb-2"
@@ -58,7 +58,7 @@ exports[`renders snapshot 1 1`] = `
           <p
             className="text-base font-light"
           >
-            Lost sice: 7-7-2017
+            Lost since: 6-6-2016
           </p>
         </div>
       </div>
@@ -69,34 +69,25 @@ exports[`renders snapshot 1 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full"
       >
         <div
           className="relative"
         >
           <span
-            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+            className="absolute inline-block pr-4 pl-10 py-2 font-bold md:pr-2 md:pl-5 md:py-1 lg:pl-8 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
           >
             Lost
           </span>
           <img
             alt="John Doe image"
-            className="opacity-50 cursor-pointer"
-            src={
-              Object {
-                "ReactComponent": Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                },
-                "__esModule": true,
-                "default": "profile-svg.svg",
-              }
-            }
+            className="opacity-1 cursor-pointer h-64"
+            src="image.jpg"
             width={300}
           />
         </div>
         <div
-          className="px-6 py-4"
+          className="px-6 py-4 text-left"
         >
           <div
             className="font-bold text-xl mb-2"
@@ -106,7 +97,7 @@ exports[`renders snapshot 1 1`] = `
           <p
             className="text-base font-light"
           >
-            Lost sice: 7-7-2017
+            Lost since: 7-7-2017
           </p>
         </div>
       </div>
@@ -117,7 +108,7 @@ exports[`renders snapshot 1 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full"
       >
         <div
           className="relative"
@@ -129,22 +120,13 @@ exports[`renders snapshot 1 1`] = `
           </span>
           <img
             alt="John Doe image"
-            className="opacity-50 cursor-pointer"
-            src={
-              Object {
-                "ReactComponent": Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                },
-                "__esModule": true,
-                "default": "profile-svg.svg",
-              }
-            }
+            className="opacity-1 cursor-pointer h-64"
+            src="image2.jpg"
             width={300}
           />
         </div>
         <div
-          className="px-6 py-4"
+          className="px-6 py-4 text-left"
         >
           <div
             className="font-bold text-xl mb-2"
@@ -154,7 +136,7 @@ exports[`renders snapshot 1 1`] = `
           <p
             className="text-base font-light"
           >
-            Lost sice: 7-7-2017
+            Lost since: 8-8-2018
           </p>
         </div>
       </div>
@@ -165,34 +147,25 @@ exports[`renders snapshot 1 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full"
       >
         <div
           className="relative"
         >
           <span
-            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+            className="absolute inline-block pr-4 pl-10 py-2 font-bold md:pr-2 md:pl-5 md:py-1 lg:pl-8 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
           >
             Lost
           </span>
           <img
             alt="John Doe image"
-            className="opacity-50 cursor-pointer"
-            src={
-              Object {
-                "ReactComponent": Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                },
-                "__esModule": true,
-                "default": "profile-svg.svg",
-              }
-            }
+            className="opacity-1 cursor-pointer h-64"
+            src="image3.png"
             width={300}
           />
         </div>
         <div
-          className="px-6 py-4"
+          className="px-6 py-4 text-left"
         >
           <div
             className="font-bold text-xl mb-2"
@@ -202,7 +175,7 @@ exports[`renders snapshot 1 1`] = `
           <p
             className="text-base font-light"
           >
-            Lost sice: 7-7-2017
+            Lost since: 9-9-2019
           </p>
         </div>
       </div>
@@ -213,7 +186,7 @@ exports[`renders snapshot 1 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full"
       >
         <div
           className="relative"
@@ -225,22 +198,13 @@ exports[`renders snapshot 1 1`] = `
           </span>
           <img
             alt="John Doe image"
-            className="opacity-50 cursor-pointer"
-            src={
-              Object {
-                "ReactComponent": Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                },
-                "__esModule": true,
-                "default": "profile-svg.svg",
-              }
-            }
+            className="opacity-1 cursor-pointer h-64"
+            src="image4.jpg"
             width={300}
           />
         </div>
         <div
-          className="px-6 py-4"
+          className="px-6 py-4 text-left"
         >
           <div
             className="font-bold text-xl mb-2"
@@ -250,7 +214,7 @@ exports[`renders snapshot 1 1`] = `
           <p
             className="text-base font-light"
           >
-            Lost sice: 7-7-2017
+            Lost since: 10-10-2020
           </p>
         </div>
       </div>
@@ -261,55 +225,7 @@ exports[`renders snapshot 1 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
-      >
-        <div
-          className="relative"
-        >
-          <span
-            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
-          >
-            Lost
-          </span>
-          <img
-            alt="John Doe image"
-            className="opacity-50 cursor-pointer"
-            src={
-              Object {
-                "ReactComponent": Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                },
-                "__esModule": true,
-                "default": "profile-svg.svg",
-              }
-            }
-            width={300}
-          />
-        </div>
-        <div
-          className="px-6 py-4"
-        >
-          <div
-            className="font-bold text-xl mb-2"
-          >
-            John Doe
-          </div>
-          <p
-            className="text-base font-light"
-          >
-            Lost sice: 7-7-2017
-          </p>
-        </div>
-      </div>
-    </div>
-    <div
-      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-    >
-      <div
-        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full"
       >
         <div
           className="relative"
@@ -321,22 +237,13 @@ exports[`renders snapshot 1 1`] = `
           </span>
           <img
             alt="John Doe image"
-            className="opacity-50 cursor-pointer"
-            src={
-              Object {
-                "ReactComponent": Object {
-                  "$$typeof": Symbol(react.forward_ref),
-                  "render": [Function],
-                },
-                "__esModule": true,
-                "default": "profile-svg.svg",
-              }
-            }
+            className="opacity-1 cursor-pointer h-64"
+            src="image5.jpg"
             width={300}
           />
         </div>
         <div
-          className="px-6 py-4"
+          className="px-6 py-4 text-left"
         >
           <div
             className="font-bold text-xl mb-2"
@@ -346,7 +253,7 @@ exports[`renders snapshot 1 1`] = `
           <p
             className="text-base font-light"
           >
-            Lost sice: 7-7-2017
+            Lost since: 7-7-2017
           </p>
         </div>
       </div>
@@ -357,19 +264,58 @@ exports[`renders snapshot 1 1`] = `
       onMouseLeave={[Function]}
     >
       <div
-        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto"
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full"
       >
         <div
           className="relative"
         >
           <span
-            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+            className="absolute inline-block pr-4 pl-10 py-2 font-bold md:pr-2 md:pl-5 md:py-1 lg:pl-8 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
           >
             Lost
           </span>
           <img
             alt="John Doe image"
-            className="opacity-50 cursor-pointer"
+            className="opacity-1 cursor-pointer h-64"
+            src="image6.png"
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4 text-left"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            John Doe
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost since: 7-7-2017
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-10 py-2 font-bold md:pr-2 md:pl-5 md:py-1 lg:pl-8 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Lost
+          </span>
+          <img
+            alt="John Doe image"
+            className="opacity-1 cursor-pointer h-64"
             src={
               Object {
                 "ReactComponent": Object {
@@ -384,7 +330,7 @@ exports[`renders snapshot 1 1`] = `
           />
         </div>
         <div
-          className="px-6 py-4"
+          className="px-6 py-4 text-left"
         >
           <div
             className="font-bold text-xl mb-2"
@@ -394,24 +340,29 @@ exports[`renders snapshot 1 1`] = `
           <p
             className="text-base font-light"
           >
-            Lost sice: 7-7-2017
+            Lost since: 7-7-2017
           </p>
         </div>
       </div>
     </div>
   </div>
   <div
-    className=""
+    className=" "
   >
     <button
-      className="mx-auto my-10 py-2 px-4 align-center text-blue-500 border-solid border-2 border-blue-500 rounded-3xl hover:text-blue-600 hover:border-blue-600 block font-light"
+      className="button"
       onClick={[Function]}
+      style={Object {}}
     >
-      <span
-        className=""
+      <div
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
       >
         ⬇ Show More
-      </span>
+      </div>
     </button>
   </div>
   <aside
@@ -432,6 +383,7 @@ exports[`renders snapshot 1 1`] = `
         "color": "white",
         "cursor": "pointer",
         "fill": "white",
+        "focus": "focus:outline-none",
         "fontSize": "20px",
         "height": 50,
         "opacity": 0,

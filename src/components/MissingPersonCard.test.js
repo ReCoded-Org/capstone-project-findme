@@ -9,15 +9,22 @@ it('render without crashes ', () => {
   const div = document.createElement('div');
   ReactDOM.render(<MissingPersonCard />, div);
 });
+const cardInfo = {
+  id: 2,
+  userName: 'Jane Doe',
+  lostSince: '7-7-2017',
+  img: require('../images/profile-svg.svg'),
+  lostFamily: true,
+  description:
+    'she was lost from another place and she has no friends or relatives',
+  age: 20,
+  location: "Sana'a",
+  views: 33,
+};
 
-it('renders snapshot 1', () => {
+it('renders snapshot', () => {
   const tree = renderer
-    .create(
-      <MissingPersonCard
-        userName="John Doe"
-        lostSince="7-7-2017"
-      ></MissingPersonCard>
-    )
+    .create(<MissingPersonCard cardInfo={cardInfo} />)
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
