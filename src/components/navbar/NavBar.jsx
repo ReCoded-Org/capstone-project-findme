@@ -55,7 +55,7 @@ const Navbar = (props) => {
           navbarOpen ? 'flex' : 'hidden'
         } xl:flex flex-grow items-center`}
       >
-        <ul className="flex flex-col xl:flex-row list-none xl:ml-auto items-center">
+        <ul className="flex flex-col xl:flex-row list-none xl:ml-auto items-start xl:items-center">
           <li className="mt-2 xl:mt-0">
             <a
               href="#"
@@ -164,7 +164,7 @@ const Navbar = (props) => {
           </li>
           <li className="mt-2 xl:mt-0">
             <a href="www.google.com" className="">
-              <button className="inline-flex xl:w-auto w-full mx-3 px-3 py-1 rounded-full text-blue-600 items-center justify-center focus:outline-none">
+              <button className="inline-flex xl:w-auto w-full mx-3 xl:px-3 py-1 rounded-full text-blue-600 items-center justify-center focus:outline-none">
                 <img
                   src={GoogleIcon}
                   alt="google icon"
@@ -174,15 +174,13 @@ const Navbar = (props) => {
               </button>
             </a>
           </li>
-          <li>
+          <li className='flex items-center'>
             <img
               title="User Name"
               src={User}
               className="h-8 w-8 rounded-full"
               alt="user's image"
             ></img>
-          </li>
-          <li>
             <a
               href="#"
               className="p-2 mr-4 inline-flex items-center"
