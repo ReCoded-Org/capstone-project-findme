@@ -174,7 +174,7 @@ const Navbar = (props) => {
               </button>
             </a>
           </li>
-          <li className='flex items-center'>
+          <li className="mx-3 mt-2 xl:mt-0 flex items-center">
             <img
               title="User Name"
               src={User}
