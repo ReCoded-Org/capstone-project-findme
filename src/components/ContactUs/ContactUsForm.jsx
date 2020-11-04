@@ -49,7 +49,7 @@ export default function ContactUsForm() {
             //console.log(values);
             firebase.firestore().collection("ContactUs").add( values )
             .then(()=>{
-                setValues('')
+                setValues(initialFValues)
                 alert("Your Mesaage was sent successfully.")
             })
             resetForm()
