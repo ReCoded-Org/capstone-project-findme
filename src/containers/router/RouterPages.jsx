@@ -5,13 +5,13 @@ const RouterPages = () => {
     return (
         <Router>
             <Switch>
-                <Route path="/" exact  component={Home} />
-                <Route path="/missing_people"  exact  component={MissingPeoplePage} />
-                <Route path="/missing_people_details"  exact  component={MissingPeopleDetails} />
-                <Route path="/search" exact  component={Search} />
-                <Route path="/add_post" exact  component={AddPost} />
-                <Route path="/about_us" exact   component={AboutUs} />
-                <Route path="/contact_us" exact  component={ContactUs} />
+                <Route path="/" exact  component={''} />
+                <Route path="/missing_people"  exact  component={''} />
+                <Route path="/missing_people_details"  exact  component={''} />
+                <Route path="/search" exact  component={''} />
+                <Route path="/add_post" exact  component={''} />
+                <Route path="/about_us" exact   component={''} />
+                <Route path="/contact_us" exact  component={''} />
             </Switch>
         </Router>
     )
