@@ -1,6 +1,13 @@
 import React from 'react';
 import '../../styles/main.css';
 
+
+
+
+
+//import utils for firebase
+import { auth, signInWithGoogle } from './firebase.utils';
+
 import FindMeLogo from '../../images/icons/FindMeLogo.svg';
 import SearchIcon from '../../images/icons/icon-search.svg';
 import PostIcon from '../../images/icons/icon-post.svg';
@@ -11,6 +18,24 @@ import User from '../../images/icons/icon-user.svg';
 import SignOut from '../../images/icons/icon-signout.svg';
 
 const Navbar = (props) => {
+  // user configuration for Sign in wth Google 
+  const [currentUser, setCurrentUser] = React.useState(null);
+
+  let unsubscribeFromAuth = null;
+
+  React.useEffect(() => {
+    unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      setCurrentUser(user);
+      console.log("user", user)
+    });
+    return () => {
+      this.unsubscribeFromAuth();
+    }
+  }, []);
+
+
+
+
   // Controlling the state of the mobile (burger) menu
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   // Controlling the state of the Language menu
@@ -51,11 +76,12 @@ const Navbar = (props) => {
         </div>
       </div>
       <div
-        className={`${
-          navbarOpen ? 'flex' : 'hidden'
-        } xl:flex flex-grow items-center`}
+        className={`${navbarOpen ? 'flex' : 'hidden'
+          } xl:flex flex-grow items-center`}
       >
+        
         <ul className="flex flex-col xl:flex-row list-none xl:ml-auto items-start xl:items-center">
+        <Router>
           <li className="mt-2 xl:mt-0">
             <a
               href="#"
@@ -162,33 +188,38 @@ const Navbar = (props) => {
               </button>
             </a>
           </li>
-          <li className="mt-2 xl:mt-0">
-            <a href="www.google.com" className="">
-              <button className="inline-flex xl:w-auto w-full mx-3 xl:px-3 py-1 rounded-full text-blue-600 items-center justify-center focus:outline-none">
+          </Router>
+          {currentUser ? (
+
+            <li className="mx-3 mt-2 xl:mt-0 flex items-center">
+              <img
+                title="User Name"
+                src={auth.currentUser.photoURL}
+                className="h-8 w-8 rounded-full"
+                alt="user's image"
+              ></img>
+              <button
+                onClick={() => auth.signOut()}
+                className="p-2 mr-4 inline-flex items-center"
+                title="Sign Out"
+              >
+                <img src={SignOut} className="h-5 w-5"></img>
+              </button>
+            </li>
+
+
+          ) : (<li className="mt-2 xl:mt-0">
+          
+              <button onClick={signInWithGoogle} className="inline-flex xl:w-auto w-full mx-3 xl:px-3 py-1 rounded-full text-blue-600 items-center justify-center focus:outline-none">
                 <img
                   src={GoogleIcon}
                   alt="google icon"
                   className="pr-5 h-5"
                 ></img>
-                Sign in with Google
-              </button>
-            </a>
-          </li>
-          <li className="mx-3 mt-2 xl:mt-0 flex items-center">
-            <img
-              title="User Name"
-              src={User}
-              className="h-8 w-8 rounded-full"
-              alt="user's image"
-            ></img>
-            <a
-              href="#"
-              className="p-2 mr-4 inline-flex items-center"
-              title="Sign Out"
-            >
-              <img src={SignOut} className="h-5 w-5"></img>
-            </a>
-          </li>
+              Sign in with Google
+            </button>
+           
+          </li>) }
         </ul>
       </div>
     </nav>
