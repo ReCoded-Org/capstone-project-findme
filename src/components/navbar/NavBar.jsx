@@ -3,7 +3,8 @@ import '../../styles/main.css';
 
 
 
-
+// import Router
+import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 //import utils for firebase
 import { auth, signInWithGoogle } from './firebase.utils';
@@ -18,7 +19,7 @@ import User from '../../images/icons/icon-user.svg';
 import SignOut from '../../images/icons/icon-signout.svg';
 
 const Navbar = (props) => {
-  // user configuration for Sign in wth Google 
+  // user confign for Sign in wth Google 
   const [currentUser, setCurrentUser] = React.useState(null);
 
   let unsubscribeFromAuth = null;
@@ -83,36 +84,32 @@ const Navbar = (props) => {
         <ul className="flex flex-col xl:flex-row list-none xl:ml-auto items-start xl:items-center">
         <Router>
           <li className="mt-2 xl:mt-0">
-            <a
-              href="#"
+          <Link to='/'
               className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
             >
               <span>Home</span>
-            </a>
+            </Link>
           </li>
           <li className="mt-2 xl:mt-0">
-            <a
-              href="#"
+          <Link to='/missing_people'
               className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
             >
               <span>Missing People</span>
-            </a>
+              </Link>
           </li>
           <li className="mt-2 xl:mt-0">
-            <a
-              href="#"
+          <Link to='/about_us'
               className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
             >
               <span>About Us</span>
-            </a>
+              </Link>
           </li>
           <li className="mt-2 xl:mt-0">
-            <a
-              href="#"
+          <Link to='/contact_us'
               className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
             >
               <span>Contact Us</span>
-            </a>
+              </Link>
           </li>
           <li className="mt-2 xl:mt-0">
             <div className="relative inline-block text-left">
@@ -169,7 +166,7 @@ const Navbar = (props) => {
             </div>
           </li>
           <li className="mt-2 xl:mt-0">
-            <a href="#" className="">
+          <Link to='/search' className="">
               <button className="inline-flex xl:w-auto w-full mx-3 px-8 py-1 rounded-full text-gray-400 items-center justify-center border-2 h-8 border-blue-500 text-blue-500 focus:outline-none">
                 <img
                   src={SearchIcon}
@@ -178,15 +175,15 @@ const Navbar = (props) => {
                 ></img>
                 Search
               </button>
-            </a>
+              </Link>
           </li>
           <li className="mt-2 xl:mt-0">
-            <a href="#" className="">
+          <Link to='/add_post' className="">
               <button className="inline-flex xl:w-auto w-full mx-3 px-8 py-1 rounded-full text-white bg-gradient-to-l from-blue-700 to-blue-400 items-center justify-center focus:outline-none">
                 <img src={PostIcon} alt="post icon" className="pr-5 h-5"></img>
                 Post
               </button>
-            </a>
+              </Link>
           </li>
           </Router>
           {currentUser ? (
