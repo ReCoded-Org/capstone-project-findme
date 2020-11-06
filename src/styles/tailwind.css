@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
+input:focus-within~label,
+input:not(:placeholder-shown)~label {
+    @apply transform; 
+    @apply scale-75; 
+    @apply -translate-y-6;
+}
+
+input:focus-within~label {
+    @apply text-blue-500;
+}
+textarea:focus-within~label,
+textarea:not(:placeholder-shown)~label {
+    @apply transform; 
+    @apply scale-75; 
+    @apply -translate-y-6;
+}
+textarea:focus-within~label {
+  @apply text-blue-500;
+}
+select:focus-within~label,
+select:not(:placeholder-shown)~label {
+    @apply transform; 
+    @apply scale-75; 
+    @apply -translate-y-6;
+}
+select:focus-within~label {
+  @apply text-blue-500;
+}
 @tailwind utilities;

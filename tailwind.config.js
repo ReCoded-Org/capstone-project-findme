@@ -10,10 +10,16 @@ module.exports = {
   separator: ':',
   theme: {
     screens: {
+      xs: [{'max': '639px'}],
       sm: '640px',
       md: '768px',
       lg: '1024px',
       xl: '1280px',
+    },
+    extend: {
+      zIndex: {
+        "-1": "1",
+      },
     },
     colors: {
       transparent: 'transparent',
@@ -300,6 +306,9 @@ module.exports = {
     inset: {
       0: '0',
       auto: 'auto',
+      '1/2':'50%',
+      '60':'60%',
+      '30':'30%',
     },
     letterSpacing: {
       tighter: '-0.05em',
@@ -453,6 +462,7 @@ module.exports = {
       screen: '100vw',
     }),
     zIndex: {
+      "-1": "-1",
       auto: 'auto',
       0: '0',
       10: '10',
@@ -577,6 +587,7 @@ module.exports = {
       7: '7',
     },
     transformOrigin: {
+      "0": "0%",
       center: 'center',
       top: 'top',
       'top-right': 'top right',
@@ -720,7 +731,7 @@ module.exports = {
     backgroundRepeat: ['responsive'],
     backgroundSize: ['responsive'],
     borderCollapse: ['responsive'],
-    borderColor: ['responsive', 'hover', 'focus'],
+    borderColor: ['responsive', 'hover', 'focus','focus-within'],
     borderOpacity: ['responsive', 'hover', 'focus'],
     borderRadius: ['responsive'],
     borderStyle: ['responsive'],
