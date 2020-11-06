@@ -7,27 +7,34 @@ exports[`renders snapshot 1 1`] = `
     data-testid="footer"
   >
     <div
-      className="container m-auto p-6 md:px-10 lg:px-24 "
+      className="container m-auto p-0  md:p-6   md:px-10 lg:px-24 "
     >
       <div
-        className="  mb-8 p-2 w-full flex flex-wrap  "
+        className="  mb-8 p-2 w-full flex flex-wrap  pt-12"
       >
         <div
-          className=" w-full md:w-1/2 lg:w-1/2 px-12 "
+          className="relative  w-full h-full md:w-1/2 lg:w-1/2  px-12 md:pl-12"
         >
+          <img
+            alt="bg"
+            className="absolute right-0  p-8  pt-6 md:pt-1"
+            height="50%"
+            src="bg.svg"
+            width="62%"
+          />
           <h1
-            className="text-white text-xl font-medium"
+            className="  text-white text-xl font-medium"
           >
             About us
           </h1>
           <p
-            className="text-white"
+            className="  text-white "
           >
              Our website is a service that connects lost people with anyone who is looking for them. We have two scenarios on our website of loss, the first type is a lost person and the other type is people who are found but missing their relatives or anyone that takes care of them.
           </p>
         </div>
         <div
-          className="   w-full md:w-1/2 lg:w-1/2 px-12 mt-4  md:mt-0"
+          className="   w-full md:w-1/2 lg:w-1/2  md:pl-12 px-12    mt-4  md:mt-0"
         >
           <h3
             className="text-white"
@@ -49,14 +56,14 @@ exports[`renders snapshot 1 1`] = `
               </a>
               <a
                 className="block text-white text-base hover:opacity-75 underline"
-                href="/Missingpeople"
+                href="/missing_people"
                 onClick={[Function]}
               >
                 Missingpeople
               </a>
               <a
                 className="block text-white text-base hover:opacity-75 underline"
-                href="/About"
+                href="/about_us"
                 onClick={[Function]}
               >
                 About
@@ -67,21 +74,21 @@ exports[`renders snapshot 1 1`] = `
             >
               <a
                 className="block text-white text-base hover:opacity-75 underline"
-                href="/Search"
+                href="/search"
                 onClick={[Function]}
               >
                 Search
               </a>
               <a
                 className="block text-white text-base hover:opacity-75 underline"
-                href="/Post"
+                href="/add_post"
                 onClick={[Function]}
               >
                 Post
               </a>
               <a
                 className="block text-white text-base hover:opacity-75 underline"
-                href="/PrivacyPolicy"
+                href="/privacy_policy"
                 onClick={[Function]}
               >
                 Privacy Policy
@@ -94,7 +101,7 @@ exports[`renders snapshot 1 1`] = `
         className=" mb-8 p-2 w-full flex flex-wrap mt-4 "
       >
         <div
-          className=" w-full md:w-1/2 lg:w-1/2 px-12 text-white"
+          className=" w-full md:w-1/2 lg:w-1/2  md:pl-12 px-12 text-white"
         >
           <a
             href="mailto:findme67@gmail.com"
@@ -108,7 +115,7 @@ exports[`renders snapshot 1 1`] = `
           findme67@gmail.com
         </div>
         <div
-          className=" w-full  mt-4 md:w-1/2 md:mt-0 lg:w-1/2 px-12 pr-0  "
+          className=" w-full  mt-4 md:w-1/2 md:mt-0 lg:w-1/2  md:pl-12  px-12 pr-0  "
         >
           <p
             className="text-white uppercase	"

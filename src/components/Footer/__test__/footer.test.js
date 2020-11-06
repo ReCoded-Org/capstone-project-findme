@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { getByTestId, render, cleanup } from '@testing-library/react';
+import { cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import Footer from './../Footer';
 
