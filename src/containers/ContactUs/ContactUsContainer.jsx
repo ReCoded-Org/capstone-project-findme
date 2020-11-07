@@ -2,7 +2,9 @@ import React from 'react'
 import ContactUsForm from '../../components/ContactUs/ContactUsForm'
 import contact from '../../images/contact.svg'
 import   GridBg  from '../../images/repeat-grid-4.svg';
-
+//This is the container of Contact Us page
+//It contans a vector and the form components
+//It imports ContactUsForm react components which grap all the comonents of contact us form 
 export default function ContactUs() {
     return (
     <div className='items-center xl:h-screen lg:h-screen sm:h-auto h-auto xl:h-screen lg:h-screen xl:pl-12 xl:pr-12 lg:pl-10 lg:pr-10 sm:pl-8 sm:pr-8 pl-4 pr-4'>
