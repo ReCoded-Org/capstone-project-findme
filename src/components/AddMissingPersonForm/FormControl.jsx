@@ -120,6 +120,7 @@ const Button = (props) => {
       <button
         className={props.nameClass}
         onClick={props.onClickMethod}
+        type={props.type}
       >
         <div className=" flex flex-row-reverse justify-center">
           {props.buttonName}

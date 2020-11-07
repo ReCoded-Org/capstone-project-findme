@@ -25,7 +25,7 @@ const initialFValues = {
   notes: '',
   specialSituotion: '',
   isLookingFor: false,
-  hireDate: new Date(),
+  createAt: new Date(),
 }
 
 const MissingPersonForm = () => {
@@ -36,7 +36,7 @@ const MissingPersonForm = () => {
     <div className='bg-white shadow-md  rounded-3xl m-5'>
       <div className="flex xs:block sm:block md:flex xl:flex mb-6">
         <div className="w-1/4 p-2  text-center hidden md:block  "></div>
-        <div className="w-3/4 p-2  text-center md:text-left "><Icon srcName={arrow} srcAlt='left-arrow' /><Title title='Add A Missing Person' /></div>
+        <div className="w-3/4 p-2  text-center md:text-left  "><Icon srcName={arrow} srcAlt='left-arrow' /><Title title='Add A Missing Person' /></div>
       </div>
       <Form >
         <div className="flex xs:block sm:block md:flex xl:flex">
@@ -238,9 +238,9 @@ const MissingPersonForm = () => {
                 <p class="text-sm "> <span className='text-red-500'>*</span> marked fields are required</p>
               </div>
               <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0 md:justify-end justify-center flex ">
-                <Button onClickMethod='' buttonName='Cancel' icon={cancel}
+                <Button onClickMethod='' buttonName='Cancel' icon={cancel} type='reset'
                   nameClass='rounded-full w-32 h-10 bg-white text-gray-700  border border-gray-700 border-solid' />
-                <Button onClickMethod='' buttonName='Save' icon={save}
+                <Button onClickMethod='' buttonName='Save' icon={save} type='submit'
                   nameClass='rounded-full w-32 h-10 bg-gradient-to-r from-blue-400 to-blue-700 text-white ' />
               </div>
             </div>
@@ -259,12 +259,12 @@ const MissingPersonForm = () => {
 
 const Icon = (props) => {
   return (
-    <img src={props.srcName} alt={props.srcAlt} className='icon mr-5 md:mr-5 hover:opacity-75 ' />
+    <img src={props.srcName} alt={props.srcAlt} className='icon inline mr-5 md:mr-5 hover:opacity-75 ' />
   )
 }
 const Title = (props) => {
   return (
-    <h1 className='md:text-2xl inline text-base'>{props.title}</h1>
+    <h1 className='md:text-2xl lg:font-medium inline text-base'>{props.title}</h1>
   )
 }
 
