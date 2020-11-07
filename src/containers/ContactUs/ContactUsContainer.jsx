@@ -9,7 +9,7 @@ export default function ContactUs() {
                  <img src={contact} alt='contact us' className=''></img>
             </div>
             <div className='flex-3 xl:w-2/5 lg:w-2/5 md:w-full sm:w-full w-full h-full pl-4 pr-8'>
-                <p className="xl:text-4xl lg:text-4xl md:text-4xl sm:text-3xl text-xl m-8 font-bold ">Let's talk</p>
+                <p className="xl:text-4xl lg:text-4xl md:text-4xl sm:text-3xl text-xl mb-8 font-bold ">Let's talk</p>
                 <ContactUsForm className='h-auto ' />
             </div>
         </div>
