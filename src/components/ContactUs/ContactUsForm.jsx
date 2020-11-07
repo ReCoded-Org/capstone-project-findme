@@ -97,10 +97,10 @@ export default function ContactUsForm() {
                 />
               
                 
-              <div className=" place-self-center sm:place-self-center xl:w-auto lg:w-auto  w-3/4 xl:self-start xl:w-3/4 lg:self-start lg:w-auto sm:w-3/5   sm:self-center self-center sm:pt-2 sm:pb-2 pt-2 pb-2">
+              <div className=" place-self-center sm:place-self-center xl:w-auto lg:w-auto  w-3/4 xl:self-start  lg:self-start lg:w-auto sm:w-3/5   sm:self-center self-center sm:pt-2 sm:pb-2 pt-2 pb-2">
                     <button className=" text-center h-8 items-center items-center  flex sm:p-1 flex-row-reverse inline-flex xl:w-auto w-full  lg:w-auto py-1 rounded-full text-white bg-gradient-to-l from-purple-800 to-teal-500   focus:outline-none">
-                        <img src={msgicon} alt="" className=" h-5 w-5 " ></img>
-                        <span className='pl-2 pr-2 text-center  sm:text-center sm:text-sm text-xs  '>Send a message</span>
+                        <img src={msgicon} alt="" className=" h-5 w-5 p-4 " ></img>
+                        <span className='p-5 text-center  sm:text-center sm:text-sm text-xs  '>Send a message</span>
                     </button>
                 </div>  
                 
