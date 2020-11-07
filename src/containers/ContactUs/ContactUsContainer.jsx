@@ -3,7 +3,7 @@ import ContactUsForm from '../../components/ContactUs/ContactUsForm'
 import contact from '../../images/contact.svg'
 export default function ContactUs() {
     return (
-    <div className='items-center h-screen sm:h-screen xl:h-screen lg:h-screen xl:pl-12 xl:pr-12 lg:pl-10 lg:pr-10 sm:pl-8 sm:pr-8 pl-4 pr-4'>
+    <div className='items-center xl:h-screen lg:h-screen sm:h-auto h-auto xl:h-screen lg:h-screen xl:pl-12 xl:pr-12 lg:pl-10 lg:pr-10 sm:pl-8 sm:pr-8 pl-4 pr-4'>
         <div className='flex  xl:flex-row lg:flex-row  flex-col sm:flex-col pl-12 pr-12 xl:space-x-8 lg:space-x-4 space-y-8 sm:space-y-8 '>
             <div className='xl:w-3/5 pt-8 xl:pt-16 lg:pt-20 h-full flex-1 xl:pr-4 lg:pr-4 xl:pr-8 lg:pr-8' >
                  <img src={contact} alt='contact us' className=''></img>
