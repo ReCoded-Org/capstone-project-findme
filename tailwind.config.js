@@ -296,6 +296,7 @@ module.exports = {
             ...theme('spacing'),
             full: '100%',
             screen: '100vh',
+            fullScreen: '200vh',
             full0: '80vh',
             full1: '30rem',
             full11: '28rem',
