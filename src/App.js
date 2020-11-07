@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/main.css';
-import WebsiteDescription from './container/Home/WebsiteDescription';
+import WebsiteDescription from './container/WebsiteDescription/WebsiteDescription';
 
 function App() {
   return (
