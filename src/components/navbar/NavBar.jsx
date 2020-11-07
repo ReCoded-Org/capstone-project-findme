@@ -1,14 +1,42 @@
 import React from 'react';
 import '../../styles/main.css';
 
+
+
+// import Router
+import { BrowserRouter as Router, Link } from 'react-router-dom'
+
+//import utils for firebase
+import { auth, signInWithGoogle } from './firebase.utils';
+
 import FindMeLogo from '../../images/icons/FindMeLogo.svg';
 import SearchIcon from '../../images/icons/icon-search.svg';
 import PostIcon from '../../images/icons/icon-post.svg';
 import GoogleIcon from '../../images/icons/icon-SignInWithGoogle.png';
 import MenuIcon from '../../images/icons/icon-menu.svg';
 import Language from '../../images/icons/icon-language.svg';
+import User from '../../images/icons/icon-user.svg';
+import SignOut from '../../images/icons/icon-signout.svg';
 
 const Navbar = (props) => {
+  // user confign for Sign in wth Google 
+  const [currentUser, setCurrentUser] = React.useState(null);
+
+  let unsubscribeFromAuth = null;
+
+  React.useEffect(() => {
+    unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      setCurrentUser(user);
+      console.log("user", user)
+    });
+    return () => {
+      this.unsubscribeFromAuth();
+    }
+  }, []);
+
+
+
+
   // Controlling the state of the mobile (burger) menu
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   // Controlling the state of the Language menu
@@ -49,42 +77,39 @@ const Navbar = (props) => {
         </div>
       </div>
       <div
-        className={`${
-          navbarOpen ? 'flex' : 'hidden'
-        } xl:flex flex-grow items-center`}
+        className={`${navbarOpen ? 'flex' : 'hidden'
+          } xl:flex flex-grow items-center`}
       >
-        <ul className="flex flex-col xl:flex-row list-none xl:ml-auto">
+        
+        <ul className="flex flex-col xl:flex-row list-none xl:ml-auto items-start xl:items-center">
+        <Router>
           <li className="mt-2 xl:mt-0">
-            <a
-              href="#"
+          <Link to='/'
               className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
             >
               <span>Home</span>
-            </a>
+            </Link>
           </li>
           <li className="mt-2 xl:mt-0">
-            <a
-              href="#"
+          <Link to='/missing_people'
               className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
             >
               <span>Missing People</span>
-            </a>
+              </Link>
           </li>
           <li className="mt-2 xl:mt-0">
-            <a
-              href="#"
+          <Link to='/about_us'
               className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
             >
               <span>About Us</span>
-            </a>
+              </Link>
           </li>
           <li className="mt-2 xl:mt-0">
-            <a
-              href="#"
+          <Link to='/contact_us'
               className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
             >
               <span>Contact Us</span>
-            </a>
+              </Link>
           </li>
           <li className="mt-2 xl:mt-0">
             <div className="relative inline-block text-left">
@@ -141,7 +166,7 @@ const Navbar = (props) => {
             </div>
           </li>
           <li className="mt-2 xl:mt-0">
-            <a href="#" className="">
+          <Link to='/search' className="">
               <button className="inline-flex xl:w-auto w-full mx-3 px-8 py-1 rounded-full text-gray-400 items-center justify-center border-2 h-8 border-blue-500 text-blue-500 focus:outline-none">
                 <img
                   src={SearchIcon}
@@ -150,28 +175,48 @@ const Navbar = (props) => {
                 ></img>
                 Search
               </button>
-            </a>
+              </Link>
           </li>
           <li className="mt-2 xl:mt-0">
-            <a href="#" className="">
+          <Link to='/add_post' className="">
               <button className="inline-flex xl:w-auto w-full mx-3 px-8 py-1 rounded-full text-white bg-gradient-to-l from-blue-700 to-blue-400 items-center justify-center focus:outline-none">
                 <img src={PostIcon} alt="post icon" className="pr-5 h-5"></img>
                 Post
               </button>
-            </a>
+              </Link>
           </li>
-          <li className="mt-2 xl:mt-0">
-            <a href="www.google.com" className="">
-              <button className="inline-flex xl:w-auto w-full mx-3 px-3 py-1 rounded-full text-blue-600 items-center justify-center focus:outline-none">
+          </Router>
+          {currentUser ? (
+
+            <li className="mx-3 mt-2 xl:mt-0 flex items-center">
+              <img
+                title="User Name"
+                src={auth.currentUser.photoURL}
+                className="h-8 w-8 rounded-full"
+                alt="user's image"
+              ></img>
+              <button
+                onClick={() => auth.signOut()}
+                className="p-2 mr-4 inline-flex items-center"
+                title="Sign Out"
+              >
+                <img src={SignOut} className="h-5 w-5"></img>
+              </button>
+            </li>
+
+
+          ) : (<li className="mt-2 xl:mt-0">
+          
+              <button onClick={signInWithGoogle} className="inline-flex xl:w-auto w-full mx-3 xl:px-3 py-1 rounded-full text-blue-600 items-center justify-center focus:outline-none">
                 <img
                   src={GoogleIcon}
                   alt="google icon"
                   className="pr-5 h-5"
                 ></img>
-                Sign in with Google
-              </button>
-            </a>
-          </li>
+              Sign in with Google
+            </button>
+           
+          </li>) }
         </ul>
       </div>
     </nav>

@@ -42,14 +42,15 @@ exports[`matches snapshot 1`] = `
     className="hidden xl:flex flex-grow items-center"
   >
     <ul
-      className="flex flex-col xl:flex-row list-none xl:ml-auto"
+      className="flex flex-col xl:flex-row list-none xl:ml-auto items-start xl:items-center"
     >
       <li
         className="mt-2 xl:mt-0"
       >
         <a
           className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
-          href="#"
+          href="/"
+          onClick={[Function]}
         >
           <span>
             Home
@@ -61,7 +62,8 @@ exports[`matches snapshot 1`] = `
       >
         <a
           className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
-          href="#"
+          href="/missing_people"
+          onClick={[Function]}
         >
           <span>
             Missing People
@@ -73,7 +75,8 @@ exports[`matches snapshot 1`] = `
       >
         <a
           className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
-          href="#"
+          href="/about_us"
+          onClick={[Function]}
         >
           <span>
             About Us
@@ -85,7 +88,8 @@ exports[`matches snapshot 1`] = `
       >
         <a
           className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
-          href="#"
+          href="/contact_us"
+          onClick={[Function]}
         >
           <span>
             Contact Us
@@ -164,7 +168,8 @@ exports[`matches snapshot 1`] = `
       >
         <a
           className=""
-          href="#"
+          href="/search"
+          onClick={[Function]}
         >
           <button
             className="inline-flex xl:w-auto w-full mx-3 px-8 py-1 rounded-full text-gray-400 items-center justify-center border-2 h-8 border-blue-500 text-blue-500 focus:outline-none"
@@ -183,7 +188,8 @@ exports[`matches snapshot 1`] = `
       >
         <a
           className=""
-          href="#"
+          href="/add_post"
+          onClick={[Function]}
         >
           <button
             className="inline-flex xl:w-auto w-full mx-3 px-8 py-1 rounded-full text-white bg-gradient-to-l from-blue-700 to-blue-400 items-center justify-center focus:outline-none"
@@ -200,21 +206,17 @@ exports[`matches snapshot 1`] = `
       <li
         className="mt-2 xl:mt-0"
       >
-        <a
-          className=""
-          href="www.google.com"
+        <button
+          className="inline-flex xl:w-auto w-full mx-3 xl:px-3 py-1 rounded-full text-blue-600 items-center justify-center focus:outline-none"
+          onClick={[Function]}
         >
-          <button
-            className="inline-flex xl:w-auto w-full mx-3 px-3 py-1 rounded-full text-blue-600 items-center justify-center focus:outline-none"
-          >
-            <img
-              alt="google icon"
-              className="pr-5 h-5"
-              src="icon-SignInWithGoogle.png"
-            />
-            Sign in with Google
-          </button>
-        </a>
+          <img
+            alt="google icon"
+            className="pr-5 h-5"
+            src="icon-SignInWithGoogle.png"
+          />
+          Sign in with Google
+        </button>
       </li>
     </ul>
   </div>
