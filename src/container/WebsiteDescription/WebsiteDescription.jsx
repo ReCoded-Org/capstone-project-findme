@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../components/Button/Button";
-import DescriptionImage from "../../images/undraw_web_search_eetr (2).svg";
-import SearchIcon from "../../images/Path 2791.svg";
+import DescriptionImage from "../../images/undraw_web_search_eetr.svg";
+import SearchIcon from "../../images/Path.svg";
 
 const WebsiteDescription = () => {
   return (
