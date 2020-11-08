@@ -7,13 +7,12 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/user-event": "^7.1.2",
     "autoprefixer": "^9.8.6",
-
     "firebase": "^8.0.1",
-
-
+    "i18next": "^19.8.3",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-elastic-carousel": "^0.9.1",
+    "react-i18next": "^9.0.10",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "styled-components": "^5.2.0",
