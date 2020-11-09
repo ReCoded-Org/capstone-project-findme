@@ -1,0 +1,222 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders snapshot 1 1`] = `
+<div
+  className=""
+>
+  <h2
+    className="font-normal tracking-wider text-4xl mb-10 mx-4"
+  >
+    Missing People
+  </h2>
+  <div
+    className="flex flex-col md:flex-row lg:flex-row xl:flex-row sm:flex-col sm:items-center"
+  >
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Found
+          </span>
+          <img
+            alt="John Doe image"
+            className="opacity-1 cursor-pointer h-64"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4 text-left"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            John Doe
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost since: 6-6-2016
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Found
+          </span>
+          <img
+            alt="Jane Doe image"
+            className="opacity-1 cursor-pointer h-64"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4 text-left"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            Jane Doe
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost since: 7-7-2017
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-10 py-2 font-bold md:pr-2 md:pl-5 md:py-1 lg:pl-8 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Lost
+          </span>
+          <img
+            alt="Salem Saleh image"
+            className="opacity-1 cursor-pointer h-64"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4 text-left"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            Salem Saleh
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost since: 8-8-2018
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <div
+        className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full"
+      >
+        <div
+          className="relative"
+        >
+          <span
+            className="absolute inline-block pr-4 pl-10 py-2 font-bold md:pr-2 md:pl-5 md:py-1 lg:pl-8 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8"
+          >
+            Lost
+          </span>
+          <img
+            alt="Ahmed Khaled image"
+            className="opacity-1 cursor-pointer h-64"
+            src={
+              Object {
+                "ReactComponent": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "render": [Function],
+                },
+                "__esModule": true,
+                "default": "profile-svg.svg",
+              }
+            }
+            width={300}
+          />
+        </div>
+        <div
+          className="px-6 py-4 text-left"
+        >
+          <div
+            className="font-bold text-xl mb-2"
+          >
+            Ahmed Khaled
+          </div>
+          <p
+            className="text-base font-light"
+          >
+            Lost since: 9-9-2019
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p
+    className="mr-10 my-10 text-right text-blue-500"
+  >
+    <a
+      href="#"
+    >
+      <span
+        className=""
+      >
+        More Missing People →
+      </span>
+    </a>
+  </p>
+</div>
+`;
