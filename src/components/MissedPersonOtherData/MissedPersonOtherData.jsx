@@ -1,6 +1,7 @@
 import React from 'react';
 
 import RowOfData from '../RowOfData/RowOfData';
+import Data from '../../Data';
 
 const MissedPersonOtherData = () => {
   return (
@@ -12,17 +13,20 @@ const MissedPersonOtherData = () => {
       {/* Informations Section */}
       <div className="flex flex-col text-sm sm:flex-row lg:text-md">
         <div className="flex flex-col justify-center w-full md:w-2/4">
-          <RowOfData label="Location of lose:" data="Sana'a" />
-          <RowOfData label="Lost since:" data="November 3, 2020" />
-          <RowOfData label="Age:" data="5" />
-          <RowOfData label="Notes:" data="Sana'a" />
+          <RowOfData label="Location of lose:" data={Data[1].locationOfLose} />
+          <RowOfData label="Lost since:" data={Data[1].lostSince} />
+          <RowOfData label="Age:" data={Data[1].age} />
+          <RowOfData label="Notes:" data={Data[1].notes} />
         </div>
 
         <div className="flex flex-col justify-center w-full md:w-2/4">
-          <RowOfData label="Last place seen:" data="Alsafiah" />
-          <RowOfData label="Last update:" data="November 3, 2020" />
-          <RowOfData label="Gender:" data="male" />
-          <RowOfData label="Special situation:" data="some infos" />
+          <RowOfData label="Last place seen:" data={Data[1].lastPlaceSeen} />
+          <RowOfData label="Last update:" data={Data[1].lastUpdate} />
+          <RowOfData label="Gender:" data={Data[1].gender} />
+          <RowOfData
+            label="Special situation:"
+            data={Data[1].specialSituation}
+          />
         </div>
       </div>
 
@@ -33,12 +37,12 @@ const MissedPersonOtherData = () => {
       </div>
       <div className="flex flex-col text-sm sm:flex-row lg:text-md mb-8 sm:mb-20">
         <div className="flex flex-col justify-center w-full md:w-2/4">
-          <RowOfData label="Name:" data="Einstein" />
-          <RowOfData label="Phone number:" data="777755555" />
+          <RowOfData label="Name:" data={Data[1].contactName} />
+          <RowOfData label="Phone number:" data={Data[1].phoneNumber} />
         </div>
         <div className="flex flex-col justify-center w-full md:w-2/4">
-          <RowOfData label="Realtionship:" data="father" />
-          <RowOfData label="Phone number 2:" data="777755555" />
+          <RowOfData label="Realtionship:" data={Data[1].realtionship} />
+          <RowOfData label="Phone number 2:" data={Data[1].phoneNumber2} />
         </div>
       </div>
     </div>
