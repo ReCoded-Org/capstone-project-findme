@@ -7,7 +7,7 @@ import MissingPersonCard from './MissingPersonCard';
 afterEach(cleanup);
 it('render without crashes ', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<MissingPersonCard />, div);
+  ReactDOM.render(<MissingPersonCard cardInfo={cardInfo}/>, div);
 });
 const cardInfo = {
   id: 2,
