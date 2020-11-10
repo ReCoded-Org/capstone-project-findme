@@ -37,7 +37,7 @@ const UploadImg = (props) => {
   
           <div className="absolute top-1/2 right-60  flex">
             <div className='mr'>
-              <label for="file-input">
+              <label htmlFor="file-input">
                 <img src={upload} width="25px" height="25px" className='cursor-pointer' />
               </label>
   
@@ -47,7 +47,7 @@ const UploadImg = (props) => {
           </div>
           <div className="absolute top-1/2 right-30  flex">
             <div className='mr'>
-              <label for="remove-input">
+              <label htmlFor="remove-input">
                 <img src={close} width="25px" height="25px" className='cursor-pointer' />
               </label>
               <input id="remove-input" onClick={resetFile}  type="button" className='hidden' />

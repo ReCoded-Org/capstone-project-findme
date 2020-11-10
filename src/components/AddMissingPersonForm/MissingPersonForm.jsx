@@ -350,7 +350,7 @@ const MissingPersonForm = () => {
             {/* Button  */}
             <div className="flex flex-wrap -mx-3 mb-5">
               <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0">
-                <p class="text-sm "> <span className='text-red-500'>*</span> marked fields are required</p>
+                <p className="text-sm "> <span className='text-red-500'>*</span> marked fields are required</p>
               </div>
               <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0 md:justify-end justify-center flex ">
                 <Button onClickMethod={resetForm} buttonName='Cancel' icon={cancel} type='reset'

@@ -57,7 +57,7 @@ exports[`renders snapshot 1 1`] = `
                 className="mr"
               >
                 <label
-                  for="file-input"
+                  htmlFor="file-input"
                 >
                   <img
                     className="cursor-pointer"
@@ -83,7 +83,7 @@ exports[`renders snapshot 1 1`] = `
                 className="mr"
               >
                 <label
-                  for="remove-input"
+                  htmlFor="remove-input"
                 >
                   <img
                     className="cursor-pointer"
@@ -985,7 +985,7 @@ exports[`renders snapshot 1 1`] = `
             className="w-full md:w-2/4 px-3 mb-6 md:mb-0"
           >
             <p
-              class="text-sm "
+              className="text-sm "
             >
                
               <span
