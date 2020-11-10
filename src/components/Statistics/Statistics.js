@@ -42,3 +42,5 @@ export const Statitics = (props) => {
     </section>
   );
 };
+
+export default Statitics;
