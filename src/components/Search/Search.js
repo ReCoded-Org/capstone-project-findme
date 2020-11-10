@@ -29,7 +29,6 @@ import ClearAllIcon from '@material-ui/icons/BackspaceOutlined';
 import SendIcon from '@material-ui/icons/Send';
 
 const CheckMissingPerson = (props) => {
-  console.log(props.checkMissingPerson);
   return (
     <FormControlLabel
       control={
@@ -39,7 +38,6 @@ const CheckMissingPerson = (props) => {
           color="primary"
           startIcon={<ClearAllIcon />}
           onChange={(e) => {
-            console.log(e.target.checked);
             props.handleCheck('isMissingPerson', e.target.checked);
           }}
         />
@@ -50,14 +48,12 @@ const CheckMissingPerson = (props) => {
 };
 
 const IfLookingForFamily = (props) => {
-  //   console.log(props.switchLookingForFamily);
   return (
     <FormControlLabel
       control={
         <Switch
           checked={props.switchLookingForFamily}
           onChange={(e) => {
-            console.log(e.target.value);
             props.handleSwitch('isLookingForFamily', e.target.checked);
           }}
           color="primary"
@@ -115,20 +111,14 @@ export const Search = () => {
     let targettedInput = {};
     targettedInput[name] = value;
 
-    console.log(searchInfo.isDataEntered);
-    // console.log(isObjectsEqual(searchInfo, searchObj));
     setSearchInfo({
       ...searchInfo,
       ...targettedInput,
       isDataEntered: targettedInput[name] !== searchObj[name] ? true : false,
     });
-    // console.log(Object.is(searchInfo, searchObj));
-    // console.log(searchInfo);
   };
 
   const clearAll = () => {
-    console.log(searchObj);
-    // console.log(searchInfo);
     setSearchInfo({
       id: '',
       missingName: '',
@@ -179,7 +169,6 @@ export const Search = () => {
                   options={places}
                   getOptionLabel={(option) => option.place}
                   onChange={function (e, inputValue) {
-                    console.log(inputValue.place);
                     handleUserInput('lastSeenAt', inputValue.place);
                   }}
                   renderInput={(params) => (
