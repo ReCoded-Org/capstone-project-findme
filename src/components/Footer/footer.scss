@@ -1,0 +1,13 @@
+@import '../../styles/main.css';
+
+// Color Footer 
+$footerColor : #0E1C4A;
+
+.footer{
+  background-color: $footerColor;
+}
+.icon{
+  width: 22px;
+  display: inline;
+}
+
