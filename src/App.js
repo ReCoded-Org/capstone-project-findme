@@ -2,6 +2,7 @@ import React from 'react';
 import './styles/main.css';
 
 import { Statitics } from './components/Statistics/Statistics';
+import { Search } from './components/Search/Search';
 import lensIcon from './images/lens.svg';
 import glassesIcon from './images/glasses.svg';
 import locationIcon from './images/location.svg';
@@ -30,7 +31,8 @@ function App() {
   ];
   return (
     <div className="App">
-      <Statitics info={info} />
+      {/* <Statitics info={info} /> */}
+      <Search />
     </div>
   );
 }
