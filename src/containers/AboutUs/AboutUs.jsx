@@ -4,7 +4,7 @@ import AboutUsSVG from './../../images/About Us.svg';
 
 import LinkedInIcon from './../../images/social/icon-linkedin.svg';
 import GitHubIcon from './../../images/social/icon-github.svg';
-import Website from './../../images/icons/icon-website.svg'
+import Website from './../../images/icons/icon-website.svg';
 
 const AboutUs = (props) => {
   return (

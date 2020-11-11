@@ -1,22 +1,44 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import Footer from '../containers/Home/FooterSection';
+import Navbar from '../components/navbar/NavBar';
+
+import AboutUsPage from '../pages/AboutUs.jsx';
+import Home from '../pages/Home';
+
+// const RouterPages = () => {
+//   return (
+//     <Router>
+//       <Switch>
+//         <Route path="/" exact component={Home} />
+//         {/*<Route path="/missing_people"  exact  component={''} />
+//                 <Route path="/missing_people_details"  exact  component={''} />
+//                 <Route path="/search" exact  component={''} />
+//                 <Route path="/add_post" exact  component={''} />
+//                  <Route path="/contact_us" exact component={''} />
+//            */}
+
+//         <Route path="/about_us" exact component={AboutUsPage} />
+//       </Switch>
+//     </Router>
+//   );
+// };
 const RouterPages = () => {
-
-    return (
-        <Router>
-            <Switch>
-                <Route path="/" exact  component={''} />
-                <Route path="/missing_people"  exact  component={''} />
-                <Route path="/missing_people_details"  exact  component={''} />
-                <Route path="/search" exact  component={''} />
-                <Route path="/add_post" exact  component={''} />
-                <Route path="/about_us" exact   component={''} />
-                <Route path="/contact_us" exact  component={''} />
-            </Switch>
-        </Router>
-    )
-
-}
-
-
-export default RouterPages
+  return (
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        {/* <Route path="/missing_people"  exact  component={''} /> */}
+        {/* <Route path="/missing_people_details"  exact  component={''} /> */}
+        {/* <Route path="/search" exact  component={''} /> */}
+        {/* <Route path="/add_post" exact  component={''} /> */}
+        <Route path="/about_us" component={AboutUsPage} />
+        {/* <Route path="/contact_us" exact  component={''} /> */}
+      </Switch>
+      <Footer />
+    </Router>
+  );
+};
+export default RouterPages;

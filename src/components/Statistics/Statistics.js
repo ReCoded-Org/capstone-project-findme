@@ -35,8 +35,8 @@ const FigureList = (props) => {
 };
 export const Statitics = (props) => {
   return (
-    <section>
-      <div className="bg-gray-100 lg:mx-16 md:mx-8 sm:mx-6 p-8 flex flex-col sm:flex-col md:flex-row space-y-24 md:space-y-0">
+    <section className="my-12">
+      <div className="lg:mx-16 md:mx-8 sm:mx-6 p-8 flex flex-col sm:flex-col md:flex-row space-y-24 md:space-y-0">
         <FigureList info={props.info} />
       </div>
     </section>
