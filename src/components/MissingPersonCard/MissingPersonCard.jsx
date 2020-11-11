@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import userImage from '../images/profile-svg.svg';
+import userImage from '../../images/profile-svg.svg';
+import { Link } from 'react-router-dom';
 
 const MissingPersonCard = ({ cardInfo, i }) => {
   const [footerCard, setfooterCard] = useState(0);
@@ -76,14 +77,14 @@ const MissingPersonCard = ({ cardInfo, i }) => {
               </p>
             </div>
             <div className=" ">
-              <a href="#">
+              <Link to="/missing_people_details">
                 <button
                   className="focus:outline-none
                 border-2 border-white font-semibold  hover:bg-blue-600 text-white py-2 px-4 mb-2 rounded-full"
                 >
                   More Details
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
-import MissingPersonCard from '../../components/MissingPersonCard';
+import MissingPersonCard from '../../components/MissingPersonCard/MissingPersonCard';
 import { ReactComponent as MyIcon } from './repeat-grid-4.svg';
 import Api from './api';
 import './style.css';

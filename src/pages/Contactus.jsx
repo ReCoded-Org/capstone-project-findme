@@ -7,10 +7,7 @@ import Footer from '../components/Footer/Footer';
 function ContactUsPage() {
   return (
     <div className="App bg-findMe">
-      <Navbar />
-      <hr />
       <ContactUsComponent />
-      <Footer />
     </div>
   );
 }

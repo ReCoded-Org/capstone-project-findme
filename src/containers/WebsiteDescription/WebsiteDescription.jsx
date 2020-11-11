@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../../components/Button/Button';
 import DescriptionImage from '../../images/undraw_web_search_eetr.svg';
 import SearchIcon from '../../images/Path.svg';
+import { Link } from 'react-router-dom';
 
 const WebsiteDescription = () => {
   return (
@@ -10,7 +11,7 @@ const WebsiteDescription = () => {
         <div>
           <h1 className="text-4xl">Lost Someone?</h1>
           <h4 className="text-3xl text-blue-500">
-            Search here to find him/here
+            Search here to find him/her
           </h4>
           <p>
             Our website is a service that connects lost people with anyone who
@@ -20,7 +21,9 @@ const WebsiteDescription = () => {
           </p>
         </div>
         <div className="flex justify-center mt-4 md:justify-end">
-          <Button buttonName="Find Me" icon={SearchIcon} />
+          <Link to="/missing_people">
+            <Button buttonName="Find Me" icon={SearchIcon} />
+          </Link>
         </div>
       </div>
       <div className="sm:w-2/5">

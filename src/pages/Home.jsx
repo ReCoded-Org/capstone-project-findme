@@ -10,7 +10,7 @@ import Statistics from '../components/Statistics/Statistics.js';
 import info from '../components/Statistics/data';
 
 // test pages
-// import C from '../pages/Contactus';
+import C from './PostMissingPerson';
 
 function Home() {
   return (

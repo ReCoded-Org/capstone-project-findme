@@ -6,11 +6,6 @@
  */
 
 import React from 'react';
-import SearchBackground from '../../images/searchBackground.svg';
-import { places } from './placesData';
-import { getCurrentDate, validateName } from './helpers';
-import useStyles from './custMUIStyle';
-import { getSearchInfo } from './searchInfo';
 
 /**
  * importing Material UI dependencies
@@ -27,6 +22,12 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
 import ClearAllIcon from '@material-ui/icons/BackspaceOutlined';
 import SendIcon from '@material-ui/icons/Send';
+
+import SearchBackground from '../../images/searchBackground.svg';
+import { places } from './placesData';
+import { getCurrentDate, validateName } from './helpers';
+import useStyles from './custMUIStyle';
+import { getSearchInfo } from './searchInfo';
 
 const CheckMissingPerson = (props) => {
   return (
@@ -90,7 +91,7 @@ const ChooseGender = (props) => {
   );
 };
 
-export const Search = () => {
+const Search = () => {
   const Classes = useStyles();
 
   const searchObj = {
@@ -261,3 +262,4 @@ export const Search = () => {
     </section>
   );
 };
+export default Search;

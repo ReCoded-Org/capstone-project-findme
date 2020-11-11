@@ -56,12 +56,12 @@ const Navbar = (props) => {
     >
       <div className="w-full sm:w-full xl:w-48 px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between xl:w-auto xl:static xl:block xl:justify-start">
-          <a href="#" className="p-2 mr-4 inline-flex items-center">
-            <img src={FindMeLogo} className="h-8 w-8" alt="find me logo"></img>
+          <Link to="/" className="p-2 mr-4 inline-flex items-center">
+            <img src={FindMeLogo} className="h-8 w-8" alt="find me logo" />
             <span className="text-xl text-black font-bold uppercase tracking-wide">
               Find Me
             </span>
-          </a>
+          </Link>
           <button
             className={`text-black inline-flex p-3 rounded xl:hidden ml-auto hover:text-white focus:outline-none outline-none nav-toggler items-center`}
             data-target="#navigation"
@@ -169,7 +169,7 @@ const Navbar = (props) => {
               </div>
             </li>
             <li className="mt-2 xl:mt-0">
-              <Link to="/search" className="hover:opacity-75">
+              <Link to="/missing_people" className="hover:opacity-75">
                 <button className="inline-flex xl:w-auto w-full mx-3 px-5 py-1 rounded-full items-center justify-center border-2 h-8 border-blue-400 text-blue-500 focus:outline-none hover:bg-opacity-75">
                   <img
                     src={SearchIcon}

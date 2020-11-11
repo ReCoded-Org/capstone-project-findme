@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import MissingPersonCard from '../../components/MissingPersonCard';
+import MissingPersonCard from '../../components/MissingPersonCard/MissingPersonCard';
 import Api from './api';
+import { Link } from 'react-router-dom';
 
 const HomePage = ({ missingPeople }) => {
   // storing api data in the state
@@ -18,9 +19,9 @@ const HomePage = ({ missingPeople }) => {
         ))}
       </div>
       <p className="mr-10 my-10 text-right text-blue-500">
-        <a href="#">
+        <Link to="/missing_people">
           <span className="">More Missing People &rarr;</span>
-        </a>
+        </Link>
       </p>
     </div>
   );

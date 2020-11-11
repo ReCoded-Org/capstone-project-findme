@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="container m-auto p-0  md:p-6   md:px-10 lg:px-24 ">
             <div className="  mb-8 p-2 w-full flex flex-wrap  pt-12">
               {/* About Section */}
-              <div className="relative  w-full h-full md:w-1/2 lg:w-1/2  px-12 md:pl-12">
+              <div className="relative  w-full h-full md:w-1/2 lg:w-1/2  px-12 md:pl-12 text-left">
                 <img
                   src={bg}
                   alt="bg"
@@ -30,7 +30,9 @@ const Footer = () => {
                   height="50%"
                   className="absolute right-0  p-8  pt-6 md:pt-1"
                 />
-                <h1 className="  text-white text-xl font-medium">About us</h1>
+                <h1 className="  text-white text-xl font-semibold ">
+                  About us
+                </h1>
                 <p className="  text-white ">
                   {' '}
                   Our website is a service that connects lost people with anyone
@@ -40,10 +42,10 @@ const Footer = () => {
                   that takes care of them.
                 </p>
               </div>
-              <div className="   w-full md:w-1/2 lg:w-1/2  md:pl-12 px-12    mt-4  md:mt-0">
+              <div className="   w-full md:w-1/2 lg:w-1/2  md:pl-12 px-12    mt-4  md:mt-0 text-left">
                 {/* links */}
-                <h3 className="text-white">links</h3>
-                <div className="flex pl-2">
+                <h3 className="text-white font-semibold">links</h3>
+                <div className="flex pl-2 ">
                   <div className="links  pr-10 ">
                     <LinkFooter pathLink="/" nameLink="Home" />
                     <LinkFooter
@@ -55,10 +57,6 @@ const Footer = () => {
                   <div className="links  ">
                     <LinkFooter pathLink="/search" nameLink="Search" />
                     <LinkFooter pathLink="/add_post" nameLink="Post" />
-                    <LinkFooter
-                      pathLink="/privacy_policy"
-                      nameLink="Privacy Policy"
-                    />
                   </div>
                 </div>
               </div>
@@ -66,7 +64,7 @@ const Footer = () => {
             {/* footerButton */}
             <div className=" mb-8 p-2 w-full flex flex-wrap mt-4 ">
               {/* Email */}
-              <div className=" w-full md:w-1/2 lg:w-1/2  md:pl-12 px-12 text-white">
+              <div className=" w-full md:w-1/2 lg:w-1/2  md:pl-12 px-12 text-white text-left">
                 <Icon
                   path="mailto:findme67@gmail.com"
                   srcName={email}
@@ -75,10 +73,12 @@ const Footer = () => {
                 findme67@gmail.com
               </div>
               {/* Social Media */}
-              <div className=" w-full  mt-4 md:w-1/2 md:mt-0 lg:w-1/2  md:pl-12  px-12 pr-0  ">
+              <div className=" w-full  mt-4 md:w-1/2 md:mt-0 lg:w-1/2  md:pl-12  px-12 pr-0 text-left ">
                 <p className="text-white uppercase	">
                   {' '}
-                  <span className="mr mr-3 md:mr-5">follow us : </span>
+                  <span className="mr mr-3 md:mr-5">
+                    follow us on social media:{' '}
+                  </span>
                   <Icon path="#" srcName={facebook} srcAlt="facebook" />
                   <Icon path="#" srcName={twitter} srcAlt="twitter" />
                   <Icon path="#" srcName={instagram} srcAlt="instagram" />
@@ -88,7 +88,7 @@ const Footer = () => {
             {/* copyRight */}
             <div className="  text-white p-3 text-center border-t-solid border-t border-t-gray-600">
               <p>
-                Desiged by Recoded &copy;2020 Alright are reseved to findme{' '}
+                Desiged by Recoded &copy; 2020 All rights are reserved to FindMe{' '}
               </p>
             </div>
           </div>
@@ -101,7 +101,7 @@ const LinkFooter = (props) => {
   return (
     <Link
       to={props.pathLink}
-      className="block text-white text-base hover:opacity-75 underline"
+      className="block text-white text-base hover:opacity-75 "
     >
       {props.nameLink}
     </Link>
