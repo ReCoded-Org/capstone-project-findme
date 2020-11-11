@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-// import './Statistics.scss';
+import './Statistics.scss';
 
 /**
  *
