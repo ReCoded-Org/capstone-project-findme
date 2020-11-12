@@ -5,6 +5,7 @@ import UploadImg from './upload'
 import { useForm, Form } from './useForm'
 import { Input, Select, Textarea, SwitchToggle, Button } from './FormControl'
 import * as employeeService from './storg'
+import firebase from '../../firebase'
 
 const MissingPersonForm = () => {
   
@@ -124,8 +125,12 @@ const MissingPersonForm = () => {
 
     if (validate()) {
       console.log( values)
-  
-      // resetForm()
+      firebase.firestore().collection("MissingPerson").add( values )
+      .then(()=>{
+          setValues(initialFValues)
+          alert("Your Mesaage was sent successfully.")
+      })     
+        resetForm()
     }
   }
 
