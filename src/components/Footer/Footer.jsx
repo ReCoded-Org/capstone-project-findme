@@ -17,7 +17,7 @@ import bg from '../../images/footer/bg.svg';
 const Footer = () => {
   return (
     <div>
-      <Router>
+      <>
         <div className="footer" data-testid="footer">
           <div className="container m-auto p-0  md:p-6   md:px-10 lg:px-24 ">
             <div className="  mb-8 p-2 w-full flex flex-wrap  pt-12">
@@ -55,7 +55,7 @@ const Footer = () => {
                     <LinkFooter pathLink="/about_us" nameLink="About" />
                   </div>
                   <div className="links  ">
-                    <LinkFooter pathLink="/search" nameLink="Search" />
+                    <LinkFooter pathLink="/missing_people" nameLink="Search" />
                     <LinkFooter pathLink="/add_post" nameLink="Post" />
                   </div>
                 </div>
@@ -93,7 +93,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </Router>
+      </>
     </div>
   );
 };

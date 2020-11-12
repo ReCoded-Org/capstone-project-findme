@@ -77,7 +77,7 @@ const Navbar = (props) => {
         } xl:flex flex-grow items-center`}
       >
         <ul className="flex flex-col xl:flex-row list-none xl:ml-auto items-start xl:items-center">
-          <Router>
+          <>
             <li className="mt-2 xl:mt-0">
               <Link
                 to="/"
@@ -192,7 +192,7 @@ const Navbar = (props) => {
                 </button>
               </Link>
             </li>
-          </Router>
+          </>
           {currentUser ? (
             <li className="mx-3 mt-2 xl:mt-0 flex items-center">
               <img

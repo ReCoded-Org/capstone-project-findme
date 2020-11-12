@@ -7,19 +7,19 @@ import locationIcon from '../../images/location.svg';
 const info = [
   {
     id: 1,
-    text: 'مشاهدة',
+    text: 'views',
     icon: glassesIcon,
     figure: 1250,
   },
   {
     id: 2,
-    text: 'شخص تم إيجاده',
+    text: 'successfully found',
     icon: lensIcon,
     figure: 16,
   },
   {
     id: 3,
-    text: 'مفقود',
+    text: 'lost',
     icon: locationIcon,
     figure: 240,
   },
