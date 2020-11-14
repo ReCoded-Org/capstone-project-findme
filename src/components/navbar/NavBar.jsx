@@ -52,7 +52,7 @@ const Navbar = (props) => {
   return (
     <nav
       data-testid="navbar"
-      className="relative flex flex-wrap items-center navbar-expand-lg bg-tail-300 py-3 px-8 shadow bg-white"
+      className="sticky top-0 z-50 w-full flex flex-wrap items-center navbar-expand-lg bg-tail-300 py-3 px-8 shadow bg-white"
     >
       <div className="w-full sm:w-full xl:w-48 px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between xl:w-auto xl:static xl:block xl:justify-start">
