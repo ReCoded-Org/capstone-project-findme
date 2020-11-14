@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import MissingPersonCard from '../../components/MissingPersonCard/MissingPersonCard';
-import Api from './api';
+//import Api from './api';
 import { Link } from 'react-router-dom';
+import useFirestore from '../../hooks/useFirestore'
 
 const HomePage = ({ missingPeople }) => {
+  const { docs } = useFirestore('images');
+
   // storing api data in the state
-  const [data, setData] = useState(Api);
+  const [data, setData] = useState(docs);
   console.log(data);
 
   return (
@@ -14,8 +17,11 @@ const HomePage = ({ missingPeople }) => {
         {missingPeople}
       </h2>
       <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row sm:flex-col sm:items-center">
-        {data.map((item, index) => (
+        {docs && docs.map((item, index) => (
+          index<4 ?
           <MissingPersonCard key={item.id} cardInfo={item} i={index} />
+          :
+          ''
         ))}
       </div>
       <p className="mr-10 my-10 text-right text-blue-500">
