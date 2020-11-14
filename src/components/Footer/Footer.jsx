@@ -13,8 +13,13 @@ import facebook from '../../images/footer/facebook.svg';
 import instagram from '../../images/footer/instagram.svg';
 import bg from '../../images/footer/bg.svg';
 
+import {useTranslation} from "react-i18next";
+
+
 // Footer Section
 const Footer = () => {
+  // Translation
+  const [t, i18n] = useTranslation('common');
   return (
     <div>
       <>
@@ -31,32 +36,28 @@ const Footer = () => {
                   className="absolute right-0  p-8  pt-6 md:pt-1"
                 />
                 <h1 className="  text-white text-xl font-semibold ">
-                  About us
+                {t('translation.aboutUs')}
                 </h1>
                 <p className="  text-white ">
                   {' '}
-                  Our website is a service that connects lost people with anyone
-                  who is looking for them. We have two scenarios on our website
-                  of loss, the first type is a lost person and the other type is
-                  people who are found but missing their relatives or anyone
-                  that takes care of them.
+                  {t('translation.footerWebsiteBrief')}
                 </p>
               </div>
               <div className="   w-full md:w-1/2 lg:w-1/2  md:pl-12 px-12    mt-4  md:mt-0 text-left">
                 {/* links */}
-                <h3 className="text-white font-semibold">links</h3>
+                <h3 className="text-white font-semibold">{t('translation.links')}</h3>
                 <div className="flex pl-2 ">
                   <div className="links  pr-10 ">
-                    <LinkFooter pathLink="/" nameLink="Home" />
+                    <LinkFooter pathLink="/" nameLink={t('translation.home')} />
                     <LinkFooter
                       pathLink="/missing_people"
-                      nameLink="Missingpeople"
+                      nameLink={t('translation.missingPeople')}
                     />
-                    <LinkFooter pathLink="/about_us" nameLink="About" />
+                    <LinkFooter pathLink="/about_us" nameLink={t('translation.aboutUs')} />
                   </div>
                   <div className="links  ">
-                    <LinkFooter pathLink="/missing_people" nameLink="Search" />
-                    <LinkFooter pathLink="/add_post" nameLink="Post" />
+                    <LinkFooter pathLink="/missing_people" nameLink={t('translation.search')} />
+                    <LinkFooter pathLink="/add_post" nameLink={t('translation.post')} />
                   </div>
                 </div>
               </div>
@@ -77,7 +78,7 @@ const Footer = () => {
                 <p className="text-white uppercase	">
                   {' '}
                   <span className="mr mr-3 md:mr-5">
-                    follow us on social media:{' '}
+                  {t('translation.followUs')}:{' '}
                   </span>
                   <Icon path="#" srcName={facebook} srcAlt="facebook" />
                   <Icon path="#" srcName={twitter} srcAlt="twitter" />

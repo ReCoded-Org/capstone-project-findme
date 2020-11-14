@@ -5,6 +5,8 @@ import UploadImg from './upload';
 import { useForm, Form } from './useForm';
 import { Input, Select, Textarea, SwitchToggle, Button } from './FormControl';
 import * as employeeService from './storg';
+import {useTranslation} from "react-i18next";
+
 
 const MissingPersonForm = () => {
   const initialFValues = {
@@ -146,13 +148,16 @@ const MissingPersonForm = () => {
     }
   };
 
+  // Translation
+  const [t, i18n] = useTranslation('common');
+  
   return (
     <div className="bg-white shadow-md  rounded-3xl m-5">
       <div className="flex xs:block sm:block md:flex xl:flex mb-6">
         <div className="w-1/4 p-2  text-center hidden md:block  "></div>
         <div className="w-3/4 p-2  text-center md:text-left  ">
           <Icon srcName={arrow} srcAlt="left-arrow" />
-          <Title title="Add A Missing Person" />
+          <Title title={t('translation.addAMissingPerson')} />
         </div>
       </div>
       <Form onSubmit={handleSubmit}>
@@ -167,7 +172,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="fristName"
-                  label="Frist Name"
+                  label={t('translation.firstName')}
                   type="text"
                   value={values.fristName}
                   onChange={handleInputChange}
@@ -179,7 +184,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={false}
                   name="secondName"
-                  label="Second Name"
+                  label={t('translation.secondName')}
                   type="text"
                   value={values.secondName}
                   onChange={handleInputChange}
@@ -190,7 +195,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={false}
                   name="thirdName"
-                  label="Third Name"
+                  label={t('translation.thirdName')}
                   type="text"
                   value={values.thirdName}
                   onChange={handleInputChange}
@@ -201,7 +206,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="surname"
-                  label="Surname"
+                  label={t('translation.surname')}
                   type="text"
                   value={values.surname}
                   onChange={handleInputChange}
@@ -215,7 +220,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="phoneNumber"
-                  label="Phone Number"
+                  label={t('translation.phoneNumber')}
                   type="tel"
                   value={values.phoneNumber}
                   onChange={handleInputChange}
@@ -226,7 +231,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={false}
                   name="phoneNumber2"
-                  label="phone Number"
+                  label={t('translation.phoneNumber2')}
                   type="tel"
                   value={values.phoneNumber2}
                   onChange={handleInputChange}
@@ -235,13 +240,13 @@ const MissingPersonForm = () => {
               </div>
               <div className="w-full md:w-4/4 lg:w-2/4 p-2 mb-6 md:mb-0 pt-4">
                 <div className="inline">
-                  Missing Person
+                {t('translation.missingPerson')}
                   <SwitchToggle
                     name="isLookingFor"
                     checked={values.isLookingFor}
                     onChange={handleInputChange}
                   />
-                  Looking for family
+                  {t('translation.lookingForFamily')}
                 </div>
               </div>
             </div>
@@ -251,7 +256,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="locationOfLoss"
-                  label="Location Of Loss"
+                  label={t('translation.locationOfLoss')}
                   type="text"
                   value={values.locationOfLoss}
                   onChange={handleInputChange}
@@ -262,7 +267,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="lostSince"
-                  label="Lost Since"
+                  label={t('translation.lostSince')}
                   type="date"
                   value={values.lostSince}
                   onChange={handleInputChange}
@@ -274,7 +279,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="lastPlaceSeen"
-                  label="Last Place Seen"
+                  label={t('translation.lastPlaceSeen')}
                   type="text"
                   value={values.lastPlaceSeen}
                   onChange={handleInputChange}
@@ -285,7 +290,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={false}
                   name="lastUpdate"
-                  label="Last Update"
+                  label={t('translation.lastUpdate')}
                   type="text"
                   value={values.lastUpdate}
                   onChange={handleInputChange}
@@ -299,7 +304,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={false}
                   name="age"
-                  label="Age"
+                  label={t('translation.age')}
                   type="number"
                   value={values.age}
                   onChange={handleInputChange}
@@ -309,7 +314,7 @@ const MissingPersonForm = () => {
               <div className="w-full md:w-2/4 lg:w-1/4  p-2 mb-6 md:mb-0">
                 <Select
                   name="gender"
-                  label="gender"
+                  label={t('translation.gender')}
                   value={values.gender}
                   onChange={handleInputChange}
                   InputLabelProps={{ shrink: true }}
@@ -319,7 +324,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="relationship"
-                  label="Relationship"
+                  label={t('translation.relationship')}
                   type="text"
                   value={values.relationship}
                   onChange={handleInputChange}
@@ -330,7 +335,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={false}
                   name="job"
-                  label="Job"
+                  label={t('translation.job')}
                   type="text"
                   value={values.job}
                   onChange={handleInputChange}
@@ -343,7 +348,7 @@ const MissingPersonForm = () => {
               <div className="w-full md:w-2/4 p-2 mb-6 md:mb-0">
                 <Textarea
                   name="notes"
-                  label="Notes"
+                  label={t('translation.notes')}
                   value={values.notes}
                   onChange={handleInputChange}
                 />
@@ -351,7 +356,7 @@ const MissingPersonForm = () => {
               <div className="w-full md:w-2/4 p-2 mb-6 md:mb-0">
                 <Textarea
                   name="specialSituotion"
-                  label="Special Situotion"
+                  label={t('translation.specialSituation')}
                   value={values.specialSituotion}
                   onChange={handleInputChange}
                 />
@@ -362,20 +367,19 @@ const MissingPersonForm = () => {
               <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0 text-left">
                 <p className="text-sm ">
                   {' '}
-                  <span className="text-red-500">*</span> marked fields are
-                  required
+                  <span className="text-red-500">*</span> {t('translation.markedFieldsAreRequired')}
                 </p>
               </div>
               <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0 md:justify-end justify-center flex ">
                 <Button
                   onClickMethod={resetForm}
-                  buttonName="Cancel"
+                  buttonName={t('translation.cancel')}
                   icon={cancel}
                   type="reset"
                   nameClass="rounded-full w-32 h-10 bg-white text-gray-700  border border-gray-700 border-solid"
                 />
                 <Button
-                  buttonName="Save"
+                  buttonName={t('translation.save')}
                   icon={save}
                   type="submit"
                   nameClass="rounded-full w-32 h-10 bg-gradient-to-r from-blue-400 to-blue-700 text-white "

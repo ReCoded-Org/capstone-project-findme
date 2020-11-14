@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import './styles/main.css';
 import RouterPage from './router/RouterPages';
 
@@ -21,9 +21,11 @@ import Navbar from './components/navbar/NavBar';
 
 function App() {
   return (
-    <div className="App bg-findMe">
-      <RouterPage />
-    </div>
+    <Suspense fallback="loading">
+      <div className="App bg-findMe">
+        <RouterPage />
+      </div>
+    </Suspense>
   );
 }
 

@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import userImage from '../../images/profile-svg.svg';
 import { Link } from 'react-router-dom';
 
+import {useTranslation} from "react-i18next";
+
+
 const MissingPersonCard = ({ cardInfo, i }) => {
   const [footerCard, setfooterCard] = useState(0);
+
+  const [t, i18n] = useTranslation('common');
 
   const beforeHover = (
     <div
@@ -15,7 +20,7 @@ const MissingPersonCard = ({ cardInfo, i }) => {
         <div className="relative">
           {cardInfo.lostFamily ? (
             <span className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8">
-              Found
+            Found
             </span>
           ) : (
             <span className="absolute inline-block pr-4 pl-10 py-2 font-bold md:pr-2 md:pl-5 md:py-1 lg:pl-8 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8">
@@ -32,7 +37,7 @@ const MissingPersonCard = ({ cardInfo, i }) => {
         </div>
         <div className="px-6 py-4 text-left">
           <div className="font-bold text-xl mb-2">{cardInfo.userName}</div>
-          <p className="text-base font-light">{`Lost since: ${cardInfo.lostSince}`}</p>
+          <p className="text-base font-light">{t('translation.lostSince')}{`${cardInfo.lostSince}`}</p>
         </div>
       </div>
     </div>
@@ -58,8 +63,8 @@ const MissingPersonCard = ({ cardInfo, i }) => {
             {cardInfo.description}
           </p>
           <div className="absolute bottom-0 ml-8 mb-2 md:text-xs md:ml-2 md:mb-1 lg:text-base lg:ml-8 lg:mb-2">
-            <span className="mr-8 md:mr-2 lg:mr-8">Age: {cardInfo.age}</span>
-            <span>Location: Sana'a</span>
+            <span className="mr-8 md:mr-2 lg:mr-8">{t('translation.age')}: {cardInfo.age}</span>
+            <span>{t('translation.location')}: Sana'a</span>
           </div>
           <img
             className="opacity-25 cursor-pointer h-64"
@@ -73,7 +78,7 @@ const MissingPersonCard = ({ cardInfo, i }) => {
           <div className="flex justify-between md:flex-col lg:flex-row xl:flex-row bg-blue-700 ">
             <div className="items-center mt-2">
               <p className="md:mb-2 mx-4 font-semibold">
-                {cardInfo.views} views
+                {cardInfo.views} {t('translation.statisticsSeens')}
               </p>
             </div>
             <div className=" ">
@@ -82,7 +87,7 @@ const MissingPersonCard = ({ cardInfo, i }) => {
                   className="focus:outline-none
                 border-2 border-white font-semibold  hover:bg-blue-600 text-white py-2 px-4 mb-2 rounded-full"
                 >
-                  More Details
+                {t('translation.moreDetails')}
                 </button>
               </Link>
             </div>

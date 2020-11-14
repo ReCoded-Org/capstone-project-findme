@@ -29,7 +29,12 @@ import { getCurrentDate, validateName } from './helpers';
 import useStyles from './custMUIStyle';
 import { getSearchInfo } from './searchInfo';
 
+import {useTranslation} from "react-i18next";
+
+
 const CheckMissingPerson = (props) => {
+  const [t, i18n] = useTranslation('common');
+
   return (
     <FormControlLabel
       control={
@@ -43,12 +48,14 @@ const CheckMissingPerson = (props) => {
           }}
         />
       }
-      label="Missing Person"
+      label={t('translation.missingPerson')}
     />
   );
 };
 
 const IfLookingForFamily = (props) => {
+  const [t, i18n] = useTranslation('common');
+
   return (
     <FormControlLabel
       control={
@@ -62,7 +69,7 @@ const IfLookingForFamily = (props) => {
           inputProps={{ 'aria-label': 'primary checkbox' }}
         />
       }
-      label="Looking for family"
+      label={t('translation.lookingForFamily')}
     />
   );
 };
@@ -70,9 +77,11 @@ const IfLookingForFamily = (props) => {
 const ChooseGender = (props) => {
   const [gender, setGender] = React.useState('m');
   const Classes = useStyles();
+  const [t, i18n] = useTranslation('common');
+
   return (
     <FormControl variant="outlined" className={Classes.genderInput}>
-      <InputLabel id="">Gender</InputLabel>
+      <InputLabel id="">{t('translation.gender')}</InputLabel>
       <Select
         labelId=""
         id=""
@@ -81,11 +90,11 @@ const ChooseGender = (props) => {
         onChange={function (value) {
           props.handleChange('gender', value.target.value);
         }}
-        label="Gender"
+        label={t('translation.gender')}
       >
-        <MenuItem value="m">Male</MenuItem>
-        <MenuItem value="f">Female</MenuItem>
-        <MenuItem value="n">Not to say</MenuItem>
+        <MenuItem value="m">{t('translation.male')}</MenuItem>
+        <MenuItem value="f">{t('translation.female')}</MenuItem>
+        <MenuItem value="n">{t('translation.notToSay')}</MenuItem>
       </Select>
     </FormControl>
   );
@@ -133,6 +142,9 @@ const Search = () => {
     });
   };
 
+  // Translation
+  const [t, i18n] = useTranslation('common');
+
   return (
     <section>
       <div className="bg-gray-200" id="search-container">
@@ -175,7 +187,7 @@ const Search = () => {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="Last seen at"
+                      label={t('translation.lastSeenAt')}
                       variant="outlined"
                     />
                   )}
@@ -192,7 +204,7 @@ const Search = () => {
                   id=""
                   className={Classes.customInput}
                   value={searchInfo.age}
-                  label="Age"
+                  label={t('translation.age')}
                   type="number"
                   variant="outlined"
                   onChange={(value) => {
@@ -207,7 +219,7 @@ const Search = () => {
                 required
                 className={Classes.nameInput}
                 value={searchInfo.missingName}
-                label="Name"
+                label={t('translation.name')}
                 type="text"
                 variant="outlined"
                 onChange={(value) => {
@@ -237,7 +249,7 @@ const Search = () => {
                     endIcon={<ClearAllIcon />}
                     onClick={() => clearAll()}
                   >
-                    Clear
+                  {t('translation.clear')}
                   </Button>
                 </div>
                 <div className="p-2">
@@ -251,7 +263,7 @@ const Search = () => {
                       getSearchInfo({ ...searchInfo });
                     }}
                   >
-                    Send
+                  {t('translation.send')}
                   </Button>
                 </div>
               </div>

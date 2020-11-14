@@ -16,6 +16,10 @@ import Language from '../../images/icons/icon-language.svg';
 import User from '../../images/icons/icon-user.svg';
 import SignOut from '../../images/icons/icon-signout.svg';
 
+// the translation function 
+import {useTranslation} from "react-i18next";
+
+
 const Navbar = (props) => {
   // user confign for Sign in wth Google
   const [currentUser, setCurrentUser] = React.useState(null);
@@ -36,6 +40,9 @@ const Navbar = (props) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   // Controlling the state of the Language menu
   const [menuOpen, setMenuOpen] = React.useState(false);
+
+    // Translation
+    const [t, i18n] = useTranslation('common');
 
   // Closing Lnguage menu in resize events
   React.useEffect(() => {
@@ -59,7 +66,7 @@ const Navbar = (props) => {
           <Link to="/" className="p-2 mr-4 inline-flex items-center">
             <img src={FindMeLogo} className="h-8 w-8" alt="find me logo" />
             <span className="text-xl text-black font-bold uppercase tracking-wide">
-              Find Me
+            {t('translation.findMeButton')}
             </span>
           </Link>
           <button
@@ -83,7 +90,7 @@ const Navbar = (props) => {
                 to="/"
                 className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
               >
-                <span>Home</span>
+                <span>{t('translation.home')}</span>
               </Link>
             </li>
             <li className="mt-2 xl:mt-0">
@@ -91,7 +98,7 @@ const Navbar = (props) => {
                 to="/missing_people"
                 className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
               >
-                <span>Missing People</span>
+                <span>{t('translation.missingPeople')}</span>
               </Link>
             </li>
             <li className="mt-2 xl:mt-0">
@@ -99,7 +106,7 @@ const Navbar = (props) => {
                 to="/about_us"
                 className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
               >
-                <span>About Us</span>
+                <span>{t('translation.aboutUs')}</span>
               </Link>
             </li>
             <li className="mt-2 xl:mt-0">
@@ -107,7 +114,7 @@ const Navbar = (props) => {
                 to="/contact_us"
                 className="xl:inline-flex xl:w-auto w-full px-3 py-1 rounded-full text-black items-center justify-center hover:text-blue-600"
               >
-                <span>Contact Us</span>
+                <span>{t('translation.contactUs')}</span>
               </Link>
             </li>
             <li className="mt-2 xl:mt-0">
@@ -149,20 +156,20 @@ const Navbar = (props) => {
                       aria-orientation="vertical"
                       aria-labelledby="options-menu"
                     >
-                      <a
-                        href="#"
+                      <button
                         className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                         role="menuitem"
+                        onClick={() => i18n.changeLanguage('en')}
                       >
                         English
-                      </a>
-                      <a
-                        href="#"
+                      </button>
+                      <button
                         className="block px-4 py-2 text-sm leading-5 text-gray-700 text-right hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                         role="menuitem"
+                        onClick={() => i18n.changeLanguage('ar')}
                       >
                         عربي
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -176,7 +183,7 @@ const Navbar = (props) => {
                     alt="search icon"
                     className="pr-5 h-5 "
                   />
-                  Search
+                  {t('translation.search')}
                 </button>
               </Link>
             </li>
@@ -216,7 +223,7 @@ const Navbar = (props) => {
                 className="inline-flex xl:w-auto w-full mx-3 xl:px-3 py-1 rounded-full text-blue-600 items-center justify-center focus:outline-none hover:opacity-75"
               >
                 <img src={GoogleIcon} alt="google icon" className="pr-2 h-5" />
-                Sign in with Google
+                {t('translation.signInWithGoogle')}
               </button>
             </li>
           )}

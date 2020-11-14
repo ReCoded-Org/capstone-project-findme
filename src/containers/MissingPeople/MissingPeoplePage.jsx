@@ -7,6 +7,9 @@ import './style.css';
 import NiceButton from '../../components/LoadingButton/NiceButton';
 import '../../components/LoadingButton/style.css';
 
+import {useTranslation} from "react-i18next";
+
+
 const MissingPeoplePage = () => {
   const ITEMSTOSHOW = 8;
 
@@ -51,6 +54,7 @@ const MissingPeoplePage = () => {
     clearTimeout();
     // buttonTextRef.current = '⬇ Show More';
   };
+  const [t, i18n] = useTranslation('common');
 
   return (
     <div>
@@ -81,7 +85,7 @@ const MissingPeoplePage = () => {
               showMoreItemsClick();
             }}
           >
-            ⬇ Show More
+            ⬇ {t('translation.showMore')}
           </NiceButton>
         )}
       </div>

@@ -3,10 +3,16 @@ import MissingPersonCard from '../../components/MissingPersonCard/MissingPersonC
 import Api from './api';
 import { Link } from 'react-router-dom';
 
+import {useTranslation} from "react-i18next";
+
+
 const HomePage = ({ missingPeople }) => {
   // storing api data in the state
   const [data, setData] = useState(Api);
   console.log(data);
+
+  // Translation
+  const [t, i18n] = useTranslation('common');
 
   return (
     <div className="">
@@ -20,7 +26,7 @@ const HomePage = ({ missingPeople }) => {
       </div>
       <p className="mr-10 my-10 text-right text-blue-500">
         <Link to="/missing_people">
-          <span className="">More Missing People &rarr;</span>
+          <span className="">{t('translation.moreMissingPeopleLink')} &larr;</span>
         </Link>
       </p>
     </div>
