@@ -76,7 +76,7 @@ const Navbar = (props) => {
           navbarOpen ? 'flex' : 'hidden'
         } xl:flex flex-grow items-center`}
       >
-        <ul className="flex flex-col xl:flex-row list-none xl:ml-auto items-start xl:items-center">
+        <ul className="ml-10 xl:ml-0 flex flex-col xl:flex-row list-none xl:ml-auto items-start xl:items-center">
           <>
             <li className="mt-2 xl:mt-0">
               <Link
