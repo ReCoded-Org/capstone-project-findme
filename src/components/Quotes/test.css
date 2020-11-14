@@ -1,53 +1,49 @@
-*:focus {
-  outline: none !important;
+button.bTybGL {
+    border-radius: 0px;
+    background-size: cover;
+    box-shadow: 0 0 2px 0 transparent;
+    outline: transparent;
+    color: white;
+    background-color: transparent;
 }
 
-button.chowzb {
-  border-radius: 0px;
-  background-size: cover;
-  box-shadow: 0 0 2px 0 transparent;
-  outline: transparent;
-  color: white;
-  background-color: transparent;
+button.kyJvRZ:disabled {
+    background-color: transparent;
+    color: rgb(78, 78, 78);
+    outline: transparent;
+    box-shadow: 0 0 2px 0 transparent;
+    border-color: transparent;
+    z-index: 1;
 }
 
-button.hCVuYx:disabled {
-  background-color: transparent;
-  color: rgb(78, 78, 78);
-  outline: transparent;
-  box-shadow: 0 0 2px 0 transparent;
-  border-color: transparent;
-  z-index: 1;
+button.bTybGL.rec-arrow-right {
+    background-image: url(../../../src/images/Rectangle2.svg);
+    z-index: 1;
 }
 
-button.chowzb.rec-arrow-right {
-  background-image: url(../../../src/images/Rectangle2.svg);
-  z-index: 1;
+button.bTybGL.rec-arrow-left {
+    background-image: url(../../../src/images/Rectangle1.svg);
+    z-index: 1;
 }
 
-button.chowzb.rec-arrow-left {
-  background-image: url(../../../src/images/Rectangle1.svg);
-  z-index: 1;
+button.bTybGL:hover:enabled,
+button.bTybGL:focus:enabled {
+    border-radius: 0px;
+    background-color: transparent;
+    box-shadow: 0 0 2px 0 transparent;
+    border-color: white;
+    outline: transparent;
+    border: none;
 }
 
-button.chowzb:hover:enabled,
-button.chowzb:focus:enabled {
-  border-radius: 0px;
-  background-color: transparent;
-  box-shadow: 0 0 2px 0 transparent;
-  border-color: white;
-  outline: transparent;
-  border: none;
+button.DIuaA {
+    background-color: #1035ef;
+    box-shadow: 0 0 1px 2px #138def;
+    margin-top: 5%;
 }
 
-button.brcpxa {
-  background-color: #1035ef;
-  box-shadow: 0 0 1px 2px #138def;
-  margin-top: 5%;
-}
-
-button.brcpxa:hover,
-button.brcpxa:focus {
-  background-color: #138def;
-  box-shadow: 0 0 1px 2px #1035ef;
+button.DIuaA:hover,
+button.DIuaA:focus {
+    background-color: #138def;
+    box-shadow: 0 0 1px 2px #1035ef;
 }
