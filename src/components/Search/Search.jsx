@@ -28,7 +28,7 @@ import { places } from './placesData';
 import { getCurrentDate, validateName } from './helpers';
 import useStyles from './custMUIStyle';
 import { getSearchInfo } from './searchInfo';
-import useFirestore from '../../hooks/useFirestore'
+//import useFirestore from '../../hooks/useFirestore'
 const CheckMissingPerson = (props) => {
 
   return (

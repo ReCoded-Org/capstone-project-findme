@@ -21,8 +21,7 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
   const [isSecondButtonLoading, setIsSecondButtonLoading] = useState(false);
   const [loadingSpeed, setLoadingSpeed] = useState(1);
   const dynamicSearch =(entered)=>{
-    //isLookingFor
-//              item.values.fristName.toLowerCase().includes(searchInfo.missingName.toLowerCase())
+
     if (searchInfo.goneMissingOn===getCurrentDate()&& !entered.isLookingForFamily  )
      return docs.filter(name=> name.values.fristName.toLowerCase().includes(entered.missingName.toLowerCase()))
     else if (searchInfo.goneMissingOn===getCurrentDate()&& entered.isLookingForFamily)
@@ -40,8 +39,7 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
       
     })
     
-     // setMatched(save.values.fristName.toLowerCase().includes(entered.missingName.toLowerCase()))
-      //return matched;
+    
     }
   useEffect(() => {
     if (isSecondButtonLoading) {
@@ -107,7 +105,6 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
                 >
               <MissingPersonCard key={item.id}  id={item.id} cardInfo={item} i={index} />
               </Link>
-//              item.values.fristName.toLowerCase().includes(searchInfo.missingName.toLowerCase())
 
                  )     )
                   
@@ -174,37 +171,3 @@ const scrollButtonStyle = {
 // const scrollButtonTransition = {
 //   right: '20px',
 // };
-const searchFun =(item, searchdata)=>{
-  if (searchdata.missingName!=='' && searchdata.lastSeenAt===''&&searchdata.goneMissingOn===getCurrentDate())
-    return 'nameSearch'
-    else if (searchdata.missingName!=='' && searchdata.lastSeenAt!==''&&searchdata.goneMissingOn===getCurrentDate())
-    return 'namePlace'
-    else if (searchdata.missingName!=='' && searchdata.lastSeenAt!==''&&searchdata.goneMissingOn!==getCurrentDate())
-    return 'namePlaceDate'
-    else if (searchdata.missingName!=='' && searchdata.lastSeenAt===''&&searchdata.goneMissingOn!==getCurrentDate())
-    return 'nameDate'
-    else if (searchdata.missingName==='' && searchdata.lastSeenAt===''&&searchdata.goneMissingOn!==getCurrentDate())
-    return 'Date'
-}
-/* :
-                  searchFun(item, searchInfo)==='nameDate'?( 
-                  item.values.fristName===searchInfo.missingName && item.values.lostSince===searchInfo.goneMissingOn?
-                  <Link key={item.id}
-                  to={`/missing_people_details/${item.id}`}
-                    >
-                  <MissingPersonCard key={item.id}  id={item.id} cardInfo={item} i={index} />
-                  </Link>:
-                  ''
-                )
-                :
-                    searchFun(item, searchInfo)==='Date'?( 
-                     item.values.lastSeenAt===searchInfo.goneMissingOn?
-                    <Link key={item.id}
-                    to={`/missing_people_details/${item.id}`}
-                      >
-                    <MissingPersonCard key={item.id}  id={item.id} cardInfo={item} i={index} />
-                    </Link>:
-                    ''
-                  )*/
-                  
-                  
