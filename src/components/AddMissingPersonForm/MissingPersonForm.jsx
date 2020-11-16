@@ -1,16 +1,99 @@
 import React, { useState, useEffect } from 'react';
 import './MissingPersonForm.scss';
 import { arrow, save, cancel } from './ImportImg';
-import UploadImg from './upload';
+//import UploadImg from './UploadImg';
 import { useForm, Form } from './useForm';
 import { Input, Select, Textarea, SwitchToggle, Button } from './FormControl';
+
 import * as employeeService from './storg';
 import {useTranslation} from "react-i18next";
 
 
+
+//import useStorage from '../../hooks/useStorage';
+import { projectStorage, projectFirestore, timestamp } from '../../firebase';
+//import {profile} from '../../images/profile.png'
+import { close ,upload} from './ImportImg'
+//import ProgressBar from './ProgressBar'
+//import {image} from './UploadImg'
+
 const MissingPersonForm = () => {
+  const [error, setError] = useState(null);
+  const [url, setUrl] = useState(null);
+  const initialState = { alt: "", src: "" };
+
+  const [{ alt, src }, setPreview] = React.useState(initialState);
+  const [image, setImage] = useState({});
+
+  const fileHandler = event => {
+    const { files  } = event.target;
+    if (files){
+    setImage(files[0])
+    }
+
+        setPreview(
+      files.length
+        ? {
+            src: URL.createObjectURL(files[0]),
+            alt: files[0].name
+
+          }
+        : initialState
+    );
+     
+    }
+
+  
+  const  resetFile = () =>{
+    setImage({});
+    setUrl(null);
+    setPreview(
+      initialState
+     );
+  }
+  
+const handleUpload= ()=>{
+  if (image.name=== undefined)
+    {
+      const collectionRef = projectFirestore.collection('images');
+      const url = 'https://firebasestorage.googleapis.com/v0/b/findme-949ec.appspot.com/o/blank-profile-picture-973460_640.png?alt=media&token=5d1192d1-7ec9-419a-a510-ff5a046d6f36';
+      const createdAt = timestamp();
+        collectionRef.add({ url, createdAt , values
+       }).then(() => {
+          setValues(initialFValues);
+          resetFile();
+          alert('Your Post was sent successfully.');
+      });
+    resetForm();
+     
+  }
+   // references
+   else{
+   const storageRef = projectStorage.ref(image.name);
+   const collectionRef = projectFirestore.collection('images');
+   
+   storageRef.put(image).on('state_changed', (snap) => {},
+   (err) => {
+    setError(err);
+  }, async () => {
+      const url = await storageRef.getDownloadURL();
+      const createdAt = timestamp();
+      await collectionRef.add({ url, createdAt , values
+  }).then(() => {
+      setValues(initialFValues);
+      resetFile();
+      alert('Your Post was sent successfully.');
+    });
+  resetForm();
+  });}
+  //else {
+    //alert ('You have to enter a valid image');
+  //}
+  
+  
+}
+
   const initialFValues = {
-    id: 0,
     fristName: '',
     secondName: '',
     thirdName: '',
@@ -28,10 +111,8 @@ const MissingPersonForm = () => {
     notes: '',
     specialSituotion: '',
     isLookingFor: false,
-    img: '',
   };
 
-  console.log('img' + initialFValues.img);
 
   const validate = (fieldValues = values) => {
     let temp = { ...errors };
@@ -137,14 +218,17 @@ const MissingPersonForm = () => {
     handleInputChange,
     resetForm,
   } = useForm(initialFValues, true, validate);
+  
 
   const handleSubmit = (e) => {
+    //console.log(image.name);
     e.preventDefault();
 
     if (validate()) {
-      console.log(values);
+      //console.log(values);
+      handleUpload();
 
-      // resetForm()
+       // resetForm()
     }
   };
 
@@ -163,8 +247,33 @@ const MissingPersonForm = () => {
       <Form onSubmit={handleSubmit}>
         <div className="flex xs:block sm:block md:flex xl:flex">
           <div className=" p-2 xs:w-full sm:w-full md:w-1/4   text-center     ">
-            <UploadImg name="img" onChange={handleInputChange} />
+          <div className=" inline-block shadow-sm   ">
+        <div className=" relative p-0  overflow-hidden w-56 h-56 md:w-40 md:h-40  lg:w-56 lg:h-56 border border-solid border-gray-500 
+       rounded-full max-w-full"  type="file">
+  
+          <img className="rounded-full w-full h-full  " src={src} alt={alt} />
+  
+          <div className="absolute top-1/2 right-60  flex">
+            <div className='mr'>
+              <label htmlFor="file-input">
+                <img src={upload} width="25px" height="25px" className='cursor-pointer' />
+              </label>
+  
+              <input type="file" onChange={fileHandler} accept="image/*" id="file-input"  name='img' className='hidden'  />
+            </div>
+  
           </div>
+          <div className="absolute top-1/2 right-30  flex">
+            <div className='mr'>
+              <label htmlFor="remove-input">
+                <img src={close} width="25px" height="25px" className='cursor-pointer' />
+              </label>
+              <input id="remove-input" onClick={resetFile}  type="button" className='hidden' />
+            </div>
+  
+          </div>
+        </div>
+      </div>          </div>
           <div className="md:w-3/4 p-4  sm:w-full ">
             {/* First Name , Second Name ,Third Name ,Surname*/}
             <div className="flex flex-wrap -mx-3 mb-5">
