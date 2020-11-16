@@ -7,7 +7,6 @@ const MissingPeople = () => {
   return (
     <div className="App bg-findMe">
       <Search />
-      <MissingPeoplePage />
     </div>
   );
 };

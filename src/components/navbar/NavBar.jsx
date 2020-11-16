@@ -15,23 +15,28 @@ import MenuIcon from '../../images/icons/icon-menu.svg';
 import Language from '../../images/icons/icon-language.svg';
 import User from '../../images/icons/icon-user.svg';
 import SignOut from '../../images/icons/icon-signout.svg';
+let userid=''
+let userEmail=''
 
+let userName=''
 const Navbar = (props) => {
   // user confign for Sign in wth Google
   const [currentUser, setCurrentUser] = React.useState(null);
-
+  
   let unsubscribeFromAuth = null;
 
   React.useEffect(() => {
     unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
       console.log('user', user);
+      userid=user.uid;
+      userName= user.displayName;
+      userEmail=user.email;
     });
     return () => {
       this.unsubscribeFromAuth();
     };
   }, []);
-
   // Controlling the state of the mobile (burger) menu
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   // Controlling the state of the Language menu
@@ -226,5 +231,5 @@ const Navbar = (props) => {
     </nav>
   );
 };
-
+export {userid,userEmail,userName};
 export default Navbar;

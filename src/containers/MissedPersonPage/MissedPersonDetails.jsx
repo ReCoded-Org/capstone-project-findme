@@ -6,6 +6,7 @@ import MissedPersonOtherData from '../../components/MissedPersonOtherData/Missed
 import Data from '../../Data';
 
 const MissedPersonDetails = () => {
+ // console.log(match)
   return (
     <div className="flex justify-center items-center">
       <div className="flex flex-col w-full lg:w-3/4 rounded-3xl shadow-2xl mx-4 my-4 px-2 py-2">

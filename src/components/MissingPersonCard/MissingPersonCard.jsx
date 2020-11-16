@@ -1,10 +1,33 @@
 import React, { useState } from 'react';
 import userImage from '../../images/profile-svg.svg';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import MissingPerson from '../../containers/MissedPersonPage/MissedPersonDetails';
 
-const MissingPersonCard = ({ cardInfo, i }) => {
+const path="/missing_people_details/id:" ;
+/*
+
+  const initialFValues = {
+    fristName: '',
+    secondName: '',
+    thirdName: '',
+    surname: '',
+    phoneNumber: '',
+    phoneNumber2: '',
+    locationOfLoss: '',
+    lostSince: '',
+    lastPlaceSeen: '',
+    lastUpdate: '',
+    age: '',
+    gender: '',
+    relationship: '',
+    job: '',
+    notes: '',
+    specialSituotion: '',
+    isLookingFor: false,
+  };*/
+const MissingPersonCard = ({ id,cardInfo, i }) => {
   const [footerCard, setfooterCard] = useState(0);
-
+  
   const beforeHover = (
     <div
       className="rounded-3xl mx-5 my-3 mx-auto md:mx-4"
@@ -13,7 +36,7 @@ const MissingPersonCard = ({ cardInfo, i }) => {
     >
       <div className="shadow-lg rounded-3xl max-w-xs overflow sm:self-center sm:mx-auto max-h-full">
         <div className="relative">
-          {cardInfo.lostFamily ? (
+          {cardInfo.values.isLookingFor ? (
             <span className="absolute inline-block pr-4 pl-6 py-2 font-bold md:pr-2 md:pl-3 md:py-1 lg:pl-6 lg-pr-4 lg:py-2 bg-blue-700 right-0 text-white rounded-l-3xl mt-8 md:mt-4 lg:mt-8">
               Found
             </span>
@@ -31,7 +54,7 @@ const MissingPersonCard = ({ cardInfo, i }) => {
           />
         </div>
         <div className="px-6 py-4 text-left">
-          <div className="font-bold text-xl mb-2">{cardInfo.values.firstName}</div>
+          <div className="font-bold text-xl mb-2">{cardInfo.values.fristName}</div>
           <p className="text-base font-light">{`Lost since: ${cardInfo.values.lostSince}`}</p>
         </div>
       </div>
@@ -80,14 +103,13 @@ const MissingPersonCard = ({ cardInfo, i }) => {
               </p>
             </div>
             <div className=" ">
-              <Link to="/missing_people_details">
-                <button
+              
+                <button 
                   className="focus:outline-none
                 border-2 border-white font-semibold  hover:bg-blue-600 text-white py-2 px-4 mb-2 rounded-full"
                 >
                   More Details
                 </button>
-              </Link>
             </div>
           </div>
         </div>
@@ -123,5 +145,6 @@ export default MissingPersonCard;
     </a>
   </div>
 </div>;
+
 */
 }

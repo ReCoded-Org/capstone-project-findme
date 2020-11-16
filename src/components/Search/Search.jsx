@@ -22,14 +22,15 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
 import ClearAllIcon from '@material-ui/icons/BackspaceOutlined';
 import SendIcon from '@material-ui/icons/Send';
-
+import MissingPeople from '../../containers/MissingPeople/MissingPeoplePage'
 import SearchBackground from '../../images/searchBackground.svg';
 import { places } from './placesData';
 import { getCurrentDate, validateName } from './helpers';
 import useStyles from './custMUIStyle';
 import { getSearchInfo } from './searchInfo';
-
+import useFirestore from '../../hooks/useFirestore'
 const CheckMissingPerson = (props) => {
+
   return (
     <FormControlLabel
       control={
@@ -93,16 +94,16 @@ const ChooseGender = (props) => {
 
 const Search = () => {
   const Classes = useStyles();
-
+  const [searched,setSearched]= React.useState(false)
   const searchObj = {
     id: '',
     missingName: '',
     goneMissingOn: getCurrentDate(),
     lastSeenAt: '',
-    gender: 'm',
+    gender: '',
     age: '',
     isMissingPerson: true,
-    isLookingForFamily: true,
+    isLookingForFamily: false,
     isDataEntered: false,
   };
 
@@ -111,7 +112,7 @@ const Search = () => {
   const handleUserInput = (name, value) => {
     let targettedInput = {};
     targettedInput[name] = value;
-
+    setSearched(true)
     setSearchInfo({
       ...searchInfo,
       ...targettedInput,
@@ -128,9 +129,10 @@ const Search = () => {
       gender: 'm',
       age: '',
       isMissingPerson: true,
-      isLookingForFamily: true,
+      isLookingForFamily: false,
       isDataEntered: false,
     });
+    setSearched(false);
   };
 
   return (
@@ -162,7 +164,7 @@ const Search = () => {
                 />
               </div>
               <div className="p-2 flex-1">
-                <Autocomplete
+              <Autocomplete
                   id=""
                   defaultValue={null}
                   inputValue={searchInfo.lastSeenAt}
@@ -187,19 +189,7 @@ const Search = () => {
                   handleChange={handleUserInput}
                 />
               </div>
-              <div className="flex p-2">
-                <TextField
-                  id=""
-                  className={Classes.customInput}
-                  value={searchInfo.age}
-                  label="Age"
-                  type="number"
-                  variant="outlined"
-                  onChange={(value) => {
-                    handleUserInput('age', value.target.value);
-                  }}
-                />
-              </div>
+            
             </div>
             <div className="flex p-2">
               <TextField
@@ -220,10 +210,6 @@ const Search = () => {
               className="flex justify-between flex-col md:flex-row"
             >
               <div className="p-2 flex flex-row">
-                <CheckMissingPerson
-                  checkMissingPerson={searchInfo.isMissingPerson}
-                  handleCheck={handleUserInput}
-                />
                 <IfLookingForFamily
                   switchLookingForFamily={searchInfo.isLookingForFamily}
                   handleSwitch={handleUserInput}
@@ -259,6 +245,7 @@ const Search = () => {
           </form>
         </div>
       </div>
+      <MissingPeople searched={searched}  searchInfo={searchInfo}/>
     </section>
   );
 };
