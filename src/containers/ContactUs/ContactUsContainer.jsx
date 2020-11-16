@@ -19,7 +19,7 @@ export default function ContactUs() {
           <img
             src={GridBg}
             alt=""
-            className="absolute right-0 pr-12 "
+            className="absolute top-0 right-0 pr-12 "
           ></img>
 
           <p className="xl:text-4xl lg:text-4xl md:text-4xl sm:text-3xl text-3xl mb-8 font-bold ">
