@@ -37,7 +37,7 @@ const MissingPersonCard = ({ cardInfo, i }) => {
         </div>
         <div className="px-6 py-4 text-left">
           <div className="font-bold text-xl mb-2">{cardInfo.userName}</div>
-          <p className="text-base font-light">{t('translation.lostSince:')}{`${cardInfo.lostSince}`}</p>
+          <p className="text-base font-light">{t('translation.lostSince')}{`${cardInfo.lostSince}`}</p>
         </div>
       </div>
     </div>

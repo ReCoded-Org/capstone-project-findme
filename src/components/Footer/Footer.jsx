@@ -78,7 +78,7 @@ const Footer = () => {
                 <p className="text-white uppercase	">
                   {' '}
                   <span className="mr mr-3 md:mr-5">
-                  {t('translation.followUs')}{' '}
+                  {t('translation.followUs')}:{' '}
                   </span>
                   <Icon path="#" srcName={facebook} srcAlt="facebook" />
                   <Icon path="#" srcName={twitter} srcAlt="twitter" />

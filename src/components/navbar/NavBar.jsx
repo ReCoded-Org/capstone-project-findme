@@ -195,7 +195,7 @@ const Navbar = (props) => {
                     alt="post icon"
                     className="pr-5 h-5"
                   ></img>
-                  {t('translation.post')}
+                  Post
                 </button>
               </Link>
             </li>

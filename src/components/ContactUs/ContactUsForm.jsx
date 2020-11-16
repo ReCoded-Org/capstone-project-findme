@@ -100,8 +100,8 @@ export default function ContactUsForm() {
           multi={false}
         />
         <Input
-          name="subject"
-          label={t('translation.subject')}
+          name={t('translation.subject')}
+          label="Subject"
           value={values.subject}
           onChange={handleInputChange}
           error={errors.subject}

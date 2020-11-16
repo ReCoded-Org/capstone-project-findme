@@ -34,6 +34,7 @@
       "message": "Message",
       "enterYourMessage": "Enter your message",
       "sendMessage": "Send Message",
+      "goneMissingOn": "Gone missing on",
       "lastSeenAt": "Last seen at",
       "gender": "Gender",
       "male": "Male",
@@ -64,18 +65,6 @@
       "cancel": "Cancel",
       "save": "Save",
       "informations": "Informations",
-      "locationOfLossD": "Location of Loss:",
-      "lastPlaceSeenD": "Last Place Seen:",
-      "lostSinceD": "Lost since:",
-      "lastUpdateD": "Lost since:",
-      "ageD": "Age:",
-      "genderD": "Gender:",
-      "notesD": "Notes:",
-      "specialSituationD": "Special situation:",
-      "nameD": "Name:",
-      "relationshipD": "Relationship:",
-      "phoneNumberD": "Phone number:",
-      "phoneNumber2D": "Phone number 2:",
       "posterAndContactInfo": "Poster and Contact Info",
       "aboutTheWebsite": "About the Website",
       "aboutFindMe": "About Find Me ©",
@@ -96,6 +85,6 @@
       "sondosAhmed": "Sondos Ahmed",
       "watheqAlshowaiter": "Watheq Alshowaiter",
       "footerWebsiteBrief": "Our website is a service that connects lost people with anyone who is looking for them. We have two scenarios on our website of loss, the first type is a lost person and the other type is people who are found but missing their relatives or anyone that takes care of them.",
-      "followUs": "follow us on social media: "
+      "followUs": "follow us on social media"
     }
 }
