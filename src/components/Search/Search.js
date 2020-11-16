@@ -164,7 +164,7 @@ const Search = () => {
                 <TextField
                   id=""
                   className={Classes.goneMissingOnInput}
-                  label="Gone missing on"
+                  label={t('translation.lostSince')}
                   value={searchInfo.goneMissingOn}
                   onChange={function (e) {
                     handleUserInput('goneMissingOn', e.target.value);
