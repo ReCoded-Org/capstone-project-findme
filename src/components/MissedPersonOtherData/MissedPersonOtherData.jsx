@@ -7,7 +7,7 @@ const MissedPersonOtherData = () => {
   return (
     <div className="lg:w-2/4 ml-4 lg:ml-0">
       <div className="mb-4">
-        <p className="text-gray-500">Informations</p>
+        <p className="text-gray-500 text-left">Informations</p>
         <hr className="x" />
       </div>
       {/* Informations Section */}
@@ -32,7 +32,7 @@ const MissedPersonOtherData = () => {
 
       {/* Poster and Contact Info Section */}
       <div className="my-4">
-        <p className="text-gray-500">Poster and Contact Info</p>
+        <p className="text-gray-500 text-left">Poster and Contact Info</p>
         <hr className="x" />
       </div>
       <div className="flex flex-col text-sm sm:flex-row lg:text-md mb-8 sm:mb-20">

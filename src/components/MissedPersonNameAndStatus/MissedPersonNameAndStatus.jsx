@@ -9,11 +9,15 @@ const MissedPersonNameAndStatus = ({ missedPersonName, status }) => {
         <button className="focus:outline-none">
           <Link to="/missing_people">
             {/* Note: here we will use React router to redirect to missed people page */}
-            <img src={ArrowBack} alt="" className="w-10 h-10 sm:inline" />
+            <img
+              src={ArrowBack}
+              alt=""
+              className="w-10 h-10 inline mb-3 hover:opacity-75"
+            />
           </Link>
         </button>
+        <p className="mx-2 text-3xl lg:text-4xl contents">{missedPersonName}</p>
       </div>
-      <p className="mx-2 text-3xl lg:text-4xl sm:inline">{missedPersonName}</p>
       <p className="ml-2 text-xl sm:inline text-gray-500 text-center">
         {status}
       </p>

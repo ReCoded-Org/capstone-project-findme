@@ -1,26 +1,10 @@
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles((theme) => ({
-  customInput: {
-    backgroundColor: 'white',
-    width: '100%',
-    borderColor: 'red',
-  },
-  nameInput: {
-    backgroundColor: 'white',
-    borderColor: '#2A8DEF',
-    flex: 1,
-  },
-  genderInput: {
-    backgroundColor: 'white',
-    width: '100%',
-  },
-  goneMissingOnInput: {
-    backgroundColor: 'white',
-    width: '100%',
-  },
-  sendButton: {
-    background: 'linear-gradient(45deg, #205a9e 30%, #5398ff 90%)',
+const useStyles = makeStyles({
+  root: {
+    '& .MuiFormControl-root': {
+      width: '100%',
+    },
   },
   textFieldInput: {
     '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
@@ -53,6 +37,6 @@ const useStyles = makeStyles((theme) => ({
       color: '#138DEF',
     },
   },
-}));
+});
 
-export default useStyles;
+export { useStyles };

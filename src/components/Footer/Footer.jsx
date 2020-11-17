@@ -66,11 +66,11 @@ const Footer = () => {
               {/* Email */}
               <div className=" w-full md:w-1/2 lg:w-1/2  md:pl-12 px-12 text-white text-left">
                 <Icon
-                  path="mailto:findme67@gmail.com"
+                  path="mailto:findme@gmail.com"
                   srcName={email}
                   srcAlt="email"
                 />
-                findme67@gmail.com
+                findme@gmail.com
               </div>
               {/* Social Media */}
               <div className=" w-full  mt-4 md:w-1/2 md:mt-0 lg:w-1/2  md:pl-12  px-12 pr-0 text-left ">
@@ -79,16 +79,29 @@ const Footer = () => {
                   <span className="mr mr-3 md:mr-5">
                     follow us on social media:{' '}
                   </span>
-                  <Icon path="#" srcName={facebook} srcAlt="facebook" />
-                  <Icon path="#" srcName={twitter} srcAlt="twitter" />
-                  <Icon path="#" srcName={instagram} srcAlt="instagram" />
+                  <Icon
+                    path="https://facebook.com"
+                    srcName={facebook}
+                    srcAlt="facebook"
+                  />
+                  <Icon
+                    path="https://twitter.com/"
+                    srcName={twitter}
+                    srcAlt="twitter"
+                  />
+                  <Icon
+                    path="https://www.instagram.com/"
+                    srcName={instagram}
+                    srcAlt="instagram"
+                  />
                 </p>
               </div>
             </div>
             {/* copyRight */}
             <div className="  text-white p-3 text-center border-t-solid border-t border-t-gray-600">
               <p>
-                Desiged by Recoded &copy; 2020 All rights are reserved to FindMe{' '}
+                Designed by Recoded &copy; {new Date().getFullYear()} All rights
+                are reserved to FindMe
               </p>
             </div>
           </div>

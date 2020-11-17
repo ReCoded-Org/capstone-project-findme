@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const WebsiteDescription = () => {
   return (
-    <div className="flex justify-around flex-col-reverse m-4 sm:m-0 sm:flex-row flex-grow sm-flex-grow-0 ">
+    <div className="flex justify-around flex-col-reverse mt-4 mb-16 mx-8 sm:flex-row flex-grow sm-flex-grow-0">
       <div className="sm:w-2/5 bg-ahmed-100 content-between text-left">
         <div>
           <h1 className="text-4xl">Lost Someone?</h1>

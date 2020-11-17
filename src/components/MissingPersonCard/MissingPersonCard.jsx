@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import userImage from '../../images/profile-svg.svg';
 import { Link } from 'react-router-dom';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 
 const MissingPersonCard = ({ cardInfo, i }) => {
   const [footerCard, setfooterCard] = useState(0);
@@ -73,7 +74,7 @@ const MissingPersonCard = ({ cardInfo, i }) => {
           <div className="flex justify-between md:flex-col lg:flex-row xl:flex-row bg-blue-700 ">
             <div className="items-center mt-2">
               <p className="md:mb-2 mx-4 font-semibold">
-                {cardInfo.views} views
+                <VisibilityIcon /> {cardInfo.views}
               </p>
             </div>
             <div className=" ">

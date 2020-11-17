@@ -6,6 +6,11 @@
  */
 
 import React from 'react';
+import SearchBackground from '../../images/searchBackground.svg';
+import { places } from './placesData';
+import { getCurrentDate, validateName, areObjectsEqual } from './helpers';
+import useStyles from './custMUIStyle';
+import { getSearchInfo } from './searchInfo';
 
 /**
  * importing Material UI dependencies
@@ -21,13 +26,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
 import ClearAllIcon from '@material-ui/icons/BackspaceOutlined';
-import SendIcon from '@material-ui/icons/Send';
-
-import SearchBackground from '../../images/searchBackground.svg';
-import { places } from './placesData';
-import { getCurrentDate, validateName } from './helpers';
-import { getSearchInfo } from './searchInfo';
-import useStyles from './custMUIStyle';
+import SearchIcon from '@material-ui/icons/SearchOutlined';
 
 const CheckMissingPerson = (props) => {
   return (
@@ -37,7 +36,6 @@ const CheckMissingPerson = (props) => {
           checked={props.checkMissingPerson}
           name="checkMissing"
           color="primary"
-          startIcon={<ClearAllIcon />}
           onChange={(e) => {
             props.handleCheck('isMissingPerson', e.target.checked);
           }}
@@ -68,7 +66,6 @@ const IfLookingForFamily = (props) => {
 };
 
 const ChooseGender = (props) => {
-  const [gender, setGender] = React.useState('m');
   const Classes = useStyles();
   return (
     <FormControl variant="outlined" className={Classes.genderInput}>
@@ -91,7 +88,7 @@ const ChooseGender = (props) => {
   );
 };
 
-const Search = () => {
+export const Search = () => {
   const Classes = useStyles();
 
   const searchObj = {
@@ -111,11 +108,16 @@ const Search = () => {
   const handleUserInput = (name, value) => {
     let targettedInput = {};
     targettedInput[name] = value;
-
-    setSearchInfo({
+    // console.log('targettedInput: ' + targettedInput[name]);
+    // console.log('searchObject value: ' + searchObj[name]);
+    const newSearchInfo = {
       ...searchInfo,
       ...targettedInput,
-      isDataEntered: targettedInput[name] !== searchObj[name] ? true : false,
+    };
+    console.log(newSearchInfo);
+    setSearchInfo({
+      ...newSearchInfo,
+      isDataEntered: !areObjectsEqual(newSearchInfo, searchObj),
     });
   };
 
@@ -134,7 +136,7 @@ const Search = () => {
   };
 
   return (
-    <section>
+    <section data-test-id="search-component">
       <div className="bg-gray-200" id="search-container">
         <div className="">
           <figure className="flex items-center p-10">
@@ -152,9 +154,11 @@ const Search = () => {
                 <TextField
                   id=""
                   className={Classes.goneMissingOnInput}
-                  label="Lost Since"
+                  label="Gone missing on"
                   value={searchInfo.goneMissingOn}
                   onChange={function (e) {
+                    console.log(e);
+                    e.persist();
                     handleUserInput('goneMissingOn', e.target.value);
                   }}
                   type="date"
@@ -163,14 +167,14 @@ const Search = () => {
               </div>
               <div className="p-2 flex-1">
                 <Autocomplete
+                  freeSolo
                   id=""
-                  defaultValue={null}
-                  inputValue={searchInfo.lastSeenAt}
                   className={Classes.customInput}
                   options={places}
                   getOptionLabel={(option) => option.place}
-                  onChange={function (e, inputValue) {
-                    handleUserInput('lastSeenAt', inputValue.place);
+                  inputValue={searchInfo.lastSeenAt}
+                  onInputChange={(event, newInputValue) => {
+                    handleUserInput('lastSeenAt', newInputValue);
                   }}
                   renderInput={(params) => (
                     <TextField
@@ -191,8 +195,8 @@ const Search = () => {
                 <TextField
                   id=""
                   className={Classes.customInput}
-                  inputProps={{ min: 0 }}
                   value={searchInfo.age}
+                  inputProps={{ min: 0 }}
                   label="Age"
                   type="number"
                   variant="outlined"
@@ -247,12 +251,12 @@ const Search = () => {
                     variant="contained"
                     className={Classes.sendButton}
                     color="primary"
-                    endIcon={<SendIcon />}
+                    endIcon={<SearchIcon />}
                     onClick={() => {
                       getSearchInfo({ ...searchInfo });
                     }}
                   >
-                    Send
+                    Search
                   </Button>
                 </div>
               </div>

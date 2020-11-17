@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './MissingPersonForm.scss';
 import { arrow, save, cancel } from './ImportImg';
+import ArrowBack from '../../images/arrow-back.svg';
 import UploadImg from './upload';
 import { useForm, Form } from './useForm';
 import { Input, Select, Textarea, SwitchToggle, Button } from './FormControl';
 import * as employeeService from './storg';
+import { Link } from 'react-router-dom';
 
 const MissingPersonForm = () => {
   const initialFValues = {
@@ -151,7 +153,7 @@ const MissingPersonForm = () => {
       <div className="flex xs:block sm:block md:flex xl:flex mb-6">
         <div className="w-1/4 p-2  text-center hidden md:block  "></div>
         <div className="w-3/4 p-2  text-center md:text-left  ">
-          <Icon srcName={arrow} srcAlt="left-arrow" />
+          <Icon srcName={ArrowBack} srcAlt="left-arrow" />
           <Title title="Add A Missing Person" />
         </div>
       </div>
@@ -372,12 +374,14 @@ const MissingPersonForm = () => {
                   buttonName="Cancel"
                   icon={cancel}
                   type="reset"
+                  style={{ cursor: 'pointer' }}
                   nameClass="rounded-full w-32 h-10 bg-white text-gray-700  border border-gray-700 border-solid"
                 />
                 <Button
                   buttonName="Save"
                   icon={save}
                   type="submit"
+                  style={{ cursor: 'pointer' }}
                   nameClass="rounded-full w-32 h-10 bg-gradient-to-r from-blue-400 to-blue-700 text-white "
                 />
               </div>
@@ -391,11 +395,13 @@ const MissingPersonForm = () => {
 
 const Icon = (props) => {
   return (
-    <img
-      src={props.srcName}
-      alt={props.srcAlt}
-      className="icon inline mr-5 md:mr-5 hover:opacity-75 "
-    />
+    <Link to="/">
+      <img
+        src={props.srcName}
+        alt={props.srcAlt}
+        className="inline w-10 h-10 mr-5 mb-1 md:mr-5 hover:opacity-75 "
+      />
+    </Link>
   );
 };
 const Title = (props) => {

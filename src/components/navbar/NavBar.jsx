@@ -52,7 +52,7 @@ const Navbar = (props) => {
   return (
     <nav
       data-testid="navbar"
-      className="relative flex flex-wrap items-center navbar-expand-lg bg-tail-300 py-3 px-8 shadow bg-white"
+      className="sticky top-0 z-50 w-full flex flex-wrap items-center navbar-expand-lg bg-tail-300 py-3 px-8 shadow bg-white"
     >
       <div className="w-full sm:w-full xl:w-48 px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between xl:w-auto xl:static xl:block xl:justify-start">
@@ -76,7 +76,7 @@ const Navbar = (props) => {
           navbarOpen ? 'flex' : 'hidden'
         } xl:flex flex-grow items-center`}
       >
-        <ul className="flex flex-col xl:flex-row list-none xl:ml-auto items-start xl:items-center">
+        <ul className="ml-10 xl:ml-0 flex flex-col xl:flex-row list-none xl:ml-auto items-start xl:items-center">
           <>
             <li className="mt-2 xl:mt-0">
               <Link
@@ -213,7 +213,7 @@ const Navbar = (props) => {
             <li className="mt-2 xl:mt-0">
               <button
                 onClick={signInWithGoogle}
-                className="inline-flex xl:w-auto w-full mx-3 xl:px-3 py-1 rounded-full text-blue-600 items-center justify-center focus:outline-none hover:opacity-75"
+                className="inline-flex xl:w-auto w-full mx-2 xl:px-3 py-1 rounded-full text-blue-600 items-center justify-center focus:outline-none hover:opacity-75"
               >
                 <img src={GoogleIcon} alt="google icon" className="pr-2 h-5" />
                 Sign in with Google

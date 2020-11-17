@@ -19,7 +19,7 @@ function Home() {
       <SliderCards />
       <Statistics info={info} />
       <WebsiteDescription />
-      <MissingPeople />
+      <MissingPeople missingPeople={'Missing People'} />
     </div>
   );
 }
