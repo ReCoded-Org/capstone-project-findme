@@ -19,10 +19,10 @@ i18next.init({
   lng: 'en', // language to use
   resources: {
     en: {
-      common: commonAr, // 'common' is our custom namespace
+      common: commonEn, // 'common' is our custom namespace commonAr
     },
     ar: {
-      common: commonEn,
+      common: commonAr,
     },
   },
 });
