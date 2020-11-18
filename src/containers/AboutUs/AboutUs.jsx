@@ -6,7 +6,10 @@ import LinkedInIcon from './../../images/social/icon-linkedin.svg';
 import GitHubIcon from './../../images/social/icon-github.svg';
 import Website from './../../images/icons/icon-website.svg';
 
+import { useTranslation } from 'react-i18next';
+
 const AboutUs = (props) => {
+  const [t, i18n] = useTranslation('common');
   return (
     <div>
       <div className="bg-gray-100 p-12 lg:flex lg:justify-center">
@@ -19,24 +22,23 @@ const AboutUs = (props) => {
           </div>
         </div>
         <div className="m-auto py-12 lg:p-0 px-6 max-w-xl lg:max-w-5xl lg:w-1/2">
-          <h2 className="text-3xl text-black font-bold">About Find Me ©</h2>
+          <h2 className="text-3xl text-black font-bold">
+            {t('translation.aboutFindMe')}
+          </h2>
           <p className="mt-4 text-black text-left">
-            Find Me© is a website to help find the lost people. Weather you are
-            looking for your family or find a lost person. You came to the right
-            place.
+            {t('translation.aboutFindMePara')}
           </p>
           <br></br>
           <br></br>
-          <h2 className="text-3xl text-black font-bold">Our Story</h2>
+          <h2 className="text-3xl text-black font-bold">
+            {t('translation.ourStory')}
+          </h2>
           <p className="mt-4 text-black text-left">
-            We are a group of students with a passion for coding and developing.
-            Find Me© is one of our projects that is categorized under UN's
-            sustainable development. Which will help our country on the long
-            run.
+            {t('translation.aboutTheWebsiteParagraph')}
           </p>
           <p className="flex mt-4">
             <span className="block text-left w-2/3 box-border">
-              Abdulateef Al-radaee
+              {t('translation.abdulateefAlradaee')}
             </span>
             <span className="block text-right w-1/3 box-border">
               <a target="_blank" href="https://github.com/Abdulateef-Muhammad">
@@ -58,7 +60,7 @@ const AboutUs = (props) => {
           </p>
           <p className="flex mt-4">
             <span className="block text-left w-2/3 box-border">
-              Ahmed Al-Majidi
+              {t('translation.ahmedAlMajidi')}
             </span>
             <span className="block text-right w-1/3 box-border">
               <a target="_blank" href="https://github.com/AhmedAl-Majidi">
@@ -80,7 +82,7 @@ const AboutUs = (props) => {
           </p>
           <p className="flex mt-4">
             <span className="block text-left w-2/3 box-border">
-              Asma Kolaib
+              {t('translation.asmaKolaib')}
             </span>
             <span className="block text-right w-1/3 box-border">
               <a target="_blank" href="https://github.com/as-kolaib">
@@ -102,7 +104,7 @@ const AboutUs = (props) => {
           </p>
           <p className="flex mt-4">
             <span className="block text-left w-2/3 box-border">
-              Basil Homadi
+              {t('translation.basilHomadi')}
             </span>
             <span className="block text-right w-1/3 box-border">
               <a target="_blank" href="https://github.com/BasilHomadi">
@@ -124,7 +126,7 @@ const AboutUs = (props) => {
           </p>
           <p className="flex mt-4">
             <span className="block text-left w-2/3 box-border">
-              Sondos Ahmed
+              {t('translation.sondosAhmed')}
             </span>
             <span className="block text-right w-1/3 box-border">
               <a target="_blank" href="https://github.com/SondosAhmed">
@@ -146,7 +148,7 @@ const AboutUs = (props) => {
           </p>
           <p className="flex mt-4">
             <span className="block text-left w-2/3 box-border">
-              Watheq Alshowaiter
+              {t('translation.watheqAlshowaiter')}
             </span>
             <span className="block text-right w-1/3 box-border">
               <a target="_blank" href="http://watheq.xyz/">
@@ -174,16 +176,15 @@ const AboutUs = (props) => {
           </p>
           <br />
           <br />
-          <h2 className="text-3xl text-black font-bold">A Big Thanks for</h2>
+          <h2 className="text-3xl text-black font-bold">
+            {t('translation.aBigThanksFor')}
+          </h2>
           <p className="mt-4 text-black text-left">
-            During our long journey of problem solving, programing and learning
-            how to code, There are some special names that shine like stars, to
-            guide us to safe lands. We are really grateful for them for holding
-            our hands in the utter darkness.
+            {t('translation.aBigThanksForPara')}
           </p>
           <p className="flex mt-4">
             <span className="block text-left w-2/3 box-border">
-              Maher Alaqil
+              {t('translation.maher')}
             </span>
             <span className="block text-right w-1/3 box-border">
               <a target="_blank" href="https://github.com/maqalaqil">
@@ -205,7 +206,7 @@ const AboutUs = (props) => {
           </p>
           <p className="flex mt-4">
             <span className="block text-left w-2/3 box-border">
-              Salah Al-Dhaferi
+              {t('translation.salah')}
             </span>
             <span className="block text-right w-1/3 box-border">
               <a target="_blank" href="https://github.com/tech-chieftain">
@@ -227,7 +228,7 @@ const AboutUs = (props) => {
           </p>
           <p className="flex mt-4">
             <span className="block text-left w-2/3 box-border">
-              Muhanned Noman
+              {t('translation.muhanned')}
             </span>
             <span className="block text-right w-1/3 box-border">
               <a target="_blank" href="https://github.com/MuhannedNoman">
@@ -249,7 +250,7 @@ const AboutUs = (props) => {
           </p>
           <p className="flex mt-4">
             <span className="block text-left w-2/3 box-border">
-              Mohamed Alaoudi
+              {t('translation.mohamed')}
             </span>
             <span className="block text-right w-1/3 box-border">
               <a
@@ -264,8 +265,7 @@ const AboutUs = (props) => {
             </span>
           </p>
           <p className="mt-4 text-black text-left">
-            And all Re:Coded family, which without them, we could not be here
-            today.
+            {t('translation.andAllRecodedTeam')}
           </p>
         </div>
       </div>

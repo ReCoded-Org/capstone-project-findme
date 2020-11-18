@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import './styles/main.css';
 import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 import RouterPage from './router/RouterPages';
@@ -38,14 +38,16 @@ const scrollButtonStyle = {
 
 function App() {
   return (
-    <div className="App bg-findMe">
-      <RouterPage />
-      <ScrollUpButton
-        style={scrollButtonStyle}
-        ContainerClassName="ScrollUpButton__Container"
-        TransitionClassName="ScrollUpButton__Toggled"
-      />
-    </div>
+    <Suspense fallback="loading">
+      <div className="App bg-findMe">
+        <RouterPage />
+        <ScrollUpButton
+          style={scrollButtonStyle}
+          ContainerClassName="ScrollUpButton__Container"
+          TransitionClassName="ScrollUpButton__Toggled"
+        />
+      </div>
+    </Suspense>
   );
 }
 

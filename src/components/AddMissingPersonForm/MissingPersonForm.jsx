@@ -1,16 +1,100 @@
 import React, { useState, useEffect } from 'react';
 import './MissingPersonForm.scss';
 import { arrow, save, cancel } from './ImportImg';
+
 import ArrowBack from '../../images/arrow-back.svg';
 import UploadImg from './upload';
+
+//import UploadImg from './UploadImg';
+
 import { useForm, Form } from './useForm';
 import { Input, Select, Textarea, SwitchToggle, Button } from './FormControl';
+
 import * as employeeService from './storg';
+
 import { Link } from 'react-router-dom';
 
+import { useTranslation } from 'react-i18next';
+
+//import useStorage from '../../hooks/useStorage';
+import { projectStorage, projectFirestore, timestamp } from '../../firebase';
+//import {profile} from '../../images/profile.png'
+import { close, upload } from './ImportImg';
+//import ProgressBar from './ProgressBar'
+//import {image} from './UploadImg'
+
 const MissingPersonForm = () => {
+  const [error, setError] = useState(null);
+  const [url, setUrl] = useState(null);
+  const initialState = { alt: '', src: '' };
+
+  const [{ alt, src }, setPreview] = React.useState(initialState);
+  const [image, setImage] = useState({});
+
+  const fileHandler = (event) => {
+    const { files } = event.target;
+    if (files) {
+      setImage(files[0]);
+    }
+
+    setPreview(
+      files.length
+        ? {
+            src: URL.createObjectURL(files[0]),
+            alt: files[0].name,
+          }
+        : initialState
+    );
+  };
+
+  const resetFile = () => {
+    setImage({});
+    setUrl(null);
+    setPreview(initialState);
+  };
+
+  const handleUpload = () => {
+    if (image.name === undefined) {
+      const collectionRef = projectFirestore.collection('images');
+      const url =
+        'https://firebasestorage.googleapis.com/v0/b/findme-949ec.appspot.com/o/blank-profile-picture-973460_640.png?alt=media&token=5d1192d1-7ec9-419a-a510-ff5a046d6f36';
+      const createdAt = timestamp();
+      collectionRef.add({ url, createdAt, values }).then(() => {
+        setValues(initialFValues);
+        resetFile();
+        alert('Your Post was sent successfully.');
+      });
+      resetForm();
+    }
+    // references
+    else {
+      const storageRef = projectStorage.ref(image.name);
+      const collectionRef = projectFirestore.collection('images');
+
+      storageRef.put(image).on(
+        'state_changed',
+        (snap) => {},
+        (err) => {
+          setError(err);
+        },
+        async () => {
+          const url = await storageRef.getDownloadURL();
+          const createdAt = timestamp();
+          await collectionRef.add({ url, createdAt, values }).then(() => {
+            setValues(initialFValues);
+            resetFile();
+            alert('Your Post was sent successfully.');
+          });
+          resetForm();
+        }
+      );
+    }
+    //else {
+    //alert ('You have to enter a valid image');
+    //}
+  };
+
   const initialFValues = {
-    id: 0,
     fristName: '',
     secondName: '',
     thirdName: '',
@@ -28,10 +112,7 @@ const MissingPersonForm = () => {
     notes: '',
     specialSituotion: '',
     isLookingFor: false,
-    img: '',
   };
-
-  console.log('img' + initialFValues.img);
 
   const validate = (fieldValues = values) => {
     let temp = { ...errors };
@@ -139,14 +220,19 @@ const MissingPersonForm = () => {
   } = useForm(initialFValues, true, validate);
 
   const handleSubmit = (e) => {
+    //console.log(image.name);
     e.preventDefault();
 
     if (validate()) {
-      console.log(values);
+      //console.log(values);
+      handleUpload();
 
       // resetForm()
     }
   };
+
+  // Translation
+  const [t, i18n] = useTranslation('common');
 
   return (
     <div className="bg-white shadow-md  rounded-3xl m-5">
@@ -154,13 +240,65 @@ const MissingPersonForm = () => {
         <div className="w-1/4 p-2  text-center hidden md:block  "></div>
         <div className="w-3/4 p-2  text-center md:text-left  ">
           <Icon srcName={ArrowBack} srcAlt="left-arrow" />
-          <Title title="Add A Missing Person" />
+          <Title title={t('translation.addAMissingPerson')} />
         </div>
       </div>
       <Form onSubmit={handleSubmit}>
         <div className="flex xs:block sm:block md:flex xl:flex">
           <div className=" p-2 xs:w-full sm:w-full md:w-1/4   text-center     ">
-            <UploadImg name="img" onChange={handleInputChange} />
+            <div className=" inline-block shadow-sm   ">
+              <div
+                className=" relative p-0  overflow-hidden w-56 h-56 md:w-40 md:h-40  lg:w-56 lg:h-56 border border-solid border-gray-500 
+       rounded-full max-w-full"
+                type="file"
+              >
+                <img
+                  className="rounded-full w-full h-full  "
+                  src={src}
+                  alt={alt}
+                />
+
+                <div className="absolute top-1/2 right-60  flex">
+                  <div className="mr">
+                    <label htmlFor="file-input">
+                      <img
+                        src={upload}
+                        width="25px"
+                        height="25px"
+                        className="cursor-pointer"
+                      />
+                    </label>
+
+                    <input
+                      type="file"
+                      onChange={fileHandler}
+                      accept="image/*"
+                      id="file-input"
+                      name="img"
+                      className="hidden"
+                    />
+                  </div>
+                </div>
+                <div className="absolute top-1/2 right-30  flex">
+                  <div className="mr">
+                    <label htmlFor="remove-input">
+                      <img
+                        src={close}
+                        width="25px"
+                        height="25px"
+                        className="cursor-pointer"
+                      />
+                    </label>
+                    <input
+                      id="remove-input"
+                      onClick={resetFile}
+                      type="button"
+                      className="hidden"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>{' '}
           </div>
           <div className="md:w-3/4 p-4  sm:w-full ">
             {/* First Name , Second Name ,Third Name ,Surname*/}
@@ -169,7 +307,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="fristName"
-                  label="Frist Name"
+                  label={t('translation.firstName')}
                   type="text"
                   value={values.fristName}
                   onChange={handleInputChange}
@@ -181,7 +319,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={false}
                   name="secondName"
-                  label="Second Name"
+                  label={t('translation.secondName')}
                   type="text"
                   value={values.secondName}
                   onChange={handleInputChange}
@@ -192,7 +330,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={false}
                   name="thirdName"
-                  label="Third Name"
+                  label={t('translation.thirdName')}
                   type="text"
                   value={values.thirdName}
                   onChange={handleInputChange}
@@ -203,7 +341,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="surname"
-                  label="Surname"
+                  label={t('translation.surname')}
                   type="text"
                   value={values.surname}
                   onChange={handleInputChange}
@@ -217,7 +355,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="phoneNumber"
-                  label="Phone Number"
+                  label={t('translation.phoneNumber')}
                   type="tel"
                   value={values.phoneNumber}
                   onChange={handleInputChange}
@@ -228,7 +366,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={false}
                   name="phoneNumber2"
-                  label="phone Number"
+                  label={t('translation.phoneNumber2')}
                   type="tel"
                   value={values.phoneNumber2}
                   onChange={handleInputChange}
@@ -237,13 +375,13 @@ const MissingPersonForm = () => {
               </div>
               <div className="w-full md:w-4/4 lg:w-2/4 p-2 mb-6 md:mb-0 pt-4">
                 <div className="inline">
-                  Missing Person
+                  {t('translation.missingPerson')}
                   <SwitchToggle
                     name="isLookingFor"
                     checked={values.isLookingFor}
                     onChange={handleInputChange}
                   />
-                  Looking for family
+                  {t('translation.lookingForFamily')}
                 </div>
               </div>
             </div>
@@ -253,7 +391,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="locationOfLoss"
-                  label="Location Of Loss"
+                  label={t('translation.locationOfLoss')}
                   type="text"
                   value={values.locationOfLoss}
                   onChange={handleInputChange}
@@ -264,7 +402,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="lostSince"
-                  label="Lost Since"
+                  label={t('translation.lostSince')}
                   type="date"
                   value={values.lostSince}
                   onChange={handleInputChange}
@@ -276,7 +414,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="lastPlaceSeen"
-                  label="Last Place Seen"
+                  label={t('translation.lastPlaceSeen')}
                   type="text"
                   value={values.lastPlaceSeen}
                   onChange={handleInputChange}
@@ -287,7 +425,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={false}
                   name="lastUpdate"
-                  label="Last Update"
+                  label={t('translation.lastUpdate')}
                   type="text"
                   value={values.lastUpdate}
                   onChange={handleInputChange}
@@ -301,7 +439,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={false}
                   name="age"
-                  label="Age"
+                  label={t('translation.age')}
                   type="number"
                   value={values.age}
                   onChange={handleInputChange}
@@ -311,7 +449,7 @@ const MissingPersonForm = () => {
               <div className="w-full md:w-2/4 lg:w-1/4  p-2 mb-6 md:mb-0">
                 <Select
                   name="gender"
-                  label="gender"
+                  label={t('translation.gender')}
                   value={values.gender}
                   onChange={handleInputChange}
                   InputLabelProps={{ shrink: true }}
@@ -321,7 +459,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={true}
                   name="relationship"
-                  label="Relationship"
+                  label={t('translation.relationship')}
                   type="text"
                   value={values.relationship}
                   onChange={handleInputChange}
@@ -332,7 +470,7 @@ const MissingPersonForm = () => {
                 <Input
                   required={false}
                   name="job"
-                  label="Job"
+                  label={t('translation.job')}
                   type="text"
                   value={values.job}
                   onChange={handleInputChange}
@@ -345,7 +483,7 @@ const MissingPersonForm = () => {
               <div className="w-full md:w-2/4 p-2 mb-6 md:mb-0">
                 <Textarea
                   name="notes"
-                  label="Notes"
+                  label={t('translation.notes')}
                   value={values.notes}
                   onChange={handleInputChange}
                 />
@@ -353,7 +491,7 @@ const MissingPersonForm = () => {
               <div className="w-full md:w-2/4 p-2 mb-6 md:mb-0">
                 <Textarea
                   name="specialSituotion"
-                  label="Special Situotion"
+                  label={t('translation.specialSituation')}
                   value={values.specialSituotion}
                   onChange={handleInputChange}
                 />
@@ -364,21 +502,21 @@ const MissingPersonForm = () => {
               <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0 text-left">
                 <p className="text-sm ">
                   {' '}
-                  <span className="text-red-500">*</span> marked fields are
-                  required
+                  <span className="text-red-500">*</span>{' '}
+                  {t('translation.markedFieldsAreRequired')}
                 </p>
               </div>
               <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0 md:justify-end justify-center flex ">
                 <Button
                   onClickMethod={resetForm}
-                  buttonName="Cancel"
+                  buttonName={t('translation.cancel')}
                   icon={cancel}
                   type="reset"
                   style={{ cursor: 'pointer' }}
                   nameClass="rounded-full w-32 h-10 bg-white text-gray-700  border border-gray-700 border-solid"
                 />
                 <Button
-                  buttonName="Save"
+                  buttonName={t('translation.save')}
                   icon={save}
                   type="submit"
                   style={{ cursor: 'pointer' }}

@@ -7,6 +7,8 @@ import { ReactComponent as Msgicon } from '../../images/msg.svg';
 //Importing the firebase setup to be used on submit event
 import firebase from '../../firebase';
 
+import { useTranslation } from 'react-i18next';
+
 //Intaial values of the form
 const initialFValues = {
   name: '',
@@ -73,20 +75,23 @@ export default function ContactUsForm() {
       resetForm();
     }
   };
+
+  const [t, i18n] = useTranslation('common');
+
   //In this return form, Material Textfield which was defined will be used and assigned probs
   return (
     <Form onSubmit={handleSubmit}>
       <div className="flex flex-col w-full space-y-4 ">
         <Input
           name="name"
-          label="Full Name"
+          label={t('translation.fullName')}
           value={values.name}
           onChange={handleInputChange}
           error={errors.name}
           multi={false}
         />
         <Input
-          label="Email"
+          label={t('translation.email')}
           name="email"
           value={values.email}
           onChange={handleInputChange}
@@ -95,7 +100,7 @@ export default function ContactUsForm() {
         />
         <Input
           name="subject"
-          label="Subject"
+          label={t('translation.subject')}
           value={values.subject}
           onChange={handleInputChange}
           error={errors.subject}
@@ -103,7 +108,7 @@ export default function ContactUsForm() {
         />
         <Input
           name="msg"
-          label="Message"
+          label={t('translation.message')}
           value={values.msg}
           onChange={handleInputChange}
           error={errors.msg}
@@ -117,7 +122,7 @@ export default function ContactUsForm() {
               style={{ textAlign: 'center' }}
               className="p-5 text-center  sm:text-center sm:text-sm text-xs  "
             >
-              Send
+              {t('translation.send')}
             </span>
           </button>
         </div>

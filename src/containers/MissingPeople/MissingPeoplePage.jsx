@@ -2,14 +2,17 @@ import React, { useState, useEffect, useRef } from 'react';
 // import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 import MissingPersonCard from '../../components/MissingPersonCard/MissingPersonCard';
 import { ReactComponent as MyIcon } from './repeat-grid-4.svg';
-import Api from './api';
+//import Api from './api';
 import './style.css';
 import NiceButton from '../../components/LoadingButton/NiceButton';
 import '../../components/LoadingButton/style.css';
+import useFirestore from '../../hooks/useFirestore';
+
+import { useTranslation } from 'react-i18next';
 
 const MissingPeoplePage = () => {
   const ITEMSTOSHOW = 8;
-
+  const { docs } = useFirestore('images');
   const [data, setData] = useState([]); // maybe set the initial value later
   const [visible, setVisible] = useState(ITEMSTOSHOW);
   const [buttonText, setButtonText] = useState('⬇ Show More');
@@ -27,11 +30,11 @@ const MissingPeoplePage = () => {
   }, [isSecondButtonLoading, loadingSpeed]);
 
   useEffect(() => {
-    setData(() => Api);
-  }, []);
+    setData(() => docs);
+  }, [docs]);
 
   const showMoreItems = () => {
-    if (visible > data.length) {
+    if (visible > docs.length) {
       // setButtonText(() => 'complete');
       buttonTextRef.current = 'Complete';
     }
@@ -51,6 +54,7 @@ const MissingPeoplePage = () => {
     clearTimeout();
     // buttonTextRef.current = '⬇ Show More';
   };
+  const [t, i18n] = useTranslation('common');
 
   return (
     <div>
@@ -61,7 +65,8 @@ const MissingPeoplePage = () => {
         {data.length === 0 ? (
           <h2 className="flex-auto text-center">not found results</h2>
         ) : (
-          data
+          docs &&
+          docs
             .slice(0, visible)
             .map((item, index) => (
               <MissingPersonCard key={item.id} cardInfo={item} i={index} />
@@ -70,7 +75,7 @@ const MissingPeoplePage = () => {
       </div>
       {console.log(visible, data.length)}
       <div className=" ">
-        {visible > data.length ? (
+        {visible > docs.length ? (
           ''
         ) : (
           <NiceButton
@@ -81,7 +86,7 @@ const MissingPeoplePage = () => {
               showMoreItemsClick();
             }}
           >
-            ⬇ Show More
+            ⬇ {t('translation.showMore')}
           </NiceButton>
         )}
       </div>

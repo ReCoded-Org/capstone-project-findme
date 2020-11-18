@@ -1,8 +1,4 @@
-*:focus {
-  outline: none !important;
-}
-
-button.chowzb {
+button.bTybGL {
   border-radius: 0px;
   background-size: cover;
   box-shadow: 0 0 2px 0 transparent;
@@ -11,7 +7,7 @@ button.chowzb {
   background-color: transparent;
 }
 
-button.hCVuYx:disabled {
+button.kyJvRZ:disabled {
   background-color: transparent;
   color: rgb(78, 78, 78);
   outline: transparent;
@@ -20,24 +16,30 @@ button.hCVuYx:disabled {
   z-index: 1;
 }
 
-button.chowzb.rec-arrow-right {
+button.bTybGL.rec-arrow-right {
   background-image: url(../../../src/images/Rectangle2.svg);
   z-index: 1;
 }
 
-button.chowzb.rec-arrow-left {
+button.bTybGL.rec-arrow-left {
   background-image: url(../../../src/images/Rectangle1.svg);
   z-index: 1;
 }
 
-button.chowzb:hover:enabled,
-button.chowzb:focus:enabled {
+button.bTybGL:hover:enabled,
+button.bTybGL:focus:enabled {
   border-radius: 0px;
   background-color: transparent;
   box-shadow: 0 0 2px 0 transparent;
   border-color: white;
   outline: transparent;
   border: none;
+}
+
+button.DIuaA {
+  background-color: #1035ef;
+  box-shadow: 0 0 1px 2px #138def;
+  margin-top: 5%;
 }
 
 button.brcpxa {
