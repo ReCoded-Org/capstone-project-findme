@@ -38,16 +38,14 @@ const scrollButtonStyle = {
 
 function App() {
   return (
-    <Suspense fallback="loading">
-      <div className="App bg-findMe">
-        <RouterPage />
-        <ScrollUpButton
-          style={scrollButtonStyle}
-          ContainerClassName="ScrollUpButton__Container"
-          TransitionClassName="ScrollUpButton__Toggled"
-        />
-      </div>
-    </Suspense>
+    <div className="App bg-findMe">
+      <RouterPage />
+      <ScrollUpButton
+        style={scrollButtonStyle}
+        ContainerClassName="ScrollUpButton__Container"
+        TransitionClassName="ScrollUpButton__Toggled"
+      />
+    </div>
   );
 }
 

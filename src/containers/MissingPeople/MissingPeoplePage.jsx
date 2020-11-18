@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 // import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 import MissingPersonCard from '../../components/MissingPersonCard/MissingPersonCard';
 import { ReactComponent as MyIcon } from './repeat-grid-4.svg';
-import Search from '../../components/Search/Search'
+//import Search from '../../components/Search/Search'
 import './style.css';
 import NiceButton from '../../components/LoadingButton/NiceButton';
 import '../../components/LoadingButton/style.css';
 import useFirestore from '../../hooks/useFirestore'
-import { Link, Route } from 'react-router-dom';
-import { getSearchInfo } from '../../components/Search/searchInfo'
+import { Link } from 'react-router-dom';
+//import { getSearchInfo } from '../../components/Search/searchInfo'
 import {getCurrentDate} from '../../components/Search/helpers'
 const MissingPeoplePage = ({searchInfo, searched}) => {
   const ITEMSTOSHOW = 8;
@@ -62,20 +62,15 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
       buttonTextRef.current = 'Complete';
     }
 
-    // setButtonText(() => '...loading');
-    // buttonTextRef.current = '..loading';
     setVisible((prevValue) => prevValue + ITEMSTOSHOW);
-    // buttonTextRef.current = '⬇ Show More';
-    // setButtonText(() => '⬇ Show More');
+    
   };
 
   const showMoreItemsClick = () => {
-    // buttonTextRef.current = '..loading';
     setTimeout(() => {
       showMoreItems();
     }, 1000);
     clearTimeout();
-    // buttonTextRef.current = '⬇ Show More';
   };
 
   return (
@@ -89,17 +84,11 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
           <h2 className="flex-auto text-center">not found results</h2>
         ) : (
           searched?(
-           // dynamicSearch(docs, searchInfo)
-           /*matched = docs && docs
-            .filter((item, index) => (
-             item.values.fristName.toLowerCase().includes(searchInfo.missingName.toLowerCase())
-
-            ))*/
+          
             dynamicSearch(searchInfo)
             .slice(0, visible)
             .map((item, index) => (
-              //searchFun(item, searchInfo)==='nameSearch'?(
-             // item.values.fristName.toLowerCase()===searchInfo.missingName ?
+            
               <Link key={item.id}
               to={`/missing_people_details/${item.id}`}
                 >
@@ -142,26 +131,5 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
   );
 };
 
-// const removeOutline = () => {};
 
 export default MissingPeoplePage;
-
-// const scrollButtonStyle = {
-//   position: 'fixed',
-//   right: '-100px',
-//   bottom: '150px',
-//   transition: 'right 0.5s',
-//   cursor: 'pointer',
-//   backgroundColor: '#2B6CB0',
-//   color: 'white',
-//   fontSize: '20px',
-//   padding: '10px',
-//   borderColor: '#2B6CB0ed', // #2B6CB0
-//   border: 'none',
-//   fill: 'white',
-//   focus: 'focus:outline-none',
-// };
-
-// const scrollButtonTransition = {
-//   right: '20px',
-// };

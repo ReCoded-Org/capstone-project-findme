@@ -29,9 +29,7 @@ i18next.init({
 
 ReactDOM.render(
   <React.StrictMode>
-    <I18nextProvider i18n={i18next}>
-      <App />
-    </I18nextProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
