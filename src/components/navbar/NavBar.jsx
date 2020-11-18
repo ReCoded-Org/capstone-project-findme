@@ -16,10 +16,10 @@ import Language from '../../images/icons/icon-language.svg';
 import User from '../../images/icons/icon-user.svg';
 import SignOut from '../../images/icons/icon-signout.svg';
 import {useTranslation} from "react-i18next";
-let userid=''
-let userEmail=''
+let userid='';
+let userEmail='';
 
-let userName=''
+let userName='';
 const Navbar = (props) => {
   // user confign for Sign in wth Google
   const [currentUser, setCurrentUser] = React.useState(null);
@@ -55,6 +55,12 @@ const Navbar = (props) => {
       window.removeEventListener('resize', handleResize);
     };
   });
+
+// function to change the languge and hide the element
+const changeAndHide = (language) =>{
+  language === 'ar'?   i18n.changeLanguage('ar'): i18n.changeLanguage('en');
+  setMenuOpen(!menuOpen);
+}
 
   return (
     <nav
@@ -159,14 +165,14 @@ const Navbar = (props) => {
                     <button
                       className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                       role="menuitem"
-                      onClick={() => i18n.changeLanguage('en')}
+                      onClick={ () => changeAndHide('en')}
                     >
                       English
                     </button>
                     <button
                       className="block px-4 py-2 text-sm leading-5 text-gray-700 text-right hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 flex-1"
                       role="menuitem"
-                      onClick={() => i18n.changeLanguage('ar') }
+                      onClick={ () => changeAndHide('ar')}
                     >
                       عربي
                     </button>
