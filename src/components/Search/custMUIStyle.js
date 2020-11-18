@@ -19,8 +19,29 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     width: '100%',
   },
+  clearButton: {
+    borderRadius: 200,
+    background: 'white',
+    '&:disabled': {
+      backgroundColor: 'white',
+    },
+  },
   sendButton: {
-    background: 'linear-gradient(45deg, #205a9e 30%, #5398ff 90%)',
+    background: 'white',
+    borderRadius: 200,
+    height: 'auto',
+    color: '#4299e1',
+    fontWeight: 'bold',
+    border: '2px solid #4299e1',
+    '&:disabled': {
+      backgroundColor: 'white',
+      border: '2px solid rgba(0, 0, 0, 0.26)',
+    },
+    '&:hover': {
+      backgroundColor: '#4299e1',
+      border: '2px solid #4299e1',
+      color: 'white',
+    },
   },
   textFieldInput: {
     '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {

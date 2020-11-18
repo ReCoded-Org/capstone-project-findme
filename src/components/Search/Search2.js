@@ -28,24 +28,6 @@ import Switch from '@material-ui/core/Switch';
 import ClearAllIcon from '@material-ui/icons/BackspaceOutlined';
 import SearchIcon from '@material-ui/icons/SearchOutlined';
 
-const CheckMissingPerson = (props) => {
-  return (
-    <FormControlLabel
-      control={
-        <Checkbox
-          checked={props.checkMissingPerson}
-          name="checkMissing"
-          color="primary"
-          onChange={(e) => {
-            props.handleCheck('isMissingPerson', e.target.checked);
-          }}
-        />
-      }
-      label="Missing Person"
-    />
-  );
-};
-
 const IfLookingForFamily = (props) => {
   return (
     <FormControlLabel
@@ -225,10 +207,6 @@ export const Search = () => {
               className="flex justify-between flex-col md:flex-row"
             >
               <div className="p-2 flex flex-row">
-                <CheckMissingPerson
-                  checkMissingPerson={searchInfo.isMissingPerson}
-                  handleCheck={handleUserInput}
-                />
                 <IfLookingForFamily
                   switchLookingForFamily={searchInfo.isLookingForFamily}
                   handleSwitch={handleUserInput}

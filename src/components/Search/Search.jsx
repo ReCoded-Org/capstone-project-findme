@@ -6,6 +6,11 @@
  */
 
 import React from 'react';
+import SearchBackground from '../../images/searchBackground.svg';
+import { places } from './placesData';
+import { getCurrentDate, validateName, areObjectsEqual } from './helpers';
+import useStyles from './custMUIStyle';
+import { getSearchInfo } from './searchInfo';
 
 /**
  * importing Material UI dependencies
@@ -21,36 +26,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
 import ClearAllIcon from '@material-ui/icons/BackspaceOutlined';
-import SendIcon from '@material-ui/icons/Send';
-import MissingPeople from '../../containers/MissingPeople/MissingPeoplePage'
-import SearchBackground from '../../images/searchBackground.svg';
-import { places } from './placesData';
-import { getCurrentDate, validateName } from './helpers';
-import { getSearchInfo } from './searchInfo';
-//import useFirestore from '../../hooks/useFirestore'
-import useStyles from './custMUIStyle';
-
-import { useTranslation } from 'react-i18next';
-
-const CheckMissingPerson = (props) => {
-
-  return (
-    <FormControlLabel
-      control={
-        <Checkbox
-          checked={props.checkMissingPerson}
-          name="checkMissing"
-          color="primary"
-          startIcon={<ClearAllIcon />}
-          onChange={(e) => {
-            props.handleCheck('isMissingPerson', e.target.checked);
-          }}
-        />
-      }
-      label="Missing Person"
-    />
-  );
-};
+import SearchIcon from '@material-ui/icons/SearchOutlined';
 
 const IfLookingForFamily = (props) => {
   return (
@@ -72,10 +48,9 @@ const IfLookingForFamily = (props) => {
 };
 
 const ChooseGender = (props) => {
-  const [gender, setGender] = React.useState('m');
-  const Classes = useStyles();
+  const classes = useStyles();
   return (
-    <FormControl variant="outlined" className={Classes.genderInput}>
+    <FormControl variant="outlined" className={classes.genderInput}>
       <InputLabel id="">Gender</InputLabel>
       <Select
         labelId=""
@@ -95,18 +70,18 @@ const ChooseGender = (props) => {
   );
 };
 
-const Search = () => {
-  const Classes = useStyles();
-  const [searched,setSearched]= React.useState(false)
+export const Search = () => {
+  const classes = useStyles();
+
   const searchObj = {
     id: '',
     missingName: '',
     goneMissingOn: getCurrentDate(),
     lastSeenAt: '',
-    gender: '',
+    gender: 'm',
     age: '',
     isMissingPerson: true,
-    isLookingForFamily: false,
+    isLookingForFamily: true,
     isDataEntered: false,
   };
 
@@ -115,11 +90,13 @@ const Search = () => {
   const handleUserInput = (name, value) => {
     let targettedInput = {};
     targettedInput[name] = value;
-    setSearched(true)
-    setSearchInfo({
+    const newSearchInfo = {
       ...searchInfo,
       ...targettedInput,
-      isDataEntered: targettedInput[name] !== searchObj[name] ? true : false,
+    };
+    setSearchInfo({
+      ...newSearchInfo,
+      isDataEntered: !areObjectsEqual(newSearchInfo, searchObj),
     });
   };
 
@@ -132,14 +109,13 @@ const Search = () => {
       gender: 'm',
       age: '',
       isMissingPerson: true,
-      isLookingForFamily: false,
+      isLookingForFamily: true,
       isDataEntered: false,
     });
-    setSearched(false);
   };
 
   return (
-    <section>
+    <section data-test-id="search-component">
       <div className="bg-gray-200" id="search-container">
         <div className="">
           <figure className="flex items-center p-10">
@@ -156,10 +132,12 @@ const Search = () => {
               <div className="p-2">
                 <TextField
                   id=""
-                  className={Classes.goneMissingOnInput}
+                  className={classes.goneMissingOnInput}
                   label="Gone missing on"
                   value={searchInfo.goneMissingOn}
                   onChange={function (e) {
+                    console.log(e);
+                    e.persist();
                     handleUserInput('goneMissingOn', e.target.value);
                   }}
                   type="date"
@@ -167,15 +145,15 @@ const Search = () => {
                 />
               </div>
               <div className="p-2 flex-1">
-              <Autocomplete
+                <Autocomplete
+                  freeSolo
                   id=""
-                  defaultValue={null}
-                  inputValue={searchInfo.lastSeenAt}
-                  className={Classes.customInput}
+                  className={classes.customInput}
                   options={places}
                   getOptionLabel={(option) => option.place}
-                  onChange={function (e, inputValue) {
-                    handleUserInput('lastSeenAt', inputValue.place);
+                  inputValue={searchInfo.lastSeenAt}
+                  onInputChange={(event, newInputValue) => {
+                    handleUserInput('lastSeenAt', newInputValue);
                   }}
                   renderInput={(params) => (
                     <TextField
@@ -192,13 +170,26 @@ const Search = () => {
                   handleChange={handleUserInput}
                 />
               </div>
-            
+              <div className="flex p-2">
+                <TextField
+                  id=""
+                  className={classes.customInput}
+                  value={searchInfo.age}
+                  inputProps={{ min: 0 }}
+                  label="Age"
+                  type="number"
+                  variant="outlined"
+                  onChange={(value) => {
+                    handleUserInput('age', value.target.value);
+                  }}
+                />
+              </div>
             </div>
             <div className="flex p-2">
               <TextField
                 id=""
                 required
-                className={Classes.nameInput}
+                className={classes.nameInput}
                 value={searchInfo.missingName}
                 label="Name"
                 type="text"
@@ -223,7 +214,8 @@ const Search = () => {
                   <Button
                     disabled={!searchInfo.isDataEntered}
                     variant="contained"
-                    endIcon={<ClearAllIcon />}
+                    classes={{root: classes.clearButton}}
+                    startIcon={<ClearAllIcon />}
                     onClick={() => clearAll()}
                   >
                     Clear
@@ -233,14 +225,14 @@ const Search = () => {
                   <Button
                     disabled={validateName(searchInfo.missingName, '')}
                     variant="contained"
-                    className={Classes.sendButton}
+                    classes={{root: classes.sendButton,}}
                     color="primary"
-                    endIcon={<SendIcon />}
+                    startIcon={<SearchIcon />}
                     onClick={() => {
                       getSearchInfo({ ...searchInfo });
                     }}
                   >
-                    Send
+                    Search
                   </Button>
                 </div>
               </div>
@@ -248,7 +240,6 @@ const Search = () => {
           </form>
         </div>
       </div>
-      <MissingPeople searched={searched}  searchInfo={searchInfo}/>
     </section>
   );
 };
