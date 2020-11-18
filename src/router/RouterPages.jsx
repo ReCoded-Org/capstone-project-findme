@@ -19,7 +19,9 @@ const RouterPages = () => {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/missing_people" exact component={MissingPeople} />
-        <Route path="/missing_people_details/id:"  component={MissingPerson} />
+        <Route path="/missing_people_details/id:"  exact component={MissingPerson}
+        //render={({ match }) => <MissingPerson  {...match} match={match} />} 
+        />
         <Route path="/add_post" exact component={PostMissingPerson} />
         <Route path="/about_us" component={AboutUsPage} />
         <Route path="/contact_us" exact component={ContactUs} />

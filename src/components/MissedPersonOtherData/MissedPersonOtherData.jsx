@@ -1,9 +1,49 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import RowOfData from '../RowOfData/RowOfData';
 import Data from '../../Data';
+import useFirestore from '../../containers/MissedPersonPage/useFirestore'
+import { userEmail } from '../navbar/NavBar';
+ const initialFValues = {
+    fristName: '',
+    secondName: '',
+    thirdName: '',
+    surname: '',
+    phoneNumber: '',
+    phoneNumber2: '',
+    locationOfLoss: '',
+    lostSince: '',
+    lastPlaceSeen: '',
+    lastUpdate: '',
+    age: '',
+    gender: '',
+    relationship: '',
+    job: '',
+    notes: '',
+    specialSituotion: '',
+    isLookingFor: false,
+  };
+  const usersInit={
+    name:'',
+    email:'',
+    id:'',
+  }
+const MissedPersonOtherData = ({other}) => {
+  //const { docs,state } = useFirestore(id);
+  //const [missedDetails, setDetails]= useState('')
 
-const MissedPersonOtherData = () => {
+  const [missed, setDetail]= useState(initialFValues);
+  //const [user, setUser]= useState(usersInit);
+
+  useEffect(() => {
+   
+    setDetail(other)   
+    //setUser(userInfo.user)   
+
+  //}
+
+  }, [other]);
+ 
   return (
     <div className="lg:w-2/4 ml-4 lg:ml-0">
       <div className="mb-4">
@@ -13,19 +53,19 @@ const MissedPersonOtherData = () => {
       {/* Informations Section */}
       <div className="flex flex-col text-sm sm:flex-row lg:text-md">
         <div className="flex flex-col justify-center w-full md:w-2/4">
-          <RowOfData label="Location of lose:" data={Data[1].locationOfLose} />
-          <RowOfData label="Lost since:" data={Data[1].lostSince} />
-          <RowOfData label="Age:" data={Data[1].age} />
-          <RowOfData label="Notes:" data={Data[1].notes} />
+          <RowOfData label="Location of lose:" data={missed.locationOfLoss} />
+          <RowOfData label="Lost since:" data={missed.lostSince} />
+          <RowOfData label="Age:" data={missed.age} />
+          <RowOfData label="Notes:" data={missed.notes} />
         </div>
 
         <div className="flex flex-col justify-center w-full md:w-2/4">
-          <RowOfData label="Last place seen:" data={Data[1].lastPlaceSeen} />
-          <RowOfData label="Last update:" data={Data[1].lastUpdate} />
-          <RowOfData label="Gender:" data={Data[1].gender} />
+          <RowOfData label="Last place seen:" data={missed.lastPlaceSeen} />
+          <RowOfData label="Last update:" data={missed.lastUpdate} />
+          <RowOfData label="Gender:" data={missed.gender} />
           <RowOfData
             label="Special situation:"
-            data={Data[1].specialSituation}
+            data={missed.specialSituation}
           />
         </div>
       </div>
@@ -37,12 +77,12 @@ const MissedPersonOtherData = () => {
       </div>
       <div className="flex flex-col text-sm sm:flex-row lg:text-md mb-8 sm:mb-20">
         <div className="flex flex-col justify-center w-full md:w-2/4">
-          <RowOfData label="Name:" data={Data[1].contactName} />
-          <RowOfData label="Phone number:" data={Data[1].phoneNumber} />
+          <RowOfData label="Name:" data={missed.fristName} />
+          <RowOfData label="Phone number:" data={missed.phoneNumber} />
         </div>
         <div className="flex flex-col justify-center w-full md:w-2/4">
-          <RowOfData label="Realtionship:" data={Data[1].realtionship} />
-          <RowOfData label="Phone number 2:" data={Data[1].phoneNumber2} />
+          <RowOfData label="Realtionship:" data={missed.realtionship} />
+          <RowOfData label="Phone number 2:" data={missed.phoneNumber2} />
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ import '../../components/LoadingButton/style.css';
 import useFirestore from '../../hooks/useFirestore'
 import { Link, Route } from 'react-router-dom';
 import { getSearchInfo } from '../../components/Search/searchInfo'
+import {userid,userEmail,userName} from '../../components/navbar/NavBar'
 import {getCurrentDate} from '../../components/Search/helpers'
 const MissingPeoplePage = ({searchInfo, searched}) => {
   const ITEMSTOSHOW = 8;
@@ -20,8 +21,10 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
   const [matched, setMatched] = useState([]);
   const [isSecondButtonLoading, setIsSecondButtonLoading] = useState(false);
   const [loadingSpeed, setLoadingSpeed] = useState(1);
-  const dynamicSearch =(entered)=>{
 
+  const dynamicSearch =(entered)=>{
+    
+    
     if (searchInfo.goneMissingOn===getCurrentDate()&& !entered.isLookingForFamily  )
      return docs.filter(name=> name.values.fristName.toLowerCase().includes(entered.missingName.toLowerCase()))
     else if (searchInfo.goneMissingOn===getCurrentDate()&& entered.isLookingForFamily)
@@ -38,8 +41,9 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
       name.values.fristName.toLowerCase().includes(entered.missingName.toLowerCase()&& name.values.isLookingFor)
       
     })
-    
-    
+     
+
+  
     }
   useEffect(() => {
     if (isSecondButtonLoading) {
@@ -113,7 +117,7 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
             docs && docs
             .slice(0, visible)
             .map((item, index) => (
-              <Link key={item.id}
+              <Link key={item.id} 
               to={`/missing_people_details/${item.id}`}
                 >
               <MissingPersonCard key={item.id}  id={item.id} cardInfo={item} i={index} />
