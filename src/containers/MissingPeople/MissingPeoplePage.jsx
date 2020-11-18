@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
+// import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 import MissingPersonCard from '../../components/MissingPersonCard/MissingPersonCard';
 import { ReactComponent as MyIcon } from './repeat-grid-4.svg';
 import Search from '../../components/Search/Search'
@@ -84,8 +84,8 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
       <MyIcon className="absolute" />
       <MyIcon className="absolute right-0 mt-64 " />
 
-      <div className="flex flex-wrap ml-8">
-        {docs.length === 0 ? (
+      <div className="flex flex-wrap ml-8 xl:justify-center">
+        {data.length === 0 ? (
           <h2 className="flex-auto text-center">not found results</h2>
         ) : (
           searched?(
@@ -138,35 +138,29 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
           </NiceButton>
         )}
       </div>
-
-      <ScrollUpButton
-        style={scrollButtonStyle}
-        ContainerClassName="ScrollUpButton__Container"
-        TransitionClassName="ScrollUpButton__Toggled"
-      ></ScrollUpButton>
     </div>
   );
 };
 
-const removeOutline = () => {};
+// const removeOutline = () => {};
 
 export default MissingPeoplePage;
 
-const scrollButtonStyle = {
-  position: 'fixed',
-  right: '-100px',
-  bottom: '150px',
-  transition: 'right 0.5s',
-  cursor: 'pointer',
-  backgroundColor: '#2B6CB0',
-  color: 'white',
-  fontSize: '20px',
-  padding: '10px',
-  borderColor: '#2B6CB0ed', // #2B6CB0
-  border: 'none',
-  fill: 'white',
-  focus: 'focus:outline-none',
-};
+// const scrollButtonStyle = {
+//   position: 'fixed',
+//   right: '-100px',
+//   bottom: '150px',
+//   transition: 'right 0.5s',
+//   cursor: 'pointer',
+//   backgroundColor: '#2B6CB0',
+//   color: 'white',
+//   fontSize: '20px',
+//   padding: '10px',
+//   borderColor: '#2B6CB0ed', // #2B6CB0
+//   border: 'none',
+//   fill: 'white',
+//   focus: 'focus:outline-none',
+// };
 
 // const scrollButtonTransition = {
 //   right: '20px',

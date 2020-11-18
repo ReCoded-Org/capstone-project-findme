@@ -7,8 +7,7 @@ import { ReactComponent as Msgicon } from '../../images/msg.svg';
 //Importing the firebase setup to be used on submit event
 import firebase from '../../firebase';
 
-import {useTranslation} from "react-i18next";
-
+import { useTranslation } from 'react-i18next';
 
 //Intaial values of the form
 const initialFValues = {
@@ -117,13 +116,13 @@ export default function ContactUsForm() {
         />
 
         <div className=" place-self-center sm:place-self-center xl:w-auto lg:w-auto  w-2/4 xl:self-start  lg:self-start lg:w-auto sm:w-2/5   sm:self-center self-center sm:pt-2 sm:pb-2 pt-2 pb-2">
-          <button className=" text-center h-8 items-center items-center  flex sm:p-1 flex-row-reverse inline-flex xl:w-auto w-full  lg:w-auto py-1 rounded-full text-white bg-gradient-to-r from-teal-200 via-blue-500 to-blue-700  focus:outline-none">
+          <button className=" text-center h-8 items-center items-center  flex sm:p-1 flex-row-reverse inline-flex xl:w-auto w-full  lg:w-auto py-1 rounded-full text-white bg-gradient-to-r from-teal-200 via-blue-500 to-blue-700  focus:outline-none hover:opacity-75">
             <Msgicon className="p-1" />
             <span
               style={{ textAlign: 'center' }}
               className="p-5 text-center  sm:text-center sm:text-sm text-xs  "
             >
-            {t('translation.send')}
+              {t('translation.send')}
             </span>
           </button>
         </div>

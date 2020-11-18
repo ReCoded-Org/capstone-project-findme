@@ -3,6 +3,8 @@ import userImage from '../../images/profile-svg.svg';
 import { Link, Route } from 'react-router-dom';
 import MissingPerson from '../../containers/MissedPersonPage/MissedPersonDetails';
 
+import VisibilityIcon from '@material-ui/icons/Visibility';
+
 const path="/missing_people_details/id:" ;
 /*
 
@@ -82,10 +84,14 @@ const MissingPersonCard = ({ id,cardInfo, i }) => {
           </p>
           <div className="flex flex-row absolute bottom-0 ml-8 mb-2 md:text-xs md:ml-2 md:mb-1 lg:text-base lg:ml-8 lg:mb-2">
             <div className="flex flex-col">
-            <span className="text-left mr-8 md:mr-2 lg:mr-8">Name: {cardInfo.values.fristName}</span>
-            <span className='text-left'>Contact No: {cardInfo.values.phoneNumber}</span>
+              <span className="text-left mr-8 md:mr-2 lg:mr-8">
+                Name: {cardInfo.values.fristName}
+              </span>
+              <span className="text-left">
+                Contact No: {cardInfo.values.phoneNumber}
+              </span>
             </div>
-            <span className='text-right'>{cardInfo.values.locationOfLoss}</span>
+            <span className="text-right">{cardInfo.values.locationOfLoss}</span>
           </div>
           <img
             className="opacity-25 cursor-pointer h-64"
@@ -99,7 +105,7 @@ const MissingPersonCard = ({ id,cardInfo, i }) => {
           <div className="flex justify-between md:flex-col lg:flex-row xl:flex-row bg-blue-700 ">
             <div className="items-center mt-2">
               <p className="md:mb-2 mx-4 font-semibold">
-                2 views
+                <VisibilityIcon /> {cardInfo.views}
               </p>
             </div>
             <div className=" ">

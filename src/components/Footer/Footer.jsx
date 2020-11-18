@@ -13,8 +13,7 @@ import facebook from '../../images/footer/facebook.svg';
 import instagram from '../../images/footer/instagram.svg';
 import bg from '../../images/footer/bg.svg';
 
-import {useTranslation} from "react-i18next";
-
+import { useTranslation } from 'react-i18next';
 
 // Footer Section
 const Footer = () => {
@@ -36,7 +35,7 @@ const Footer = () => {
                   className="absolute right-0  p-8  pt-6 md:pt-1"
                 />
                 <h1 className="  text-white text-xl font-semibold ">
-                {t('translation.aboutUs')}
+                  {t('translation.aboutUs')}
                 </h1>
                 <p className="  text-white ">
                   {' '}
@@ -45,7 +44,9 @@ const Footer = () => {
               </div>
               <div className="   w-full md:w-1/2 lg:w-1/2  md:pl-12 px-12    mt-4  md:mt-0 text-left">
                 {/* links */}
-                <h3 className="text-white font-semibold">{t('translation.links')}</h3>
+                <h3 className="text-white font-semibold">
+                  {t('translation.links')}
+                </h3>
                 <div className="flex pl-2 ">
                   <div className="links  pr-10 ">
                     <LinkFooter pathLink="/" nameLink={t('translation.home')} />
@@ -53,11 +54,20 @@ const Footer = () => {
                       pathLink="/missing_people"
                       nameLink={t('translation.missingPeople')}
                     />
-                    <LinkFooter pathLink="/about_us" nameLink={t('translation.aboutUs')} />
+                    <LinkFooter
+                      pathLink="/about_us"
+                      nameLink={t('translation.aboutUs')}
+                    />
                   </div>
                   <div className="links  ">
-                    <LinkFooter pathLink="/missing_people" nameLink={t('translation.search')} />
-                    <LinkFooter pathLink="/add_post" nameLink={t('translation.post')} />
+                    <LinkFooter
+                      pathLink="/missing_people"
+                      nameLink={t('translation.search')}
+                    />
+                    <LinkFooter
+                      pathLink="/add_post"
+                      nameLink={t('translation.post')}
+                    />
                   </div>
                 </div>
               </div>
@@ -67,29 +77,42 @@ const Footer = () => {
               {/* Email */}
               <div className=" w-full md:w-1/2 lg:w-1/2  md:pl-12 px-12 text-white text-left">
                 <Icon
-                  path="mailto:findme67@gmail.com"
+                  path="mailto:findme@gmail.com"
                   srcName={email}
                   srcAlt="email"
                 />
-                findme67@gmail.com
+                findme@gmail.com
               </div>
               {/* Social Media */}
               <div className=" w-full  mt-4 md:w-1/2 md:mt-0 lg:w-1/2  md:pl-12  px-12 pr-0 text-left ">
                 <p className="text-white uppercase	">
                   {' '}
                   <span className="mr mr-3 md:mr-5">
-                  {t('translation.followUs')}{' '}
+                    {t('translation.followUs')}{' '}
                   </span>
-                  <Icon path="#" srcName={facebook} srcAlt="facebook" />
-                  <Icon path="#" srcName={twitter} srcAlt="twitter" />
-                  <Icon path="#" srcName={instagram} srcAlt="instagram" />
+                  <Icon
+                    path="https://facebook.com"
+                    srcName={facebook}
+                    srcAlt="facebook"
+                  />
+                  <Icon
+                    path="https://twitter.com/"
+                    srcName={twitter}
+                    srcAlt="twitter"
+                  />
+                  <Icon
+                    path="https://www.instagram.com/"
+                    srcName={instagram}
+                    srcAlt="instagram"
+                  />
                 </p>
               </div>
             </div>
             {/* copyRight */}
             <div className="  text-white p-3 text-center border-t-solid border-t border-t-gray-600">
               <p>
-                Desiged by Recoded &copy; 2020 All rights are reserved to FindMe{' '}
+                Designed by Recoded &copy; {new Date().getFullYear()} All rights
+                are reserved to FindMe
               </p>
             </div>
           </div>

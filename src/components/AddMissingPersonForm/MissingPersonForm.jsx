@@ -2,27 +2,34 @@ import React, { useState, useEffect } from 'react';
 import './MissingPersonForm.scss';
 import { arrow, save, cancel } from './ImportImg';
 import {userid, userEmail, userName} from '../navbar/NavBar'
+
+import ArrowBack from '../../images/arrow-back.svg';
+import UploadImg from './upload';
+
 //import UploadImg from './UploadImg';
+
 import { useForm, Form } from './useForm';
 import { Input, Select, Textarea, SwitchToggle, Button } from './FormControl';
 
 import * as employeeService from './storg';
-import {useTranslation} from "react-i18next";
 
+import { Link } from 'react-router-dom';
 
+import { useTranslation } from 'react-i18next';
 
 //import useStorage from '../../hooks/useStorage';
 import { projectStorage, projectFirestore, timestamp } from '../../firebase';
 //import {profile} from '../../images/profile.png'
 import { close ,upload} from './ImportImg'
 import userEvent from '@testing-library/user-event';
+
 //import ProgressBar from './ProgressBar'
 //import {image} from './UploadImg'
 
 const MissingPersonForm = () => {
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
-  const initialState = { alt: "", src: "" };
+  const initialState = { alt: '', src: '' };
 
   const [{ alt, src }, setPreview] = React.useState(initialState);
   const [image, setImage] = useState({});
@@ -37,32 +44,27 @@ const MissingPersonForm = () => {
     setImage(files[0])
     }
 
-        setPreview(
+    setPreview(
       files.length
         ? {
             src: URL.createObjectURL(files[0]),
-            alt: files[0].name
-
+            alt: files[0].name,
           }
         : initialState
     );
-     
-    }
+  };
 
-  
-  const  resetFile = () =>{
+  const resetFile = () => {
     setImage({});
     setUrl(null);
-    setPreview(
-      initialState
-     );
-  }
-  
-const handleUpload= ()=>{
-  if (image.name=== undefined)
-    {
+    setPreview(initialState);
+  };
+
+  const handleUpload = () => {
+    if (image.name === undefined) {
       const collectionRef = projectFirestore.collection('images');
-      const url = 'https://firebasestorage.googleapis.com/v0/b/findme-949ec.appspot.com/o/blank-profile-picture-973460_640.png?alt=media&token=5d1192d1-7ec9-419a-a510-ff5a046d6f36';
+      const url =
+        'https://firebasestorage.googleapis.com/v0/b/findme-949ec.appspot.com/o/blank-profile-picture-973460_640.png?alt=media&token=5d1192d1-7ec9-419a-a510-ff5a046d6f36';
       const createdAt = timestamp();
         collectionRef.add({ url, createdAt , values, user
        }).then(() => {
@@ -94,10 +96,8 @@ const handleUpload= ()=>{
   });}
   //else {
     //alert ('You have to enter a valid image');
-  //}
-  
-  
-}
+    //}
+  };
 
   const initialFValues = {
     fristName: '',
@@ -118,7 +118,6 @@ const handleUpload= ()=>{
     specialSituotion: '',
     isLookingFor: false,
   };
-
 
   const validate = (fieldValues = values) => {
     let temp = { ...errors };
@@ -224,7 +223,6 @@ const handleUpload= ()=>{
     handleInputChange,
     resetForm,
   } = useForm(initialFValues, true, validate);
-  
 
   const handleSubmit = (e) => {
     //console.log(image.name);
@@ -234,7 +232,7 @@ if(userid!==''){
       //console.log(values);
       handleUpload();
 
-       // resetForm()
+      // resetForm()
     }
   }
   else alert("You have to sign in First!")
@@ -242,46 +240,73 @@ if(userid!==''){
 
   // Translation
   const [t, i18n] = useTranslation('common');
-  
+
   return (
     <div className="bg-white shadow-md  rounded-3xl m-5">
       <div className="flex xs:block sm:block md:flex xl:flex mb-6">
         <div className="w-1/4 p-2  text-center hidden md:block  "></div>
         <div className="w-3/4 p-2  text-center md:text-left  ">
-          <Icon srcName={arrow} srcAlt="left-arrow" />
+          <Icon srcName={ArrowBack} srcAlt="left-arrow" />
           <Title title={t('translation.addAMissingPerson')} />
         </div>
       </div>
       <Form onSubmit={handleSubmit}>
         <div className="flex xs:block sm:block md:flex xl:flex">
           <div className=" p-2 xs:w-full sm:w-full md:w-1/4   text-center     ">
-          <div className=" inline-block shadow-sm   ">
-        <div className=" relative p-0  overflow-hidden w-56 h-56 md:w-40 md:h-40  lg:w-56 lg:h-56 border border-solid border-gray-500 
-       rounded-full max-w-full"  type="file">
-  
-          <img className="rounded-full w-full h-full  " src={src} alt={alt} />
-  
-          <div className="absolute top-1/2 right-60  flex">
-            <div className='mr'>
-              <label htmlFor="file-input">
-                <img src={upload} width="25px" height="25px" className='cursor-pointer' />
-              </label>
-  
-              <input type="file" onChange={fileHandler} accept="image/*" id="file-input"  name='img' className='hidden'  />
-            </div>
-  
+            <div className=" inline-block shadow-sm   ">
+              <div
+                className=" relative p-0  overflow-hidden w-56 h-56 md:w-40 md:h-40  lg:w-56 lg:h-56 border border-solid border-gray-500 
+       rounded-full max-w-full"
+                type="file"
+              >
+                <img
+                  className="rounded-full w-full h-full  "
+                  src={src}
+                  alt={alt}
+                />
+
+                <div className="absolute top-1/2 right-60  flex">
+                  <div className="mr">
+                    <label htmlFor="file-input">
+                      <img
+                        src={upload}
+                        width="25px"
+                        height="25px"
+                        className="cursor-pointer"
+                      />
+                    </label>
+
+                    <input
+                      type="file"
+                      onChange={fileHandler}
+                      accept="image/*"
+                      id="file-input"
+                      name="img"
+                      className="hidden"
+                    />
+                  </div>
+                </div>
+                <div className="absolute top-1/2 right-30  flex">
+                  <div className="mr">
+                    <label htmlFor="remove-input">
+                      <img
+                        src={close}
+                        width="25px"
+                        height="25px"
+                        className="cursor-pointer"
+                      />
+                    </label>
+                    <input
+                      id="remove-input"
+                      onClick={resetFile}
+                      type="button"
+                      className="hidden"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>{' '}
           </div>
-          <div className="absolute top-1/2 right-30  flex">
-            <div className='mr'>
-              <label htmlFor="remove-input">
-                <img src={close} width="25px" height="25px" className='cursor-pointer' />
-              </label>
-              <input id="remove-input" onClick={resetFile}  type="button" className='hidden' />
-            </div>
-  
-          </div>
-        </div>
-      </div>          </div>
           <div className="md:w-3/4 p-4  sm:w-full ">
             {/* First Name , Second Name ,Third Name ,Surname*/}
             <div className="flex flex-wrap -mx-3 mb-5">
@@ -357,7 +382,7 @@ if(userid!==''){
               </div>
               <div className="w-full md:w-4/4 lg:w-2/4 p-2 mb-6 md:mb-0 pt-4">
                 <div className="inline">
-                {t('translation.missingPerson')}
+                  {t('translation.missingPerson')}
                   <SwitchToggle
                     name="isLookingFor"
                     checked={values.isLookingFor}
@@ -484,7 +509,8 @@ if(userid!==''){
               <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0 text-left">
                 <p className="text-sm ">
                   {' '}
-                  <span className="text-red-500">*</span> {t('translation.markedFieldsAreRequired')}
+                  <span className="text-red-500">*</span>{' '}
+                  {t('translation.markedFieldsAreRequired')}
                 </p>
               </div>
               <div className="w-full md:w-2/4 px-3 mb-6 md:mb-0 md:justify-end justify-center flex ">
@@ -493,12 +519,14 @@ if(userid!==''){
                   buttonName={t('translation.cancel')}
                   icon={cancel}
                   type="reset"
+                  style={{ cursor: 'pointer' }}
                   nameClass="rounded-full w-32 h-10 bg-white text-gray-700  border border-gray-700 border-solid"
                 />
                 <Button
                   buttonName={t('translation.save')}
                   icon={save}
                   type="submit"
+                  style={{ cursor: 'pointer' }}
                   nameClass="rounded-full w-32 h-10 bg-gradient-to-r from-blue-400 to-blue-700 text-white "
                 />
               </div>
@@ -512,11 +540,13 @@ if(userid!==''){
 
 const Icon = (props) => {
   return (
-    <img
-      src={props.srcName}
-      alt={props.srcAlt}
-      className="icon inline mr-5 md:mr-5 hover:opacity-75 "
-    />
+    <Link to="/">
+      <img
+        src={props.srcName}
+        alt={props.srcAlt}
+        className="inline w-10 h-10 mr-5 mb-1 md:mr-5 hover:opacity-75 "
+      />
+    </Link>
   );
 };
 const Title = (props) => {
