@@ -26,30 +26,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
 import ClearAllIcon from '@material-ui/icons/BackspaceOutlined';
-<<<<<<< HEAD:src/components/Search/Search.js
-import SendIcon from '@material-ui/icons/Send';
-
-import SearchBackground from '../../images/searchBackground.svg';
-import { places } from './placesData';
-import { getCurrentDate, validateName, areObjectsEqual } from './helpers';
-import useStyles from './custMUIStyle';
-import { getSearchInfo } from './searchInfo';
-
-import { useTranslation } from 'react-i18next';
-||||||| 9863eaf:src/components/Search/Search.js
-import SendIcon from '@material-ui/icons/Send';
-
-import SearchBackground from '../../images/searchBackground.svg';
-import { places } from './placesData';
-import { getCurrentDate, validateName } from './helpers';
-import useStyles from './custMUIStyle';
-import { getSearchInfo } from './searchInfo';
-
-import {useTranslation} from "react-i18next";
-
-=======
 import SearchIcon from '@material-ui/icons/SearchOutlined';
->>>>>>> 67d0427c04ae13988617efe6767935d443c059ef:src/components/Search/Search2.js
 
 const CheckMissingPerson = (props) => {
   return (
@@ -265,13 +242,7 @@ export const Search = () => {
                     endIcon={<ClearAllIcon />}
                     onClick={() => clearAll()}
                   >
-<<<<<<< HEAD:src/components/Search/Search.js
-                    {t('translation.clear')}
-||||||| 9863eaf:src/components/Search/Search.js
-                  {t('translation.clear')}
-=======
                     Clear
->>>>>>> 67d0427c04ae13988617efe6767935d443c059ef:src/components/Search/Search2.js
                   </Button>
                 </div>
                 <div className="p-2">
@@ -285,13 +256,7 @@ export const Search = () => {
                       getSearchInfo({ ...searchInfo });
                     }}
                   >
-<<<<<<< HEAD:src/components/Search/Search.js
-                    {t('translation.send')}
-||||||| 9863eaf:src/components/Search/Search.js
-                  {t('translation.send')}
-=======
                     Search
->>>>>>> 67d0427c04ae13988617efe6767935d443c059ef:src/components/Search/Search2.js
                   </Button>
                 </div>
               </div>
