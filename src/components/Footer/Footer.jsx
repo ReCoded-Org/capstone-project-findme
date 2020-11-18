@@ -133,7 +133,7 @@ const LinkFooter = (props) => {
 };
 const Icon = (props) => {
   return (
-    <a href={props.path}>
+    <a href={props.path} target="_blank">
       <img
         src={props.srcName}
         alt={props.srcAlt}
