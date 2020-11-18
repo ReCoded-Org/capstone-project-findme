@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './MissingPersonForm.scss';
 import { arrow, save, cancel } from './ImportImg';
+import {userid, userEmail, userName} from '../navbar/NavBar'
 //import UploadImg from './UploadImg';
 import { useForm, Form } from './useForm';
 import { Input, Select, Textarea, SwitchToggle, Button } from './FormControl';
@@ -14,6 +15,7 @@ import {useTranslation} from "react-i18next";
 import { projectStorage, projectFirestore, timestamp } from '../../firebase';
 //import {profile} from '../../images/profile.png'
 import { close ,upload} from './ImportImg'
+import userEvent from '@testing-library/user-event';
 //import ProgressBar from './ProgressBar'
 //import {image} from './UploadImg'
 
@@ -24,7 +26,11 @@ const MissingPersonForm = () => {
 
   const [{ alt, src }, setPreview] = React.useState(initialState);
   const [image, setImage] = useState({});
-
+  const user={
+    id: userid,
+    name: userName,
+    email: userEmail,
+  }
   const fileHandler = event => {
     const { files  } = event.target;
     if (files){
@@ -58,7 +64,7 @@ const handleUpload= ()=>{
       const collectionRef = projectFirestore.collection('images');
       const url = 'https://firebasestorage.googleapis.com/v0/b/findme-949ec.appspot.com/o/blank-profile-picture-973460_640.png?alt=media&token=5d1192d1-7ec9-419a-a510-ff5a046d6f36';
       const createdAt = timestamp();
-        collectionRef.add({ url, createdAt , values
+        collectionRef.add({ url, createdAt , values, user
        }).then(() => {
           setValues(initialFValues);
           resetFile();
@@ -78,7 +84,7 @@ const handleUpload= ()=>{
   }, async () => {
       const url = await storageRef.getDownloadURL();
       const createdAt = timestamp();
-      await collectionRef.add({ url, createdAt , values
+      await collectionRef.add({ url, createdAt , values, user
   }).then(() => {
       setValues(initialFValues);
       resetFile();
@@ -223,13 +229,15 @@ const handleUpload= ()=>{
   const handleSubmit = (e) => {
     //console.log(image.name);
     e.preventDefault();
-
+if(userid!==''){
     if (validate()) {
       //console.log(values);
       handleUpload();
 
        // resetForm()
     }
+  }
+  else alert("You have to sign in First!")
   };
 
   // Translation

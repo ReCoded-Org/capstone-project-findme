@@ -22,18 +22,14 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
 import ClearAllIcon from '@material-ui/icons/BackspaceOutlined';
 import SendIcon from '@material-ui/icons/Send';
-
+import MissingPeople from '../../containers/MissingPeople/MissingPeoplePage'
 import SearchBackground from '../../images/searchBackground.svg';
 import { places } from './placesData';
 import { getCurrentDate, validateName } from './helpers';
 import useStyles from './custMUIStyle';
 import { getSearchInfo } from './searchInfo';
-
-import {useTranslation} from "react-i18next";
-
-
+//import useFirestore from '../../hooks/useFirestore'
 const CheckMissingPerson = (props) => {
-  const [t, i18n] = useTranslation('common');
 
   return (
     <FormControlLabel
@@ -48,14 +44,12 @@ const CheckMissingPerson = (props) => {
           }}
         />
       }
-      label={t('translation.missingPerson')}
+      label="Missing Person"
     />
   );
 };
 
 const IfLookingForFamily = (props) => {
-  const [t, i18n] = useTranslation('common');
-
   return (
     <FormControlLabel
       control={
@@ -69,7 +63,7 @@ const IfLookingForFamily = (props) => {
           inputProps={{ 'aria-label': 'primary checkbox' }}
         />
       }
-      label={t('translation.lookingForFamily')}
+      label="Looking for family"
     />
   );
 };
@@ -77,11 +71,9 @@ const IfLookingForFamily = (props) => {
 const ChooseGender = (props) => {
   const [gender, setGender] = React.useState('m');
   const Classes = useStyles();
-  const [t, i18n] = useTranslation('common');
-
   return (
     <FormControl variant="outlined" className={Classes.genderInput}>
-      <InputLabel id="">{t('translation.gender')}</InputLabel>
+      <InputLabel id="">Gender</InputLabel>
       <Select
         labelId=""
         id=""
@@ -90,11 +82,11 @@ const ChooseGender = (props) => {
         onChange={function (value) {
           props.handleChange('gender', value.target.value);
         }}
-        label={t('translation.gender')}
+        label="Gender"
       >
-        <MenuItem value="m">{t('translation.male')}</MenuItem>
-        <MenuItem value="f">{t('translation.female')}</MenuItem>
-        <MenuItem value="n">{t('translation.notToSay')}</MenuItem>
+        <MenuItem value="m">Male</MenuItem>
+        <MenuItem value="f">Female</MenuItem>
+        <MenuItem value="n">Not to say</MenuItem>
       </Select>
     </FormControl>
   );
@@ -102,16 +94,16 @@ const ChooseGender = (props) => {
 
 const Search = () => {
   const Classes = useStyles();
-
+  const [searched,setSearched]= React.useState(false)
   const searchObj = {
     id: '',
     missingName: '',
     goneMissingOn: getCurrentDate(),
     lastSeenAt: '',
-    gender: 'm',
+    gender: '',
     age: '',
     isMissingPerson: true,
-    isLookingForFamily: true,
+    isLookingForFamily: false,
     isDataEntered: false,
   };
 
@@ -120,7 +112,7 @@ const Search = () => {
   const handleUserInput = (name, value) => {
     let targettedInput = {};
     targettedInput[name] = value;
-
+    setSearched(true)
     setSearchInfo({
       ...searchInfo,
       ...targettedInput,
@@ -137,13 +129,11 @@ const Search = () => {
       gender: 'm',
       age: '',
       isMissingPerson: true,
-      isLookingForFamily: true,
+      isLookingForFamily: false,
       isDataEntered: false,
     });
+    setSearched(false);
   };
-
-  // Translation
-  const [t, i18n] = useTranslation('common');
 
   return (
     <section>
@@ -164,7 +154,7 @@ const Search = () => {
                 <TextField
                   id=""
                   className={Classes.goneMissingOnInput}
-                  label={t('translation.lostSince')}
+                  label="Gone missing on"
                   value={searchInfo.goneMissingOn}
                   onChange={function (e) {
                     handleUserInput('goneMissingOn', e.target.value);
@@ -174,7 +164,7 @@ const Search = () => {
                 />
               </div>
               <div className="p-2 flex-1">
-                <Autocomplete
+              <Autocomplete
                   id=""
                   defaultValue={null}
                   inputValue={searchInfo.lastSeenAt}
@@ -187,7 +177,7 @@ const Search = () => {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label={t('translation.lastSeenAt')}
+                      label="Last seen at"
                       variant="outlined"
                     />
                   )}
@@ -199,19 +189,7 @@ const Search = () => {
                   handleChange={handleUserInput}
                 />
               </div>
-              <div className="flex p-2">
-                <TextField
-                  id=""
-                  className={Classes.customInput}
-                  value={searchInfo.age}
-                  label={t('translation.age')}
-                  type="number"
-                  variant="outlined"
-                  onChange={(value) => {
-                    handleUserInput('age', value.target.value);
-                  }}
-                />
-              </div>
+            
             </div>
             <div className="flex p-2">
               <TextField
@@ -219,7 +197,7 @@ const Search = () => {
                 required
                 className={Classes.nameInput}
                 value={searchInfo.missingName}
-                label={t('translation.name')}
+                label="Name"
                 type="text"
                 variant="outlined"
                 onChange={(value) => {
@@ -232,10 +210,6 @@ const Search = () => {
               className="flex justify-between flex-col md:flex-row"
             >
               <div className="p-2 flex flex-row">
-                <CheckMissingPerson
-                  checkMissingPerson={searchInfo.isMissingPerson}
-                  handleCheck={handleUserInput}
-                />
                 <IfLookingForFamily
                   switchLookingForFamily={searchInfo.isLookingForFamily}
                   handleSwitch={handleUserInput}
@@ -249,7 +223,7 @@ const Search = () => {
                     endIcon={<ClearAllIcon />}
                     onClick={() => clearAll()}
                   >
-                  {t('translation.clear')}
+                    Clear
                   </Button>
                 </div>
                 <div className="p-2">
@@ -263,7 +237,7 @@ const Search = () => {
                       getSearchInfo({ ...searchInfo });
                     }}
                   >
-                  {t('translation.send')}
+                    Send
                   </Button>
                 </div>
               </div>
@@ -271,6 +245,7 @@ const Search = () => {
           </form>
         </div>
       </div>
+      <MissingPeople searched={searched}  searchInfo={searchInfo}/>
     </section>
   );
 };
