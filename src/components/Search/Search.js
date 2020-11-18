@@ -25,12 +25,11 @@ import SendIcon from '@material-ui/icons/Send';
 
 import SearchBackground from '../../images/searchBackground.svg';
 import { places } from './placesData';
-import { getCurrentDate, validateName } from './helpers';
+import { getCurrentDate, validateName, areObjectsEqual } from './helpers';
 import useStyles from './custMUIStyle';
 import { getSearchInfo } from './searchInfo';
 
-import {useTranslation} from "react-i18next";
-
+import { useTranslation } from 'react-i18next';
 
 const CheckMissingPerson = (props) => {
   const [t, i18n] = useTranslation('common');
@@ -42,7 +41,6 @@ const CheckMissingPerson = (props) => {
           checked={props.checkMissingPerson}
           name="checkMissing"
           color="primary"
-          startIcon={<ClearAllIcon />}
           onChange={(e) => {
             props.handleCheck('isMissingPerson', e.target.checked);
           }}
@@ -249,7 +247,7 @@ const Search = () => {
                     endIcon={<ClearAllIcon />}
                     onClick={() => clearAll()}
                   >
-                  {t('translation.clear')}
+                    {t('translation.clear')}
                   </Button>
                 </div>
                 <div className="p-2">
@@ -263,7 +261,7 @@ const Search = () => {
                       getSearchInfo({ ...searchInfo });
                     }}
                   >
-                  {t('translation.send')}
+                    {t('translation.send')}
                   </Button>
                 </div>
               </div>
