@@ -27,9 +27,10 @@ i18next.init({
   },
 });
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
+ <React.StrictMode>
+    <I18nextProvider i18n={i18next}>
+      <App />
+    </I18nextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
