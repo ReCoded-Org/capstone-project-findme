@@ -151,7 +151,7 @@ const Navbar = (props) => {
               >
                 <div className="rounded-md bg-white shadow-xs">
                   <div
-                    className="py-1"
+                    className="py-1 flex flex-col"
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="options-menu"
@@ -164,9 +164,9 @@ const Navbar = (props) => {
                       English
                     </button>
                     <button
-                      className="block px-4 py-2 text-sm leading-5 text-gray-700 text-right hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                      className="block px-4 py-2 text-sm leading-5 text-gray-700 text-right hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 flex-1"
                       role="menuitem"
-                      onClick={() => i18n.changeLanguage('ar')}
+                      onClick={() => i18n.changeLanguage('ar') }
                     >
                       عربي
                     </button>
