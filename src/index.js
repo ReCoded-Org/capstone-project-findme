@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 // import './i18n';
 
 import { I18nextProvider } from 'react-i18next';
 import i18next from 'i18next';
+import App from './App';
 
-import common_ar from './translations/ar/common.json';
-import common_en from './translations/en/common.json';
+import commonAr from './translations/ar/common.json';
+import commonEn from './translations/en/common.json';
 
 i18next.init({
   interpolation: { escapeValue: false }, // React already does escaping
@@ -19,10 +19,10 @@ i18next.init({
   lng: 'en', // language to use
   resources: {
     en: {
-      common: common_en, // 'common' is our custom namespace
+      common: commonEn, // 'common' is our custom namespace commonAr
     },
     ar: {
-      common: common_ar,
+      common: commonAr,
     },
   },
 });

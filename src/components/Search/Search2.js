@@ -6,6 +6,11 @@
  */
 
 import React from 'react';
+import SearchBackground from '../../images/searchBackground.svg';
+import { places } from './placesData';
+import { getCurrentDate, validateName, areObjectsEqual } from './helpers';
+import useStyles from './custMUIStyle';
+import { getSearchInfo } from './searchInfo';
 
 /**
  * importing Material UI dependencies
@@ -21,6 +26,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
 import ClearAllIcon from '@material-ui/icons/BackspaceOutlined';
+<<<<<<< HEAD:src/components/Search/Search.js
 import SendIcon from '@material-ui/icons/Send';
 
 import SearchBackground from '../../images/searchBackground.svg';
@@ -30,10 +36,22 @@ import useStyles from './custMUIStyle';
 import { getSearchInfo } from './searchInfo';
 
 import { useTranslation } from 'react-i18next';
+||||||| 9863eaf:src/components/Search/Search.js
+import SendIcon from '@material-ui/icons/Send';
+
+import SearchBackground from '../../images/searchBackground.svg';
+import { places } from './placesData';
+import { getCurrentDate, validateName } from './helpers';
+import useStyles from './custMUIStyle';
+import { getSearchInfo } from './searchInfo';
+
+import {useTranslation} from "react-i18next";
+
+=======
+import SearchIcon from '@material-ui/icons/SearchOutlined';
+>>>>>>> 67d0427c04ae13988617efe6767935d443c059ef:src/components/Search/Search2.js
 
 const CheckMissingPerson = (props) => {
-  const [t, i18n] = useTranslation('common');
-
   return (
     <FormControlLabel
       control={
@@ -46,14 +64,12 @@ const CheckMissingPerson = (props) => {
           }}
         />
       }
-      label={t('translation.missingPerson')}
+      label="Missing Person"
     />
   );
 };
 
 const IfLookingForFamily = (props) => {
-  const [t, i18n] = useTranslation('common');
-
   return (
     <FormControlLabel
       control={
@@ -67,19 +83,16 @@ const IfLookingForFamily = (props) => {
           inputProps={{ 'aria-label': 'primary checkbox' }}
         />
       }
-      label={t('translation.lookingForFamily')}
+      label="Looking for family"
     />
   );
 };
 
 const ChooseGender = (props) => {
-  const [gender, setGender] = React.useState('m');
   const Classes = useStyles();
-  const [t, i18n] = useTranslation('common');
-
   return (
     <FormControl variant="outlined" className={Classes.genderInput}>
-      <InputLabel id="">{t('translation.gender')}</InputLabel>
+      <InputLabel id="">Gender</InputLabel>
       <Select
         labelId=""
         id=""
@@ -88,17 +101,17 @@ const ChooseGender = (props) => {
         onChange={function (value) {
           props.handleChange('gender', value.target.value);
         }}
-        label={t('translation.gender')}
+        label="Gender"
       >
-        <MenuItem value="m">{t('translation.male')}</MenuItem>
-        <MenuItem value="f">{t('translation.female')}</MenuItem>
-        <MenuItem value="n">{t('translation.notToSay')}</MenuItem>
+        <MenuItem value="m">Male</MenuItem>
+        <MenuItem value="f">Female</MenuItem>
+        <MenuItem value="n">Not to say</MenuItem>
       </Select>
     </FormControl>
   );
 };
 
-const Search = () => {
+export const Search = () => {
   const Classes = useStyles();
 
   const searchObj = {
@@ -118,11 +131,16 @@ const Search = () => {
   const handleUserInput = (name, value) => {
     let targettedInput = {};
     targettedInput[name] = value;
-
-    setSearchInfo({
+    // console.log('targettedInput: ' + targettedInput[name]);
+    // console.log('searchObject value: ' + searchObj[name]);
+    const newSearchInfo = {
       ...searchInfo,
       ...targettedInput,
-      isDataEntered: targettedInput[name] !== searchObj[name] ? true : false,
+    };
+    console.log(newSearchInfo);
+    setSearchInfo({
+      ...newSearchInfo,
+      isDataEntered: !areObjectsEqual(newSearchInfo, searchObj),
     });
   };
 
@@ -140,11 +158,8 @@ const Search = () => {
     });
   };
 
-  // Translation
-  const [t, i18n] = useTranslation('common');
-
   return (
-    <section>
+    <section data-test-id="search-component">
       <div className="bg-gray-200" id="search-container">
         <div className="">
           <figure className="flex items-center p-10">
@@ -162,9 +177,11 @@ const Search = () => {
                 <TextField
                   id=""
                   className={Classes.goneMissingOnInput}
-                  label={t('translation.lostSince')}
+                  label="Gone missing on"
                   value={searchInfo.goneMissingOn}
                   onChange={function (e) {
+                    console.log(e);
+                    e.persist();
                     handleUserInput('goneMissingOn', e.target.value);
                   }}
                   type="date"
@@ -173,19 +190,19 @@ const Search = () => {
               </div>
               <div className="p-2 flex-1">
                 <Autocomplete
+                  freeSolo
                   id=""
-                  defaultValue={null}
-                  inputValue={searchInfo.lastSeenAt}
                   className={Classes.customInput}
                   options={places}
                   getOptionLabel={(option) => option.place}
-                  onChange={function (e, inputValue) {
-                    handleUserInput('lastSeenAt', inputValue.place);
+                  inputValue={searchInfo.lastSeenAt}
+                  onInputChange={(event, newInputValue) => {
+                    handleUserInput('lastSeenAt', newInputValue);
                   }}
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label={t('translation.lastSeenAt')}
+                      label="Last seen at"
                       variant="outlined"
                     />
                   )}
@@ -202,7 +219,8 @@ const Search = () => {
                   id=""
                   className={Classes.customInput}
                   value={searchInfo.age}
-                  label={t('translation.age')}
+                  inputProps={{ min: 0 }}
+                  label="Age"
                   type="number"
                   variant="outlined"
                   onChange={(value) => {
@@ -217,7 +235,7 @@ const Search = () => {
                 required
                 className={Classes.nameInput}
                 value={searchInfo.missingName}
-                label={t('translation.name')}
+                label="Name"
                 type="text"
                 variant="outlined"
                 onChange={(value) => {
@@ -247,7 +265,13 @@ const Search = () => {
                     endIcon={<ClearAllIcon />}
                     onClick={() => clearAll()}
                   >
+<<<<<<< HEAD:src/components/Search/Search.js
                     {t('translation.clear')}
+||||||| 9863eaf:src/components/Search/Search.js
+                  {t('translation.clear')}
+=======
+                    Clear
+>>>>>>> 67d0427c04ae13988617efe6767935d443c059ef:src/components/Search/Search2.js
                   </Button>
                 </div>
                 <div className="p-2">
@@ -256,12 +280,18 @@ const Search = () => {
                     variant="contained"
                     className={Classes.sendButton}
                     color="primary"
-                    endIcon={<SendIcon />}
+                    endIcon={<SearchIcon />}
                     onClick={() => {
                       getSearchInfo({ ...searchInfo });
                     }}
                   >
+<<<<<<< HEAD:src/components/Search/Search.js
                     {t('translation.send')}
+||||||| 9863eaf:src/components/Search/Search.js
+                  {t('translation.send')}
+=======
+                    Search
+>>>>>>> 67d0427c04ae13988617efe6767935d443c059ef:src/components/Search/Search2.js
                   </Button>
                 </div>
               </div>

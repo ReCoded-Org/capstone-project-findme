@@ -31,8 +31,9 @@ export default function Cards() {
   //the parint component is the slider from Carousel package
   //start by mapping through all data objectis
   //pass a prop (object) for each Card component inside the slider
+  //  mx-8 sm:mx-4
   return (
-    <div className="bg-findMe max-h-full sm:pr-4 sm:pl-4 my-4">
+    <div className="bg-findMe max-h-full sm:pr-4 sm:pl-4 my-4 mx-4 md:mx-8">
       <Carousel>
         {docs && docs.map((e, index) => (
           <Card key={e.id} cardInfo={e} i={index} />
