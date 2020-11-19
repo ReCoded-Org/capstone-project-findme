@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 // import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 import MissingPersonCard from '../../components/MissingPersonCard/MissingPersonCard';
-import Model from 'react-modal'
 import { ReactComponent as MyIcon } from './repeat-grid-4.svg';
 import Search from '../../components/Search/Search'
 import './style.css';
