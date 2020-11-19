@@ -26,12 +26,9 @@ import MissingPeople from '../../containers/MissingPeople/MissingPeoplePage'
 import SearchBackground from '../../images/searchBackground.svg';
 import { places } from './placesData';
 import { getCurrentDate, validateName } from './helpers';
+import useStyles from './custMUIStyle';
 import { getSearchInfo } from './searchInfo';
 //import useFirestore from '../../hooks/useFirestore'
-import useStyles from './custMUIStyle';
-
-import { useTranslation } from 'react-i18next';
-
 const CheckMissingPerson = (props) => {
 
   return (
@@ -105,7 +102,7 @@ const Search = () => {
     lastSeenAt: '',
     gender: '',
     age: '',
-    isMissingPerson: true,
+    isMissingPerson: false,
     isLookingForFamily: false,
     isDataEntered: false,
   };
@@ -131,7 +128,7 @@ const Search = () => {
       lastSeenAt: '',
       gender: 'm',
       age: '',
-      isMissingPerson: true,
+      isMissingPerson: false,
       isLookingForFamily: false,
       isDataEntered: false,
     });
@@ -212,6 +209,7 @@ const Search = () => {
               id="more-option"
               className="flex justify-between flex-col md:flex-row"
             >
+              
               <div className="p-2 flex flex-row">
                 <IfLookingForFamily
                   switchLookingForFamily={searchInfo.isLookingForFamily}
@@ -247,6 +245,7 @@ const Search = () => {
             </div>
           </form>
         </div>
+
       </div>
       <MissingPeople searched={searched}  searchInfo={searchInfo}/>
     </section>

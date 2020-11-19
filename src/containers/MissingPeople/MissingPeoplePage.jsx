@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 // import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
 import MissingPersonCard from '../../components/MissingPersonCard/MissingPersonCard';
+import Model from 'react-modal'
 import { ReactComponent as MyIcon } from './repeat-grid-4.svg';
 import Search from '../../components/Search/Search'
 import './style.css';
@@ -20,6 +21,8 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
   const [matched, setMatched] = useState([]);
   const [isSecondButtonLoading, setIsSecondButtonLoading] = useState(false);
   const [loadingSpeed, setLoadingSpeed] = useState(1);
+  const [isOpen, setIsOpen] = useState(false);
+
   const dynamicSearch =(entered)=>{
 
     if (searchInfo.goneMissingOn===getCurrentDate()&& !entered.isLookingForFamily  )
@@ -105,6 +108,7 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
                 >
               <MissingPersonCard key={item.id}  id={item.id} cardInfo={item} i={index} />
               </Link>
+
 
                  )     )
                   

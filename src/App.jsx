@@ -1,8 +1,40 @@
+import i18next from 'i18next';
+
 import React, { Suspense } from 'react';
 import './styles/main.css';
 import { CircleArrow as ScrollUpButton } from 'react-scroll-up-button';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import RouterPage from './router/RouterPages';
 
+import Footer from './containers/Home/FooterSection';
+import Navbar from './components/navbar/NavBar';
+
+// the pages
+import AboutUsPage from './pages/AboutUs.jsx';
+import Home from './pages/Home';
+import MissingPeople from './pages/MissingPeople';
+import ContactUs from './pages/Contactus';
+import PostMissingPerson from './pages/PostMissingPerson';
+import MissingPerson from './containers/MissedPersonPage/MissedPersonDetails';
+import commonAr from './translations/ar/common.json';
+import commonEn from './translations/en/common.json';
+
+i18next.init({
+  interpolation: { escapeValue: false }, // React already does escaping
+});
+
+i18next.init({
+  interpolation: { escapeValue: false }, // React already does escaping
+  lng: 'en', // language to use
+  resources: {
+    en: {
+      common: commonEn, // 'common' is our custom namespace commonAr
+    },
+    ar: {
+      common: commonAr,
+    },
+  },
+});
 // import ContacUs from './containers/ContactUs/ContactUsContainer';
 // import Footer from './containers/Home/FooterSection';
 // import Navbar from './components/navbar/NavBar';
@@ -35,19 +67,28 @@ const scrollButtonStyle = {
   fill: 'white',
   focus: 'focus:outline-none',
 };
-
 function App() {
   return (
-    <Suspense fallback="loading">
-      <div className="App bg-findMe">
-        <RouterPage />
-        <ScrollUpButton
-          style={scrollButtonStyle}
-          ContainerClassName="ScrollUpButton__Container"
-          TransitionClassName="ScrollUpButton__Toggled"
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/missing_people" exact component={MissingPeople} />
+        <Route
+          path="/missing_people_details/:id"
+          render={({ match }) => <MissingPerson {...match} match={match} />}
         />
-      </div>
-    </Suspense>
+        <Route path="/add_post" exact component={PostMissingPerson} />
+        <Route path="/about_us" component={AboutUsPage} />
+        <Route path="/contact_us" exact component={ContactUs} />
+      </Switch>
+      <ScrollUpButton
+        style={scrollButtonStyle}
+        ContainerClassName="ScrollUpButton__Container"
+        TransitionClassName="ScrollUpButton__Toggled"
+      />
+      <Footer />
+    </Router>
   );
 }
 
