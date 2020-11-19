@@ -34,8 +34,8 @@ const HomePage = ({ missingPeople }) => {
       </div>
       <p className="mr-4 my-10 mt-6 text-right text-blue-500">
         <Link to="/missing_people">
-          <span className="">
-            {t('translation.moreMissingPeopleLink')} &larr;
+          <span className="mr-10 my-10 text-right text-blue-500">
+            {t('translation.moreMissingPeopleLink')} &rarr;
           </span>
         </Link>
       </p>

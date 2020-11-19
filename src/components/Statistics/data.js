@@ -3,6 +3,8 @@
 import lensIcon from '../../images/lens.svg';
 import glassesIcon from '../../images/glasses.svg';
 import locationIcon from '../../images/location.svg';
+import { i18n } from 'react-i18next';
+
 
 const info = [
   {

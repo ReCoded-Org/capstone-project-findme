@@ -1,7 +1,8 @@
 import i18n from 'i18next';
 // import i18next-browser-languageDetector For Auto detect the user language
-import detector from 'i18next-browser-languagedetector';
-import { reactI18nextModule } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import { initReactI18next, reactI18nextModule } from 'react-i18next';
+import HttpApi from 'i18next-http-backend';
 
 // the translations
 // (tip move them in a JSON file and import them)
@@ -63,18 +64,21 @@ const resources = {
 };
 
 i18n
-  .use(detector)
-  .use(reactI18nextModule) // passes i18n down to react-i18next
+  .use(initReactI18next)
+  .use(HttpApi) // passes i18n down to react-i18next
+  .use(LanguageDetector) // passes i18n down to react-i18next
   .init({
-    resources,
-    lng: 'en',
-    fallbackLng: 'en', // use en if detected lng is not available
-
-    keySeparator: false, // we do not use keys in form messages.welcome
-
+    supportedLngs: ['en', 'ar'],
     interpolation: {
       escapeValue: false, // react already safes from xss
     },
+    preload: ['en'],
+
+    // resources,
+    // lng: 'en',
+    // fallbackLng: 'en', // use en if detected lng is not available
+
+    // keySeparator: false, // we do not use keys in form messages.welcome
   });
 
 export default i18n;

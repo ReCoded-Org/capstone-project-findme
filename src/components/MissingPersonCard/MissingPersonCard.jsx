@@ -83,15 +83,12 @@ const MissingPersonCard = ({ id,cardInfo, i }) => {
             {cardInfo.values.notes}
           </p>
           <div className="flex flex-row absolute bottom-0 ml-8 mb-2 md:text-xs md:ml-2 md:mb-1 lg:text-base lg:ml-8 lg:mb-2">
-            <div className="flex flex-col">
-              <span className="text-left mr-8 md:mr-2 lg:mr-8">
-                Name: {cardInfo.values.fristName}
-              </span>
+            <div className="flex justify-between">
               <span className="text-left">
-                Contact No: {cardInfo.values.phoneNumber}
+                Contact No: {cardInfo.values.phoneNumber} | 
               </span>
+              <span className="text-right">{cardInfo.values.locationOfLoss}</span>
             </div>
-            <span className="text-right">{cardInfo.values.locationOfLoss}</span>
           </div>
           <img
             className="opacity-25 cursor-pointer h-64"
