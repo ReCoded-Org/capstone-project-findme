@@ -28,7 +28,15 @@ import Switch from '@material-ui/core/Switch';
 import ClearAllIcon from '@material-ui/icons/BackspaceOutlined';
 import SearchIcon from '@material-ui/icons/SearchOutlined';
 
+/**
+ * 
+ * import translation dependecies
+ */
+import {useTranslation} from "react-i18next";
+
+
 const IfLookingForFamily = (props) => {
+  const [t, i18n] = useTranslation('common');
   return (
     <FormControlLabel
       control={
@@ -42,16 +50,17 @@ const IfLookingForFamily = (props) => {
           inputProps={{ 'aria-label': 'primary checkbox' }}
         />
       }
-      label="Looking for family"
+      label={t('translation.lookingForFamily')}
     />
   );
 };
 
 const ChooseGender = (props) => {
+  const [t, i18n] = useTranslation('common');
   const classes = useStyles();
   return (
     <FormControl variant="outlined" className={classes.genderInput}>
-      <InputLabel id="">Gender</InputLabel>
+      <InputLabel id="">{t('translation.gender')}</InputLabel>
       <Select
         labelId=""
         id=""
@@ -60,17 +69,20 @@ const ChooseGender = (props) => {
         onChange={function (value) {
           props.handleChange('gender', value.target.value);
         }}
-        label="Gender"
+        label={t('translation.gender')}
       >
-        <MenuItem value="m">Male</MenuItem>
-        <MenuItem value="f">Female</MenuItem>
-        <MenuItem value="n">Not to say</MenuItem>
+         <MenuItem value="m">{t('translation.male')}</MenuItem>
+        <MenuItem value="f">{t('translation.female')}</MenuItem>
+        <MenuItem value="n">{t('translation.notToSay')}</MenuItem>
       </Select>
     </FormControl>
   );
 };
 
 export const Search = () => {
+
+  const [t, i18n] = useTranslation('common');
+
   const classes = useStyles();
 
   const searchObj = {
@@ -133,7 +145,7 @@ export const Search = () => {
                 <TextField
                   id=""
                   className={classes.goneMissingOnInput}
-                  label="Gone missing on"
+                  label={t('translation.lostSince')}
                   value={searchInfo.goneMissingOn}
                   onChange={function (e) {
                     console.log(e);
@@ -158,7 +170,7 @@ export const Search = () => {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="Last seen at"
+                      label={t('translation.lastSeenAt')}
                       variant="outlined"
                     />
                   )}
@@ -176,7 +188,7 @@ export const Search = () => {
                   className={classes.customInput}
                   value={searchInfo.age}
                   inputProps={{ min: 0 }}
-                  label="Age"
+                  label={t('translation.age')}
                   type="number"
                   variant="outlined"
                   onChange={(value) => {
@@ -191,7 +203,7 @@ export const Search = () => {
                 required
                 className={classes.nameInput}
                 value={searchInfo.missingName}
-                label="Name"
+                label={t('translation.name')}
                 type="text"
                 variant="outlined"
                 onChange={(value) => {
@@ -212,27 +224,30 @@ export const Search = () => {
               <div className="flex justify-self-end">
                 <div className="p-2">
                   <Button
+                  key={1}
                     disabled={!searchInfo.isDataEntered}
                     variant="contained"
                     classes={{root: classes.clearButton}}
                     startIcon={<ClearAllIcon />}
                     onClick={() => clearAll()}
                   >
-                    Clear
+                    {t('translation.clear')}
                   </Button>
                 </div>
                 <div className="p-2">
                   <Button
+                  key={2}
                     disabled={validateName(searchInfo.missingName, '')}
                     variant="contained"
                     classes={{root: classes.sendButton,}}
+                    className='bg-gradient-to-r'
                     color="primary"
                     startIcon={<SearchIcon />}
                     onClick={() => {
                       getSearchInfo({ ...searchInfo });
                     }}
                   >
-                    Search
+                    {t('translation.search')}
                   </Button>
                 </div>
               </div>

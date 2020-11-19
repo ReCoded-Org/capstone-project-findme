@@ -27,21 +27,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   sendButton: {
-    background: 'white',
+    background: ' linear-gradient(to right, #b2f5ea, #4299e1, #2b6cb0);',
     borderRadius: 200,
     height: 'auto',
-    color: '#4299e1',
     fontWeight: 'bold',
-    border: '2px solid #4299e1',
-    '&:disabled': {
-      backgroundColor: 'white',
-      border: '2px solid rgba(0, 0, 0, 0.26)',
-    },
-    '&:hover': {
-      backgroundColor: '#4299e1',
-      border: '2px solid #4299e1',
-      color: 'white',
-    },
+    width: '8rem',
   },
   textFieldInput: {
     '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
