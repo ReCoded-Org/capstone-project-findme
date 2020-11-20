@@ -13,7 +13,7 @@ const HomePage = ({ missingPeople }) => {
 
   // storing api data in the state
   const [data, setData] = useState(docs);
-  console.log(data);
+  // console.log(data);
 
   // Translation
   const [t, i18n] = useTranslation('common');

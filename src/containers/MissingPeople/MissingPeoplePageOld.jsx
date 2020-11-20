@@ -4,7 +4,7 @@ import Api from './api';
 
 const MissingPeoplePage = () => {
   const [data, setData] = useState(Api);
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="">

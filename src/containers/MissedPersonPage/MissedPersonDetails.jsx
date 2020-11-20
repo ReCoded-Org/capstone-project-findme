@@ -33,9 +33,9 @@ const MissedPersonDetails = ({match}) => {
 
  
   useEffect(() => {
-    console.log('id', match.params.id);
+    // console.log('id', match.params.id);
     //console.log('docs', docs.values);
-    console.log('state', state);
+    // console.log('state', state);
 
     //setDetail(getDataById( x, docs))
     
@@ -45,7 +45,7 @@ const MissedPersonDetails = ({match}) => {
   }
 
   }, [docs.values]);
-  console.log(missed)
+  // console.log(missed)
   
    
   return (

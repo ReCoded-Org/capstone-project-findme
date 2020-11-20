@@ -55,7 +55,7 @@ const MissingPeoplePage = () => {
             ))
         )}
       </div>
-      {console.log(visible, data.length)}
+      {/*console.log(visible, data.length)*/}
       <div className=" ">
         {visible > data.length ? (
           <button

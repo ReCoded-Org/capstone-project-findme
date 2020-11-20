@@ -124,7 +124,7 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
             ))
             )}
       </div>
-      {console.log(visible, data.length)}
+      {/*console.log(visible, data.length)*/}
       <div className=" ">
         {visible > docs.length ? (
           ''

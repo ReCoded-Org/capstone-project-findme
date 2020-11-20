@@ -157,7 +157,7 @@ export const Search = () => {
                   label="Gone missing on"
                   value={searchInfo.goneMissingOn}
                   onChange={function (e) {
-                    console.log(e);
+                    // console.log(e);
                     e.persist();
                     handleUserInput('goneMissingOn', e.target.value);
                   }}

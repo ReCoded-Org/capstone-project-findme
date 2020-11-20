@@ -15,7 +15,7 @@ const useFirestore = (id2) => {
                     documents.push({...doc.data(), id: doc.id });
                 })
                 setDocs(getDataById(id2, documents));
-                console.log(docs)
+                // console.log(docs)
             });
         setState('');
 

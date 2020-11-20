@@ -29,7 +29,7 @@ const Navbar = (props) => {
   React.useEffect(() => {
     unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-      console.log('user', user);
+      // console.log('user', user);
       userid = user.uid;
       userName = user.displayName;
       userEmail = user.email;
