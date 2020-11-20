@@ -1,16 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import MissingPerson from '../containers/MissedPersonPage/MissedPersonDetails';
 
-const MissingPersonPage = ({match}) => {
-  useEffect(() => {
-    console.log("hi all "+ match);
-    //alert(match)
-  }, []);
+const MissingPersonPage = () => {
+  const [id, setid] = useState('');
+  
 
   return (
     <div className="App bg-findMe">
-      <p>{match.params}</p>
       <MissingPerson  />
     </div>
   );

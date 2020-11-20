@@ -7,6 +7,7 @@ import useFirestore from '../../hooks/useFirestore';
 
 import { useTranslation } from 'react-i18next';
 
+
 const HomePage = ({ missingPeople }) => {
   const { docs } = useFirestore('images');
 
@@ -23,19 +24,23 @@ const HomePage = ({ missingPeople }) => {
         {missingPeople}
       </h2>
       <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row sm:flex-col sm:items-center xl:justify-center">
-        {docs &&
-          docs.map((item, index) =>
-            index < 4 ? (
-              <MissingPersonCard key={item.id} cardInfo={item} i={index} />
-            ) : (
-              ''
-            )
-          )}
+      {docs &&
+        docs.map((item, index) =>
+          index < 4 ? (
+            <Link key={item.id}
+            to={`/missing_people_details/${item.id}`}
+              >
+            <MissingPersonCard key={item.id} cardInfo={item} i={index} />
+          
+          </Link>
+           ) : 
+            '')
+        }
       </div>
       <p className="mr-4 my-10 mt-6 text-right text-blue-500">
-        <Link to="/missing_people">
-          <span className="mr-10 my-10 text-right text-blue-500">
-            {t('translation.moreMissingPeopleLink')} &rarr;
+        <Link to="/missing_people"> 
+          <span className=" my-10 text-right text-blue-500 text-xl">
+            {t('translation.moreMissingPeopleLink')} <ArrowForwardIcon />
           </span>
         </Link>
       </p>

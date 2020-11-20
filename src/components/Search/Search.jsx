@@ -22,16 +22,14 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
 import ClearAllIcon from '@material-ui/icons/BackspaceOutlined';
 import SendIcon from '@material-ui/icons/Send';
+import SearchIcon from '@material-ui/icons/SearchOutlined';
 import MissingPeople from '../../containers/MissingPeople/MissingPeoplePage'
 import SearchBackground from '../../images/searchBackground.svg';
 import { places } from './placesData';
 import { getCurrentDate, validateName } from './helpers';
+import useStyles from './custMUIStyle';
 import { getSearchInfo } from './searchInfo';
 //import useFirestore from '../../hooks/useFirestore'
-import useStyles from './custMUIStyle';
-
-import { useTranslation } from 'react-i18next';
-
 const CheckMissingPerson = (props) => {
 
   return (
@@ -53,6 +51,7 @@ const CheckMissingPerson = (props) => {
 };
 
 const IfLookingForFamily = (props) => {
+  const Classes = useStyles();
   return (
     <FormControlLabel
       control={
@@ -62,6 +61,7 @@ const IfLookingForFamily = (props) => {
             props.handleSwitch('isLookingForFamily', e.target.checked);
           }}
           color="primary"
+          // className={Classes.colorSecondary}
           name="isLooking"
           inputProps={{ 'aria-label': 'primary checkbox' }}
         />
@@ -105,7 +105,7 @@ const Search = () => {
     lastSeenAt: '',
     gender: '',
     age: '',
-    isMissingPerson: true,
+    isMissingPerson: false,
     isLookingForFamily: false,
     isDataEntered: false,
   };
@@ -131,7 +131,7 @@ const Search = () => {
       lastSeenAt: '',
       gender: 'm',
       age: '',
-      isMissingPerson: true,
+      isMissingPerson: false,
       isLookingForFamily: false,
       isDataEntered: false,
     });
@@ -212,6 +212,7 @@ const Search = () => {
               id="more-option"
               className="flex justify-between flex-col md:flex-row"
             >
+              
               <div className="p-2 flex flex-row">
                 <IfLookingForFamily
                   switchLookingForFamily={searchInfo.isLookingForFamily}
@@ -223,7 +224,9 @@ const Search = () => {
                   <Button
                     disabled={!searchInfo.isDataEntered}
                     variant="contained"
-                    endIcon={<ClearAllIcon />}
+                    
+                    className={Classes.clearButton}
+                    startIcon={<ClearAllIcon />}
                     onClick={() => clearAll()}
                   >
                     Clear
@@ -233,20 +236,22 @@ const Search = () => {
                   <Button
                     disabled={validateName(searchInfo.missingName, '')}
                     variant="contained"
+                    className="bg-gradient-to-r from-teal-200 via-blue-500 to-blue-700 rounded-full"
                     className={Classes.sendButton}
                     color="primary"
-                    endIcon={<SendIcon />}
+                    startIcon={<SearchIcon />}
                     onClick={() => {
                       getSearchInfo({ ...searchInfo });
                     }}
                   >
-                    Send
+                  Search
                   </Button>
                 </div>
               </div>
             </div>
           </form>
         </div>
+
       </div>
       <MissingPeople searched={searched}  searchInfo={searchInfo}/>
     </section>

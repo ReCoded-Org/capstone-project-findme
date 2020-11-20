@@ -119,7 +119,7 @@ const MissingPersonForm = () => {
     isLookingFor: false,
   };
 
-  const validate = (fieldValues = values) => {
+  const validatOld = (fieldValues = values) => {
     let temp = { ...errors };
     if ('fristName' in fieldValues) {
       if (!fieldValues.fristName) {
@@ -207,6 +207,63 @@ const MissingPersonForm = () => {
           ? ''
           : 'Please enter only letters.';
       }
+    }
+
+    setErrors({
+      ...temp,
+    });
+    return Object.values(temp).every((x) => x === '');
+  };
+  const validate = (fieldValues = values) => {
+    let temp = { ...errors };
+    if ('fristName' in fieldValues) {
+      if (!fieldValues.fristName) {
+        temp.fristName = 'This field is required.';
+      }
+     
+    }
+
+    if ('surname' in fieldValues) {
+      if (!fieldValues.surname) {
+        temp.surname = 'This field is required.';
+      }
+      
+    }
+    if ('phoneNumber' in fieldValues) {
+      var pattern = new RegExp(/^[0-9\b]+$/);
+      if (!fieldValues.phoneNumber) {
+        temp.phoneNumber = 'This field is required.';
+      }
+      if (fieldValues.phoneNumber.length > 0) {
+        var pattern = new RegExp(/^[0-9\b]+$/);
+        if (pattern.test(fieldValues.phoneNumber)) {
+          temp.phoneNumber =
+            fieldValues.phoneNumber.length > 8
+              ? ''
+              : 'Please enter valid phone number.';
+        } else {
+          temp.phoneNumber = 'Please enter only number.';
+        }
+      }
+    }
+
+    if ('locationOfLoss' in fieldValues)
+      temp.locationOfLoss = fieldValues.locationOfLoss
+        ? ''
+        : 'This field is required.';
+    if ('lostSince' in fieldValues)
+      temp.lostSince = fieldValues.lostSince ? '' : 'This field is required.';
+    if ('lastPlaceSeen' in fieldValues)
+      temp.lastPlaceSeen = fieldValues.lastPlaceSeen
+        ? ''
+        : 'This field is required.';
+    if ('relationship' in fieldValues)
+      temp.relationship = fieldValues.relationship
+        ? ''
+        : 'This field is required.';
+
+    if ('job' in fieldValues) {
+      
     }
 
     setErrors({

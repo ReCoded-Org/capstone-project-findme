@@ -20,6 +20,8 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
   const [matched, setMatched] = useState([]);
   const [isSecondButtonLoading, setIsSecondButtonLoading] = useState(false);
   const [loadingSpeed, setLoadingSpeed] = useState(1);
+  const [isOpen, setIsOpen] = useState(false);
+
   const dynamicSearch =(entered)=>{
 
     if (searchInfo.goneMissingOn===getCurrentDate()&& !entered.isLookingForFamily  )
@@ -105,6 +107,7 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
                 >
               <MissingPersonCard key={item.id}  id={item.id} cardInfo={item} i={index} />
               </Link>
+
 
                  )     )
                   

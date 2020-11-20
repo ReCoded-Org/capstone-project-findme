@@ -10,22 +10,25 @@ import Home from '../pages/Home';
 import MissingPeople from '../pages/MissingPeople';
 import ContactUs from '../pages/Contactus';
 import PostMissingPerson from '../pages/PostMissingPerson';
-import MissingPerson from '../pages/MissedPerson';
+import MissingPerson from '../containers/MissedPersonPage/MissedPersonDetails';
 
 const RouterPages = () => {
   return (
     <Router>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/missing_people" exact component={MissingPeople} />
-        <Route path="/missing_people_details/id:"  component={MissingPerson} />
-        <Route path="/add_post" exact component={PostMissingPerson} />
-        <Route path="/about_us" component={AboutUsPage} />
-        <Route path="/contact_us" exact component={ContactUs} />
-      </Switch>
-      <Footer />
-    </Router>
+    <Navbar />
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/missing_people" exact component={MissingPeople} />
+      <Route
+        path="/missing_people_details/:id"
+        render={({ match }) => <MissingPerson {...match} match={match} />}
+      />
+      <Route path="/add_post" exact component={PostMissingPerson} />
+      <Route path="/about_us" component={AboutUsPage} />
+      <Route path="/contact_us" exact component={ContactUs} />
+    </Switch>
+    <Footer />
+  </Router>
   );
 };
 export default RouterPages;

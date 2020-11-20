@@ -1,68 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Findme
+Our website is a service that connects lost people with anyone who is looking for them. We have two scenarios on our website of loss, the first type is a lost person and the other type is people who are found but missing their relatives or anyone that takes care of them.\
+In the first scenario when someone is lost, his/her relatives will search for him/her. If they found him/her they will contact the person who posts. If not somebody will post pieces of information about the lost person with his/her way of contact. After the lost person is found (hopefully) using our service, anyone who posts the lost person will update the case to be successfully found.\
+The other scenario is finding somebody missing his/her relatives or whoever takes care of him/her. If he/she does not found in the search, someone will post about this person with his/her way of contact. then the operation is the same as the first scenario.
+Our website can be used by any user with all functionalities except posting or editing posts. This functionality requires a login and we are using Google authentication. We want our website to be as simple and efficient as possible to find lost people without any barriers from any kind of user with the minimum technical skills.
 
-## Available Scripts
+## Website functionalities
+* User can visit the main page other sections (statistics, successful stories, ..etc)
+* User can go to about us to read a brief description about the website
+* User can go to the contact us page and send us a message
+* User can go to the missing people page, navigate over missing people, and search for them then contact people who post (outside our website)
+* Only Google-authenticated users can post for their lost/missed relatives people or updating their post
+* Google authentication will appear whenever there is a need to post or updating posts
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Website pages
+* Home page
+* About us
+* Contact us
+* Missing people
+* Missing person Page
+* Post lost
