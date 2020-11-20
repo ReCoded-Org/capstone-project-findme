@@ -69,26 +69,28 @@ const scrollButtonStyle = {
 };
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/missing_people" exact component={MissingPeople} />
-        <Route
-          path="/missing_people_details/:id"
-          render={({ match }) => <MissingPerson {...match} match={match} />}
+    <div className="bg-findMe">
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/missing_people" exact component={MissingPeople} />
+          <Route
+            path="/missing_people_details/:id"
+            render={({ match }) => <MissingPerson {...match} match={match} />}
+          />
+          <Route path="/add_post" exact component={PostMissingPerson} />
+          <Route path="/about_us" component={AboutUsPage} />
+          <Route path="/contact_us" exact component={ContactUs} />
+        </Switch>
+        <ScrollUpButton
+          style={scrollButtonStyle}
+          ContainerClassName="ScrollUpButton__Container"
+          TransitionClassName="ScrollUpButton__Toggled"
         />
-        <Route path="/add_post" exact component={PostMissingPerson} />
-        <Route path="/about_us" component={AboutUsPage} />
-        <Route path="/contact_us" exact component={ContactUs} />
-      </Switch>
-      <ScrollUpButton
-        style={scrollButtonStyle}
-        ContainerClassName="ScrollUpButton__Container"
-        TransitionClassName="ScrollUpButton__Toggled"
-      />
-      <Footer />
-    </Router>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 

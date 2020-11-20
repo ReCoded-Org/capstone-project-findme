@@ -1,10 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import RowOfData from '../RowOfData/RowOfData';
-import {userid, userEmail, userName} from '../navbar/NavBar'
- 
-import Data from '../../Data';
-import useFirestore from '../../containers/MissedPersonPage/useFirestore'
+
  const initialFValues = {
     fristName: '',
     secondName: '',
@@ -29,12 +26,12 @@ import useFirestore from '../../containers/MissedPersonPage/useFirestore'
     email:'',
     id:'',
   }
-const MissedPersonOtherData = ({other}) => {
+const MissedPersonOtherData = ({other, userInfo}) => {
   //const { docs,state } = useFirestore(id);
   //const [missedDetails, setDetails]= useState('')
 
   const [missed, setDetail]= useState(initialFValues);
-  //const [user, setUser]= useState(usersInit);
+  const [user, setUser]= useState(usersInit);
 
   useEffect(() => {
    
@@ -44,7 +41,16 @@ const MissedPersonOtherData = ({other}) => {
   //}
 
   }, [other]);
- 
+  useEffect(() => {
+   
+    //setDetail(other)   
+    setUser(userInfo)   
+
+  //}
+
+  }, [userInfo]);
+  
+ //console.log('userinCard', user)
   return (
     <div className="lg:w-2/4 ml-4 lg:ml-0">
       <div className="mb-4">
@@ -78,7 +84,7 @@ const MissedPersonOtherData = ({other}) => {
       </div>
       <div className="flex flex-col text-sm sm:flex-row lg:text-md mb-8 sm:mb-20">
         <div className="flex flex-col justify-center w-full md:w-2/4">
-          <RowOfData label="Name:" data={''} />
+          <RowOfData label="Name:" data={user.name} />
           <RowOfData label="Phone number:" data={missed.phoneNumber} />
         </div>
         <div className="flex flex-col justify-center w-full md:w-2/4">

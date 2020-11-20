@@ -26,11 +26,16 @@ const HomePage = ({ missingPeople }) => {
         {docs &&
           docs.map((item, index) =>
             index < 4 ? (
+              <Link key={item.id}
+              to={`/missing_people_details/${item.id}`}
+                >
               <MissingPersonCard key={item.id} cardInfo={item} i={index} />
-            ) : (
-              ''
-            )
-          )}
+            
+            </Link>
+             ) : 
+              '')
+            
+          }
       </div>
       <p className="mr-4 my-10 mt-6 text-right text-blue-500">
         <Link to="/missing_people">

@@ -16,10 +16,11 @@ import Language from '../../images/icons/icon-language.svg';
 import User from '../../images/icons/icon-user.svg';
 import SignOut from '../../images/icons/icon-signout.svg';
 import {useTranslation} from "react-i18next";
-let userid=''
-let userEmail=''
-
-let userName=''
+const userPost = {
+  userid:'',
+  userName:'',
+  userEmail:'',
+}
 const Navbar = (props) => {
   // user confign for Sign in wth Google
   const [currentUser, setCurrentUser] = React.useState(null);
@@ -30,9 +31,11 @@ const Navbar = (props) => {
     unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
       console.log('user', user);
-      userid=user.uid;
-      userName= user.displayName;
-      userEmail=user.email;
+      if (user!==null){
+      userPost.userid =user.uid;
+      userPost.userName = user.displayName;
+      userPost.userEmail = user.email;
+    }
     });
     return () => {
       this.unsubscribeFromAuth();
@@ -233,5 +236,5 @@ const Navbar = (props) => {
   </nav>
   );
 };
-export {userid,userEmail,userName};
+export {userPost};
 export default Navbar;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './MissingPersonForm.scss';
 import { arrow, save, cancel } from './ImportImg';
-import {userid, userEmail, userName} from '../navbar/NavBar'
+import {userPost} from '../navbar/NavBar'
 
 import ArrowBack from '../../images/arrow-back.svg';
 import UploadImg from './upload';
@@ -33,11 +33,9 @@ const MissingPersonForm = () => {
 
   const [{ alt, src }, setPreview] = React.useState(initialState);
   const [image, setImage] = useState({});
-  const user={
-    id: userid,
-    name: userName,
-    email: userEmail,
-  }
+  const [user,setUser]=useState(userPost);
+  
+ 
   const fileHandler = event => {
     const { files  } = event.target;
     if (files){
@@ -66,7 +64,7 @@ const MissingPersonForm = () => {
       const url =
         'https://firebasestorage.googleapis.com/v0/b/findme-949ec.appspot.com/o/blank-profile-picture-973460_640.png?alt=media&token=5d1192d1-7ec9-419a-a510-ff5a046d6f36';
       const createdAt = timestamp();
-        collectionRef.add({ url, createdAt , values, user
+        collectionRef.add({ url, createdAt , values,user
        }).then(() => {
           setValues(initialFValues);
           resetFile();
@@ -86,7 +84,7 @@ const MissingPersonForm = () => {
   }, async () => {
       const url = await storageRef.getDownloadURL();
       const createdAt = timestamp();
-      await collectionRef.add({ url, createdAt , values, user
+      await collectionRef.add({ url, createdAt , values,user
   }).then(() => {
       setValues(initialFValues);
       resetFile();
@@ -125,36 +123,14 @@ const MissingPersonForm = () => {
       if (!fieldValues.fristName) {
         temp.fristName = 'This field is required.';
       }
-      if (fieldValues.fristName.length > 0) {
-        temp.fristName = fieldValues.fristName.match(/^[a-zA-Z]+$/)
-          ? ''
-          : 'Please enter only letters.';
-      }
+     
     }
 
-    if ('secondName' in fieldValues) {
-      if (fieldValues.secondName.length > 0) {
-        temp.secondName = fieldValues.secondName.match(/^[a-zA-Z]+$/)
-          ? ''
-          : 'Please enter only letters.';
-      }
-    }
-    if ('thirdName' in fieldValues) {
-      if (fieldValues.thirdName.length > 0) {
-        temp.thirdName = fieldValues.thirdName.match(/^[a-zA-Z]+$/)
-          ? ''
-          : 'Please enter only letters.';
-      }
-    }
     if ('surname' in fieldValues) {
       if (!fieldValues.surname) {
         temp.surname = 'This field is required.';
       }
-      if (fieldValues.surname.length > 0) {
-        temp.surname = fieldValues.surname.match(/^[a-zA-Z]+$/)
-          ? ''
-          : 'Please enter only letters.';
-      }
+      
     }
     if ('phoneNumber' in fieldValues) {
       var pattern = new RegExp(/^[0-9\b]+$/);
@@ -162,6 +138,7 @@ const MissingPersonForm = () => {
         temp.phoneNumber = 'This field is required.';
       }
       if (fieldValues.phoneNumber.length > 0) {
+        var pattern = new RegExp(/^[0-9\b]+$/);
         if (pattern.test(fieldValues.phoneNumber)) {
           temp.phoneNumber =
             fieldValues.phoneNumber.length > 8
@@ -169,19 +146,6 @@ const MissingPersonForm = () => {
               : 'Please enter valid phone number.';
         } else {
           temp.phoneNumber = 'Please enter only number.';
-        }
-      }
-    }
-    if ('phoneNumber2' in fieldValues) {
-      var pattern = new RegExp(/^[0-9\b]+$/);
-      if (fieldValues.phoneNumber2.length > 0) {
-        if (pattern.test(fieldValues.phoneNumber)) {
-          temp.phoneNumber2 =
-            fieldValues.phoneNumber2.length > 8
-              ? ''
-              : 'Please enter valid phone number.';
-        } else {
-          temp.phoneNumber2 = 'Please enter only number.';
         }
       }
     }
@@ -202,11 +166,7 @@ const MissingPersonForm = () => {
         : 'This field is required.';
 
     if ('job' in fieldValues) {
-      if (fieldValues.job.length > 0) {
-        temp.job = fieldValues.job.match(/^[a-zA-Z]+$/)
-          ? ''
-          : 'Please enter only letters.';
-      }
+      
     }
 
     setErrors({
@@ -227,7 +187,7 @@ const MissingPersonForm = () => {
   const handleSubmit = (e) => {
     //console.log(image.name);
     e.preventDefault();
-if(userid!==''){
+if(user.userid!==''){
     if (validate()) {
       //console.log(values);
       handleUpload();
