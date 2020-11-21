@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './MissingPersonForm.scss';
 import { arrow, save, cancel } from './ImportImg';
-import {userid, userEmail, userName} from '../navbar/NavBar'
+// import {userid, userEmail, userName} from '../navbar/NavBar'
+import {userPost} from '../navbar/NavBar'
 
 import ArrowBack from '../../images/arrow-back.svg';
 import UploadImg from './upload';
@@ -33,11 +34,12 @@ const MissingPersonForm = () => {
 
   const [{ alt, src }, setPreview] = React.useState(initialState);
   const [image, setImage] = useState({});
-  const user={
-    id: userid,
-    name: userName,
-    email: userEmail,
-  }
+  // const user={
+  //   id: userid,
+  //   name: userName,
+  //   email: userEmail,
+  // }
+  const [user,setUser]=useState(userPost);
   const fileHandler = event => {
     const { files  } = event.target;
     if (files){
@@ -284,7 +286,7 @@ const MissingPersonForm = () => {
   const handleSubmit = (e) => {
     //console.log(image.name);
     e.preventDefault();
-if(userid!==''){
+if(user.userid!==''){
     if (validate()) {
       //console.log(values);
       handleUpload();

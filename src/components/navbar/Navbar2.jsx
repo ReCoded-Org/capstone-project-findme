@@ -13,9 +13,9 @@ import PostIcon from '../../images/icons/icon-post.svg';
 import GoogleIcon from '../../images/icons/google-icon2.svg';
 import MenuIcon from '../../images/icons/icon-menu.svg';
 import Language from '../../images/icons/icon-language.svg';
-import User from '../../images/icons/icon-user.svg';
+//import User from '../../images/icons/icon-user.svg';
 import SignOut from '../../images/icons/icon-signout.svg';
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 const userPost = {
   id:'',
   name:'',
@@ -30,7 +30,7 @@ const Navbar = (props) => {
   React.useEffect(() => {
     unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
-      // console.log('user', user);
+      console.log('user', user);
       if (user!==null){
         userPost.id =user.uid;
         userPost.name = user.displayName;
@@ -58,12 +58,6 @@ const Navbar = (props) => {
       window.removeEventListener('resize', handleResize);
     };
   });
-
-// function to change the languge and hide the element
-// const changeAndHide = (language) =>{
-//   language === 'ar'?   i18n.changeLanguage('ar'): i18n.changeLanguage('en');
-//   setMenuOpen(!menuOpen);
-// }
 
   return (
     <nav
@@ -159,13 +153,13 @@ const Navbar = (props) => {
                 >
                   <div className="rounded-md bg-white shadow-xs">
                     <div
-                      className="py-1 flex flex-col"
+                      className="py-1"
                       role="menu"
                       aria-orientation="vertical"
                       aria-labelledby="options-menu"
                     >
                       <button
-                        className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 flex-1"
+                        className="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                         role="menuitem"
                         onClick={() => {
                           i18n.changeLanguage('en');
@@ -175,7 +169,7 @@ const Navbar = (props) => {
                         English
                     </button>
                       <button
-                        className="block px-4 py-2 text-sm leading-5 text-gray-700 text-right hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 flex-1"
+                        className="block px-4 py-2 text-sm leading-5 text-gray-700 text-right hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
                         role="menuitem"
                         onClick={() => {
                           i18n.changeLanguage('ar');
@@ -248,5 +242,5 @@ const Navbar = (props) => {
     </nav>
   );
 };
-export { userPost};
+export {userPost};
 export default Navbar;

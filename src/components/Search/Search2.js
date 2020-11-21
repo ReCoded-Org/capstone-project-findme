@@ -11,6 +11,8 @@ import { places } from './placesData';
 import { getCurrentDate, validateName, areObjectsEqual } from './helpers';
 import useStyles from './custMUIStyle';
 import { getSearchInfo } from './searchInfo';
+// import theme from './custMUIStyle';
+
 
 /**
  * importing Material UI dependencies
@@ -23,31 +25,47 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import Checkbox from '@material-ui/core/Checkbox';
 import Switch from '@material-ui/core/Switch';
 import ClearAllIcon from '@material-ui/icons/BackspaceOutlined';
 import SearchIcon from '@material-ui/icons/SearchOutlined';
+import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 
-const CheckMissingPerson = (props) => {
-  return (
-    <FormControlLabel
-      control={
-        <Checkbox
-          checked={props.checkMissingPerson}
-          name="checkMissing"
-          color="primary"
-          onChange={(e) => {
-            props.handleCheck('isMissingPerson', e.target.checked);
-          }}
-        />
-      }
-      label="Missing Person"
-    />
-  );
-};
+/**
+ * 
+ * import translation dependecies
+ */
+import {useTranslation} from "react-i18next";
+
 
 const IfLookingForFamily = (props) => {
+  const Classes = useStyles();
+  const [t, i18n] = useTranslation('common');
+
+  
+  const theme = createMuiTheme({
+    overrides: {
+      MuiSwitch: {
+        switchBase: {
+          color: "#ccc"
+        },
+        colorSecondary: {
+          "&$checked": {
+            color: "#138DEF"
+          }
+        },
+        track: {
+          opacity: 0.2,
+          "$checked$checked + &": {
+            opacity: 0.7,
+            backgroundColor: "#138DEF"
+          }
+        }
+      }
+    }
+  });
+
   return (
+    <ThemeProvider theme = {theme}>
     <FormControlLabel
       control={
         <Switch
@@ -55,21 +73,22 @@ const IfLookingForFamily = (props) => {
           onChange={(e) => {
             props.handleSwitch('isLookingForFamily', e.target.checked);
           }}
-          color="primary"
           name="isLooking"
           inputProps={{ 'aria-label': 'primary checkbox' }}
         />
       }
-      label="Looking for family"
+      label={t('translation.lookingForFamily')}
     />
+    </ThemeProvider>
   );
 };
 
 const ChooseGender = (props) => {
-  const Classes = useStyles();
+  const [t, i18n] = useTranslation('common');
+  const classes = useStyles();
   return (
-    <FormControl variant="outlined" className={Classes.genderInput}>
-      <InputLabel id="">Gender</InputLabel>
+    <FormControl variant="outlined" className={classes.textFieldInput}>
+      <InputLabel id="">{t('translation.gender')}</InputLabel>
       <Select
         labelId=""
         id=""
@@ -78,18 +97,21 @@ const ChooseGender = (props) => {
         onChange={function (value) {
           props.handleChange('gender', value.target.value);
         }}
-        label="Gender"
+        label={t('translation.gender')}
       >
-        <MenuItem value="m">Male</MenuItem>
-        <MenuItem value="f">Female</MenuItem>
-        <MenuItem value="n">Not to say</MenuItem>
+         <MenuItem value="m">{t('translation.male')}</MenuItem>
+        <MenuItem value="f">{t('translation.female')}</MenuItem>
+        <MenuItem value="n">{t('translation.notToSay')}</MenuItem>
       </Select>
     </FormControl>
   );
 };
 
 export const Search = () => {
-  const Classes = useStyles();
+
+  const [t, i18n] = useTranslation('common');
+
+  const classes = useStyles();
 
   const searchObj = {
     id: '',
@@ -97,42 +119,27 @@ export const Search = () => {
     goneMissingOn: getCurrentDate(),
     lastSeenAt: '',
     gender: 'm',
-    age: '',
-    isMissingPerson: true,
     isLookingForFamily: true,
-    isDataEntered: false,
   };
 
   const [searchInfo, setSearchInfo] = React.useState({ ...searchObj });
+  const [isDataEntered, setIsDataEntered] = React.useState(false);
 
   const handleUserInput = (name, value) => {
     let targettedInput = {};
     targettedInput[name] = value;
-    // console.log('targettedInput: ' + targettedInput[name]);
-    // console.log('searchObject value: ' + searchObj[name]);
     const newSearchInfo = {
       ...searchInfo,
       ...targettedInput,
     };
-    console.log(newSearchInfo);
+    setIsDataEntered(!areObjectsEqual(newSearchInfo, searchObj));
     setSearchInfo({
-      ...newSearchInfo,
-      isDataEntered: !areObjectsEqual(newSearchInfo, searchObj),
+      ...newSearchInfo
     });
   };
 
   const clearAll = () => {
-    setSearchInfo({
-      id: '',
-      missingName: '',
-      goneMissingOn: getCurrentDate(),
-      lastSeenAt: '',
-      gender: 'm',
-      age: '',
-      isMissingPerson: true,
-      isLookingForFamily: true,
-      isDataEntered: false,
-    });
+    setSearchInfo({...searchObj});
   };
 
   return (
@@ -153,11 +160,10 @@ export const Search = () => {
               <div className="p-2">
                 <TextField
                   id=""
-                  className={Classes.goneMissingOnInput}
-                  label="Gone missing on"
+                  className = {classes.textFieldInput}
+                  label={t('translation.lostSince')}
                   value={searchInfo.goneMissingOn}
                   onChange={function (e) {
-                    // console.log(e);
                     e.persist();
                     handleUserInput('goneMissingOn', e.target.value);
                   }}
@@ -169,7 +175,7 @@ export const Search = () => {
                 <Autocomplete
                   freeSolo
                   id=""
-                  className={Classes.customInput}
+                  className = {classes.textFieldInput}
                   options={places}
                   getOptionLabel={(option) => option.place}
                   inputValue={searchInfo.lastSeenAt}
@@ -179,7 +185,7 @@ export const Search = () => {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="Last seen at"
+                      label={t('translation.lastSeenAt')}
                       variant="outlined"
                     />
                   )}
@@ -191,28 +197,14 @@ export const Search = () => {
                   handleChange={handleUserInput}
                 />
               </div>
-              <div className="flex p-2">
-                <TextField
-                  id=""
-                  className={Classes.customInput}
-                  value={searchInfo.age}
-                  inputProps={{ min: 0 }}
-                  label="Age"
-                  type="number"
-                  variant="outlined"
-                  onChange={(value) => {
-                    handleUserInput('age', value.target.value);
-                  }}
-                />
-              </div>
             </div>
             <div className="flex p-2">
               <TextField
                 id=""
                 required
-                className={Classes.nameInput}
+                className={classes.textFieldInput}
                 value={searchInfo.missingName}
-                label="Name"
+                label={t('translation.name')}
                 type="text"
                 variant="outlined"
                 onChange={(value) => {
@@ -225,10 +217,6 @@ export const Search = () => {
               className="flex justify-between flex-col md:flex-row"
             >
               <div className="p-2 flex flex-row">
-                <CheckMissingPerson
-                  checkMissingPerson={searchInfo.isMissingPerson}
-                  handleCheck={handleUserInput}
-                />
                 <IfLookingForFamily
                   switchLookingForFamily={searchInfo.isLookingForFamily}
                   handleSwitch={handleUserInput}
@@ -237,26 +225,28 @@ export const Search = () => {
               <div className="flex justify-self-end">
                 <div className="p-2">
                   <Button
-                    disabled={!searchInfo.isDataEntered}
+                    disabled={!isDataEntered}
                     variant="contained"
-                    endIcon={<ClearAllIcon />}
+                    classes={{root: classes.clearButton}}
+                    startIcon={<ClearAllIcon />}
                     onClick={() => clearAll()}
                   >
-                    Clear
+                    {t('translation.clear')}
                   </Button>
                 </div>
                 <div className="p-2">
                   <Button
                     disabled={validateName(searchInfo.missingName, '')}
                     variant="contained"
-                    className={Classes.sendButton}
+                    classes={{root: classes.sendButton,}}
+                    className='bg-gradient-to-r from-teal-200 via-blue-500 to-blue-700'
                     color="primary"
-                    endIcon={<SearchIcon />}
+                    startIcon={<SearchIcon />}
                     onClick={() => {
                       getSearchInfo({ ...searchInfo });
                     }}
                   >
-                    Search
+                    {t('translation.search')}
                   </Button>
                 </div>
               </div>

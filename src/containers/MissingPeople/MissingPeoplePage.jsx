@@ -126,7 +126,7 @@ const MissingPeoplePage = ({searchInfo, searched}) => {
       </div>
       {/*console.log(visible, data.length)*/}
       <div className=" ">
-        {visible > docs.length ? (
+        {visible > docs.length || visible > dynamicSearch(searchInfo).length ? (
           ''
         ) : (
           <NiceButton

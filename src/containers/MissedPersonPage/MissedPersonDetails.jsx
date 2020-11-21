@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import MissedPersonNameAndStatus from '../../components/MissedPersonNameAndStatus/MissedPersonNameAndStatus';
 import MissedPeronImage from '../../components/MissedPersonImage/MissedPeronImage';
 import MissedPersonOtherData from '../../components/MissedPersonOtherData/MissedPersonOtherData';
-import Data from '../../Data';
+// import Data from '../../Data';
 import useFirestore from './useFirestore'
 const initialFValues = {
   fristName: '',
@@ -24,11 +24,16 @@ const initialFValues = {
   specialSituotion: '',
   isLookingFor: false,
 };
+const usersInit ={
+  userid:'',
+  userName:'',
+  userEmail:'',
+}
 const MissedPersonDetails = ({match}) => {
   const { docs,state } = useFirestore(match.params.id);
   //const [missedDetails, setDetails]= useState('')
   const [missed, setDetail]= useState(initialFValues);
-  //const [user, setUser]= useState(usersInit);
+  const [user, setUser]= useState(usersInit);
 
 
  
@@ -46,13 +51,26 @@ const MissedPersonDetails = ({match}) => {
 
   }, [docs.values]);
   // console.log(missed)
+  useEffect(() => {
+    console.log('id', match.params.id);
+    //console.log('docs', docs.values);
+    console.log('state', state);
+
+    //setDetail(getDataById( x, docs))
+
+    if (state===''){
+    //console.log(docs);
+    setUser(docs.user)   
+  }
+
+  }, [docs.user]);
   
    
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center ">
           
 
-    <div className="flex flex-col w-full lg:w-3/4 rounded-3xl shadow-2xl mx-4 my-4 px-2 py-2">
+    <div className="flex flex-col w-full lg:w-3/4 rounded-3xl shadow-2xl mx-4 my-4 px-2 py-2 bg-white ">
       <div className="flex items-center">
         <MissedPersonNameAndStatus 
           missedPersonName={missed.fristName}
@@ -61,7 +79,7 @@ const MissedPersonDetails = ({match}) => {
       </div>
       <div className="w-full h-full flex flex-col justify-center lg:flex-row lg:justify-around sm:mt-8">
         <MissedPeronImage src={docs.url} alt={missed.fristName} />
-        <MissedPersonOtherData other={missed} />
+        <MissedPersonOtherData other={missed} userInfo={user} />
 
       </div>
     </div>

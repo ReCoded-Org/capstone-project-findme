@@ -19,6 +19,8 @@ import MissingPerson from './containers/MissedPersonPage/MissedPersonDetails';
 import commonAr from './translations/ar/common.json';
 import commonEn from './translations/en/common.json';
 
+import ScrollToTop from './components/ScrollToTop/ScrollToTop.js';
+
 i18next.init({
   interpolation: { escapeValue: false }, // React already does escaping
 });
@@ -88,6 +90,7 @@ function App() {
           ContainerClassName="ScrollUpButton__Container"
           TransitionClassName="ScrollUpButton__Toggled"
         />
+        <ScrollToTop />
         <Footer />
       </Router>
     </div>

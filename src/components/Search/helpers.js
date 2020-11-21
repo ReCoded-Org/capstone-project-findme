@@ -13,3 +13,17 @@ export function getCurrentDate() {
 export const validateName = (value, condition) => {
     return value.replace(/[\s]+/, '') === condition;
 };
+export const areObjectsEqual = (obj1, obj2) => {
+  const keys1 = Object.keys(obj1).sort();
+  const keys2 = Object.keys(obj2).sort();
+  // console.log(keys1);
+  // console.log(keys2);
+  if (keys1.length !== keys2.length) return false;
+
+  let i = 0;
+  while (i < keys1.length) {
+    if (obj1[keys1[i]] !== obj2[keys2[i]]) return false;
+    i++;
+  }
+  return true;
+};
