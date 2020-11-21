@@ -11,10 +11,12 @@ import MissingPeople from '../pages/MissingPeople';
 import ContactUs from '../pages/Contactus';
 import PostMissingPerson from '../pages/PostMissingPerson';
 import MissingPerson from '../pages/MissedPerson';
+import ScrollToTop from '../components/ScrollToTop/ScrollToTop'
 
 const RouterPages = () => {
   return (
     <Router>
+      <ScrollToTop/>
       <Navbar />
       <Switch>
         <Route path="/" exact component={Home} />
